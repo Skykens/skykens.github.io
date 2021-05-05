@@ -633,7 +633,7 @@
 <li>这种镜像的方式并不能将流量分散到各个节点，因为每个节点做的事情是一样的，但是它提高了可用性，如果主镜像队列因为某些原因消失了，那么从镜像可以自动升级为主镜像，保证了队列的可用性</li>
 </ul>
 <h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><p>Rabbitmq队列是不存在于多个节点上的结构，假设有一个负载平衡的、 HA (高可用性) RabbitMQ 集群，如下所示:</p>
-<p><img src="C:\Users\jimlu\Desktop\新建文件夹\rabbitmq-cluster-with-lb.png" alt="RabbitMQ Cluster with Load Balancer"></p>
+<p><img src="https://gitee.com/skykens/photos/raw/master/rabbitmq-cluster-with-lb.png" alt="RabbitMQ Cluster with Load Balancer"></p>
 <p>节点1-3在彼此之间进行复制，以便在每个节点之间同步所有符合 HA策略的队列的快照。假设我们登录到 RabbitMQ 管理控制台并创建一个新的 ha 配置的队列。我们的负载均衡器是以循环的方式配置的，在这个实例中，为了方便起见，我们被定向到 Node # 2。我们的新 Queue 是在 Node # 2上创建的。注意: 可以显式选择您希望 Queue 驻留的节点，但是为了本示例的目的，我们忽略这一点。</p>
 <p>现在，我们的新 Queue“ NewQueue”存在于 Node # 2中。我们的 HA 策略开始生效，Queue 在所有节点上复制。我们开始向 Queue 添加消息，这些消息也在每个节点之间进行复制。本质上，是获取 Queue 的一个快照，并且在不确定的时间段过去之后在每个节点上复制该快照(当 Queue 的状态发生更改时，它实际上作为一个异步后台任务的发生)。</p>
 <p>RabbitMQ 队列是一种单一结构。它只存在于创建它的节点上，与 HA 策略无关。队列总是它自己的主人，并且拥有0…n个从属队列组成。根据上面的示例，节点 # 2上的“ NewQueue”是 Master-Queue，因为这是创建 Queue 的节点。它包含2个从队列-它的对应节点 # 1和 # 3。让我们假设 Node # 2由于某种原因而死亡; 假设整个服务器都关闭了。以下是“ NewQueue”将会发生的情况。</p>
@@ -718,7 +718,7 @@
 <li>Q4：只包含alpha状态的消息</li>
 </ul>
 <p>消息的状态一般变更方向是Q1-&gt;Q2-&gt;Delta-&gt;Q3-&gt;Q4，大体是从内存到磁盘然后再到内存中。</p>
-<p><img src="C:\Users\jimlu\Desktop\新建文件夹\rabbitmq_struct.png" alt="rabbit队列结构"></p>
+<p><img src="https://gitee.com/skykens/photos/raw/master/rabbitmq_struct.png" alt="rabbit队列结构"></p>
 <p>消费者消费消息也会引起消息状态的转换。</p>
 <ol>
 <li>消费者消费时先从Q4获取消息，如果获取成功则返回。</li>
