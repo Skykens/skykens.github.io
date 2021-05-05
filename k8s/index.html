@@ -471,7 +471,6 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="k8s"><a href="#k8s" class="headerlink" title="k8s"></a>k8s</h1><h1 id="K8S学习笔记"><a href="#K8S学习笔记" class="headerlink" title="K8S学习笔记"></a>K8S学习笔记</h1><p>K8S ： 自动化运维管理docker程序</p>
-<p><img src="https://gitee.com/skykens/photos/raw/master/image-20210505164746243.png" alt="image-20210505164746243"></p>
 <p>主从架构模型：Master 负责核心调度、管理、运维，Worker（上图的minions）节点则是执行用户程序 所有的Master Node 和Worker Node组成了K8S集群</p>
 <h2 id="Master-Node"><a href="#Master-Node" class="headerlink" title="Master Node"></a>Master Node</h2><ul>
 <li>API Server : k8s的请求入口服务</li>
@@ -488,7 +487,6 @@
 </ul>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="Pod"><a href="#Pod" class="headerlink" title="Pod"></a>Pod</h3><p>Pod 是可以在K8s中创建和管理的、最小的可部署的计算单元。就是Pod是K8s中一个服务的闭包，也就是一群可以共享网络、存储和计算资源的容器化服务的集合</p>
 <p>举个例子： 同一个Pod之间的Container可以通过localhost来进行访问，并且可以挂载Pod内所有的数据卷，但是不同的Pod之间不行</p>
-<p><img src="http://km.oa.com/files/photos/pictures/202011/1605586963_2_w1279_h619.png" alt="http://km.oa.com/files/photos/pictures/202011/1605586963_2_w1279_h619.png"></p>
 <p>img</p>
 <p>k8s中的所有对象都通过yaml来表示。如下：</p>
 <pre class="line-numbers language-none"><code class="language-none">apiVersion: v1kind: Pod #记录yaml的对象metadata: #记录pod自身的元数据name: memory-demonamespace: mem-examplespec: #记录了pod内部所有资源的详细信息containers: #记录了pod内的容器信息- name: memory-demo-ctr  image: polinux/stress  resources:    limits:      memory: "200Mi"    requests:      memory: "100Mi"  command: ["stress"] #容器入口命令  args: ["--vm", "1", "--vm-bytes", "150M", "--vm-hang", "1"] #入口参数  volumeMounts: #pod内的数据卷信息  - name: redis-storage    mountPath: /data/redisvolumes:- name: redis-storage  emptyDir: {}<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -503,7 +501,6 @@
 </ul>
 <h3 id="Deployment和ReplicaSet"><a href="#Deployment和ReplicaSet" class="headerlink" title="Deployment和ReplicaSet"></a>Deployment和ReplicaSet</h3><p>Deployment的作用就是管理和控制Pod和ReplicaSet，管控他们运行在用户期望的状态下。也就是如果用户对Pod如果进行了更新，那么Deployment会先起一个ReplicaSet然后等到内部的Pod都处在Ready状态时，再把原本的ReplicaSet停掉，转移到新版本的ReplicaSet上。</p>
 <p>ReplicaSet的作用就是管理和控制Pod</p>
-<p><img src="http://km.oa.com/files/photos/pictures/202011/1605587072_37_w1444_h705.png" alt="http://km.oa.com/files/photos/pictures/202011/1605587072_37_w1444_h705.png"></p>
 <p>img</p>
 <p>主要的区别可以看：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41999455/article/details/104220882">https://blog.csdn.net/qq_41999455/article/details/104220882</a></p>
 <h3 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h3><p>Service是K8s服务的核心，屏蔽了服务的细节，统一对外暴露服务接口。可以理解为是一个简单的服务注册发现组件。 Service类型：</p>
@@ -515,19 +512,15 @@
 <h3 id="ExternalName"><a href="#ExternalName" class="headerlink" title="ExternalName"></a>ExternalName</h3><p>最后是 ExternalName 服务，这个服务和前面的几种类型的服务有点分离。它创建一个内部服务，其端点指向一个 DNS 名。</p>
 <p>举个例子， 我们在集群内部需要访问到一个python API这样的外部服务，一般而言我们直接通过对应的url 连接到外部服务商。 但是考虑到以后某个时候如果想把外部服务集成到集群中，还不希望去更改连接的地址（因为修改了url），这时候可以用ExternalName类型的服务了， 只要修改serviceType并设置正确标签就可以了。具体如下：</p>
 <p>我们假设 pod-nginx 运行在 Kubernetes 集群中，但是 python api 服务在集群外部。</p>
-<p><img src="C:\Users\jimlu\Desktop\新建文件夹\20201105120431.png" alt="C:\Users\jimlu\Desktop\新建文件夹\20201105120431.png"></p>
-<p>img</p>
 <p>对应的 YAML 资源清单文件如下所示：</p>
 <pre class="line-numbers language-none"><code class="language-none">kind: ServiceapiVersion: v1metadata:  name: service-pythonspec:  ports:  - port: 3000    protocol: TCP    targetPort: 443  type: ExternalName  externalName: remote.server.url.com<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>现在 <strong>pod-nginx</strong> 就可以很方便地通过 <code>http://service-python:3000</code> 进行通信了，就像使用 ClusterIP 服务一样，当我们决定将 python api 这个服务也迁移到我们 Kubernetes 集群中时，我们只需要将服务改为 ClusterIP 服务，并设置正确的标签即可，其他都不需要更改了。</p>
-<p><img src="C:\Users\jimlu\Desktop\新建文件夹\20201105120657.png" alt="C:\Users\jimlu\Desktop\新建文件夹\20201105120657.png"></p>
 <p>Python api 仍然可以通过 <a target="_blank" rel="noopener" href="http://service-python/">http://service-python</a> 访问</p>
 <p>当我们创建一个 NodePort 的 Service 时，它也会创建一个 ClusterIP，而如果你创建一个 LoadBalancer，它就会创建一个 NodePort，然后创建一个 ClusterIP</p>
 <p>此外我们还需要明白 Service 是指向 pods 的，Service 不是直接指向 Deployments 或 ReplicaSets，而是直接使用 labels 标签指向 Pod，这种方式就提供了极大的灵活性，因为通过什么方式创建的 Pod 其实并不重要。接下来我们通过一个简单的例子开始，我们用不同的 Service 类型来逐步扩展，看看这些 Service 是如何建立的。</p>
 <p>Service主要负责K8sS集群内部的网络拓扑，Ingress则是负责集群外部访问集群内部的组件，是整个K8S集群的接入层，复杂集群内外通讯。</p>
 <h3 id="Ingress"><a href="#Ingress" class="headerlink" title="Ingress"></a>Ingress</h3><p>Kubernetes Ingress 只是 Kubernetes 中的一个普通资源对象，需要一个对应的 Ingress Controller 来解析 Ingress 的规则，暴露服务到外部，比如 ingress-nginx，本质上来说它只是一个 Nginx Pod，然后将请求重定向到其他内部（ClusterIP）服务去，这个 Pod 本身也是通过 Kubernetes 服务暴露出去，最常见的方式是通过 LoadBalancer 来实现的。和Nginx相比它已经为我们做了所有的代理重定向工作，这为我们节省了大量的手动配置工作了。</p>
-<p><img src="http://km.oa.com/files/photos/pictures/202011/1605682422_72_w1298_h873.png" alt="http://km.oa.com/files/photos/pictures/202011/1605682422_72_w1298_h873.png"></p>
 <h2 id="Istio"><a href="#Istio" class="headerlink" title="Istio"></a>Istio</h2><h3 id="Kubernetes-Services"><a href="#Kubernetes-Services" class="headerlink" title="Kubernetes Services"></a>Kubernetes Services</h3><p>我们可以用简短地说明下如何实现 Kubernetes Services，这这有助于理解 Istio 如何工作的。</p>
 <p>img</p>
 <p>图1: Kubernetes native service request</p>
@@ -537,8 +530,6 @@
 <p>图2: Kubernetes native service request with kube-proxy</p>
 <p>上图要更详细点，Kubernetes 中的服务是由运行在每个节点上的 kube-proxy 组件实现的，该组件创建 iptables 规则，并将请求重定向到 Pod。因此，服务就是 iptables 规则。(还有其他不使用 iptables 的代理模式，但过程是相同的。)</p>
 <p>现在我们来看一个配置了 Istio 的相同示例:</p>
-<p><img src="https://static001.geekbang.org/infoq/cd/cd327543785c65ec5825c61311af012e.png" alt="https://static001.geekbang.org/infoq/cd/cd327543785c65ec5825c61311af012e.png"></p>
-<p>img</p>
 <p>图3: Istio Control Plane programs istio-proxy</p>
 <p>上图中可以看到集群中安装了 Istio，每个 pod 都有第二个称为 istio-proxy 的 sidecar 容器，该容器在创建期间会自动将其注入到 pods 中。</p>
 <p>Istio 最常见的代理是 <strong>Envoy</strong>，当然也可以使用其他代理（如 Nginx），所以我们将代理称为 istio-proxy。</p>
@@ -549,8 +540,6 @@
 <p>图4: Istio Control Plane programmed all istio-proxys</p>
 <p>在图 4 中，我们看到 Istio 控制平面如何将当前配置应用到集群中的所有 istio-proxy 容器，Istio 将把 Kubernetes 服务声明转换成它自己的路由声明。</p>
 <p>让我们看看如何使用 Istio 发出请求:</p>
-<p><img src="https://static001.geekbang.org/infoq/36/3645773022e73f7eef7037e6f9492987.png" alt="https://static001.geekbang.org/infoq/36/3645773022e73f7eef7037e6f9492987.png"></p>
-<p>img</p>
 <p>图5: Request made with Istio</p>
 <p>在上图中，所有的 istio-proxy 容器已经被 Istio 控制平面所管控，并包含所有必要的路由信息，如图 3/4 所示，来自 pod1-nginx 的 nginx 容器向 service-python 发出请求。</p>
 <p>请求被 pod1-nginx 的 istio-proxy 容器拦截，并被重定向到一个 python pod 的 istio-proxy 容器，该容器随后将请求重定向到 python 容器。</p>
