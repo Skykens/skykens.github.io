@@ -1,20 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>BanThink 纯粹写写文字的地方~</title>
   
-  
+  <subtitle>一个简单程序员的博客</subtitle>
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-04-26T12:08:16.464Z</updated>
+  <updated>2021-05-05T08:45:12.781Z</updated>
   <id>http://example.com/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>Skykens</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git 使用笔记</title>
+    <link href="http://example.com/git-shi-yong/"/>
+    <id>http://example.com/git-shi-yong/</id>
+    <published>2021-04-26T11:37:01.000Z</published>
+    <updated>2021-05-05T08:45:12.781Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Git使用&quot;&gt;&lt;a href=&quot;#Git使用&quot; class=&quot;headerlink&quot; title=&quot;Git使用&quot;&gt;&lt;/a&gt;Git使用&lt;/h1&gt;&lt;h1 id=&quot;GIT&quot;&gt;&lt;a href=&quot;#GIT&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>docker 入门笔记</title>
+    <link href="http://example.com/docker/"/>
+    <id>http://example.com/docker/</id>
+    <published>2021-04-26T11:37:01.000Z</published>
+    <updated>2021-05-05T08:44:01.346Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;docker&quot;&gt;&lt;a href=&quot;#docker&quot; class=&quot;headerlink&quot; title=&quot;docker&quot;&gt;&lt;/a&gt;docker&lt;/h1&gt;&lt;h1 id=&quot;Docker使用&quot;&gt;&lt;a href=&quot;#Docker使用&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>k8s 日常笔记</title>
+    <link href="http://example.com/k8s/"/>
+    <id>http://example.com/k8s/</id>
+    <published>2021-04-26T11:37:01.000Z</published>
+    <updated>2021-05-05T08:49:06.140Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;k8s&quot;&gt;&lt;a href=&quot;#k8s&quot; class=&quot;headerlink&quot; title=&quot;k8s&quot;&gt;&lt;/a&gt;k8s&lt;/h1&gt;&lt;h1 id=&quot;K8S学习笔记&quot;&gt;&lt;a href=&quot;#K8S学习笔记&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>后台日常笔记</title>
@@ -32,6 +95,69 @@
 &lt;p&gt;配置&lt;br&gt;docker&lt;/p&gt;
 &lt;p&gt;后台：整体概念： 处理什么事情 - &amp;gt; 转发、路由（主流怎么用 ）-&amp;gt;&lt;/p&gt;
 &lt;h1 id=&quot;主要内容&quot;&gt;&lt;a href=&quot;#主要内容&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>后台日常笔记</title>
+    <link href="http://example.com/bian-yi-huan-jing-bu-shu/"/>
+    <id>http://example.com/bian-yi-huan-jing-bu-shu/</id>
+    <published>2021-04-26T11:37:01.000Z</published>
+    <updated>2021-05-05T08:44:53.570Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;C-编译环境部署&quot;&gt;&lt;a href=&quot;#C-编译环境部署&quot; class=&quot;headerlink&quot; title=&quot;C++ 编译环境部署&quot;&gt;&lt;/a&gt;C++</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>RabbitMQ 知识库</title>
+    <link href="http://example.com/rabbitmq/"/>
+    <id>http://example.com/rabbitmq/</id>
+    <published>2021-04-16T11:37:01.000Z</published>
+    <updated>2021-05-05T08:46:11.619Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;rabbitmq&quot;&gt;&lt;a href=&quot;#rabbitmq&quot; class=&quot;headerlink&quot; title=&quot;rabbitmq&quot;&gt;&lt;/a&gt;rabbitmq&lt;/h1&gt;&lt;h1 id=&quot;RabbitMq&quot;&gt;&lt;a href=&quot;#RabbitMq&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Shell脚本编写笔记</title>
+    <link href="http://example.com/shell-jiao-ben-bian-xie-bi-ji/"/>
+    <id>http://example.com/shell-jiao-ben-bian-xie-bi-ji/</id>
+    <published>2021-04-06T11:37:01.000Z</published>
+    <updated>2021-05-05T08:46:30.021Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Shell脚本编写笔记&quot;&gt;&lt;a href=&quot;#Shell脚本编写笔记&quot; class=&quot;headerlink&quot; title=&quot;Shell脚本编写笔记&quot;&gt;&lt;/a&gt;Shell脚本编写笔记&lt;/h1&gt;&lt;h2 id=&quot;读取外部输入&quot;&gt;&lt;a href=&quot;#读取外部输入&quot;</summary>
         
       
     

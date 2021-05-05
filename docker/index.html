@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="后台日常笔记, BanThink 纯粹写写文字的地方~">
+    <meta name="keywords" content="docker 入门笔记, BanThink 纯粹写写文字的地方~">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>后台日常笔记 | BanThink 纯粹写写文字的地方~</title>
+    <title>docker 入门笔记 | BanThink 纯粹写写文字的地方~</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">后台日常笔记</h1>
+                    <h1 class="description center-align post-title">docker 入门笔记</h1>
                 </div>
             </div>
         </div>
@@ -470,49 +470,198 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>k8s<br>sidecar ： istio-proxy </p>
-<p>配置<br>docker</p>
-<p>后台：整体概念： 处理什么事情 - &gt; 转发、路由（主流怎么用 ）-&gt;</p>
-<h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><h2 id="后台主要解决的事情"><a href="#后台主要解决的事情" class="headerlink" title="后台主要解决的事情"></a>后台主要解决的事情</h2><ul>
-<li><p>网络包</p>
-</li>
-<li><p>定时器</p>
-</li>
-<li><p>存储</p>
-<h2 id="网络包"><a href="#网络包" class="headerlink" title="网络包"></a>网络包</h2><p>从包的生命期开始：来源、解析 、去向</p>
-</li>
-<li><p>来源</p>
+                <h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><h1 id="Docker使用"><a href="#Docker使用" class="headerlink" title="Docker使用"></a>Docker使用</h1><p>概念： docker就是一个容器，可以类比于Windows上的虚拟机， 别人把image都弄好了传到社区里我们只要pull下来进入容器就可以用了。</p>
+<p>显示可用的容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker images<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>删除指定镜像</p>
+<pre class="line-numbers language-none"><code class="language-none">docker rmi &lt;镜像Id&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>下载镜像</p>
+<pre class="line-numbers language-none"><code class="language-none">docker pull hello-world<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>不指定版本号默认拉取latest版本的</p>
+<p>删除指定镜像</p>
+<pre class="line-numbers language-none"><code class="language-none">docker rmi &lt;镜像Id&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>查看容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker ps [OPTIONS]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>列出当前正在运行的容器, 结果的第一列是container_Id, 第2列是容器名称.</p>
+<p>参数：</p>
 <ul>
-<li>上级服务是如何将包投递过来的</li>
-<li>这个过程包的正确性</li>
-<li>投递速度</li>
-<li>健壮性如何保证（丢包、宕机）</li>
-<li>恶意攻击</li>
-<li>高负载情况</li>
+<li>a :显示所有的容器，包括未运行的。</li>
+<li>f :根据条件过滤显示的内容。</li>
+<li>–format :指定返回值的模板文件。</li>
+<li>l :显示最近创建的容器。</li>
+<li>n :列出最近创建的n个容器。</li>
+<li>–no-trunc :不截断输出。</li>
+<li>q :静默模式，只显示容器编号。</li>
+<li>s :显示总的文件大小。</li>
 </ul>
-</li>
-<li><p>解析</p>
+<p>停止指定的容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker stop container_id/container-name
+ 该容器Id或名称可以从docker ps中获取.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>启动容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker start container_id/container-name
+ 该容器Id或名称可以从docker ps中获取.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>重启容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker restart container_id/container-name
+ 该容器Id或名称可以从docker ps中获取.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>删除容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker rm container_id/container-name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>批量删除容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker rm $(docker ps -a -q)
+删除所有运行结束了容器,正在运行的容器不会被删除<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>查看容器内的进程</p>
+<pre class="line-numbers language-none"><code class="language-none">docker top container_id/container-name<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>查看容器的日志输出</p>
+<pre class="line-numbers language-none"><code class="language-none">docker logs [-f] [-t] [--tail string]
+ 容器名,
+ 查看容器的日志输出,
+ -f是打开跟踪,
+ -t是加上时间戳,
+ --tail 100
+ 表示仅显示最后的100行日志<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <ul>
-<li>效率</li>
-<li>正确性</li>
-<li>校验</li>
-<li>完整性</li>
+<li></li>
+<li>f : 跟踪日志输出</li>
+<li>–since :显示某个开始时间的所有日志</li>
+<li>t : 显示时间戳</li>
+<li>–tail :仅列出最新N条容器日志</li>
 </ul>
-</li>
-<li><p>去向 </p>
+<p>搜寻镜像</p>
+<pre class="line-numbers language-none"><code class="language-none">docker search
+镜像名字<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>显示指定镜像的详细信息</p>
+<pre class="line-numbers language-none"><code class="language-none">docker image inspect image_id
+docker container inspect container_id/container-name （包括容器的Ip）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>列出没有被容器化的镜像</p>
+<pre class="line-numbers language-none"><code class="language-none">docker images -f dangling=true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>删除那些没有被容器化的镜像</p>
+<pre class="line-numbers language-none"><code class="language-none">docker rmi $(docker images -qf dangling=true)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>可以磁盘占用情况.</p>
+<pre class="line-numbers language-none"><code class="language-none">docker system df<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>docker 一些管理命令集</p>
+<p>除了上面常用的命令外, docker 还有一些管理命令集, 这些命令集还可以包含二级命令:</p>
+<pre class="line-numbers language-none"><code class="language-none">config
+Manage
+
+Docker configs
+container
+Manage containers
+image
+Manage images network
+Manage networks node Manage
+
+Swarm nodes plugin
+Manage plugins secret Manage
+
+Docker secrets service
+Manage services
+stack Manage
+ Docker stacksswarm Manage
+ Swarmsystem Manage
+ Docker trust Manage trust on Docker images volume Manage volumes<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>比较常用的是:</p>
+<pre class="line-numbers language-none"><code class="language-none">docker image build
+编译
+
+Dockfile
+docker network create
+创建
+ docker
+网络
+docker volume create
+创建数据卷<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>docker run/exec 命令</p>
+<p>运行 hello-world 容器, 如果本地没有下载, 将会自动从hub站点下载.</p>
+<pre class="line-numbers language-none"><code class="language-none">docker run hello-world 命令<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>以守护态运行容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker run -d --name mybusybox busybox /bin/sh -c "while true; do echo hello world; sleep 1; done"<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>登陆一个容器, 运行中的容器其实是<strong>一个功能完备的Linux操作系统</strong>, 所以我们可以在登陆该容器执行常规的Linux命令.</p>
+<pre class="line-numbers language-none"><code class="language-none">docker exec -it container_id/container-name /bin/bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>使用 redis-cli 登陆 myredis 容器</p>
+<pre class="line-numbers language-none"><code class="language-none">docker exec -it myredis redis-cli<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>exec 后的 -it 参数的意思是, 以交互的方式并分配一个伪tty, 经常一起联用.</p>
+<p>附录：</p>
+<p>菜鸟教程</p>
+<h2 id="Docker-命令大全"><a href="#Docker-命令大全" class="headerlink" title="Docker 命令大全"></a>Docker 命令大全</h2><p>容器生命周期管理</p>
 <ul>
-<li>包的下一级如何处理的</li>
-<li>如何投递的</li>
-<li>具体给谁</li>
-<li>与下一级的关系</li>
-<li>效率（线程、如果有锁的话粒度如何）</li>
+<li>run</li>
+<li>start/stop/restart</li>
+<li>kill</li>
+<li>rm</li>
+<li>pause/unpause</li>
+<li>create</li>
+<li>exec</li>
 </ul>
-</li>
+<p>容器操作</p>
+<ul>
+<li>ps</li>
+<li>inspect</li>
+<li>top</li>
+<li>attach</li>
+<li>events</li>
+<li>logs</li>
+<li>wait</li>
+<li>export</li>
+<li>port</li>
 </ul>
-<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><p>主要关心：精度、追frame</p>
-<h3 id="思考方式"><a href="#思考方式" class="headerlink" title="思考方式"></a>思考方式</h3><ol>
-<li>需求背景</li>
-</ol>
+<p>容器rootfs命令</p>
+<ul>
+<li>commit</li>
+<li>cp</li>
+<li>diff</li>
+</ul>
+<p>镜像仓库</p>
+<ul>
+<li>login</li>
+<li>pull</li>
+<li>push</li>
+<li>search</li>
+</ul>
+<p>本地镜像管理</p>
+<ul>
+<li>images</li>
+<li>rmi</li>
+<li>tag</li>
+<li>build</li>
+<li>history</li>
+<li>save</li>
+<li>load</li>
+<li>import</li>
+</ul>
+<p>info|version</p>
+<ul>
+<li></li>
+<li>info</li>
+<li>version</li>
+</ul>
+<p>网络问题： 遇到<code>Error response from daemon: could not find an available, non-overlapping IPv4 address pool among the defaults to assign to the network</code> 可能是网络模块有问题。</p>
+<p>解决方案1 ： yum update</p>
+<p>解决方案2：创建一个自己的network。<code>docker network create your-network --subnet 172.24.24.0/24</code> ，然后在yaml文件上加上</p>
+<pre class="line-numbers language-none"><code class="language-none">version: '3'services: app:   build: ./app   networks:      - xxx-networknetworks: xxx-network:   external: true<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>解决方案3：<code>sudo service network-manager restart</code></p>
 
                 
             </div>
@@ -539,7 +688,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/hou-tai-ri-chang-bi-ji/">http://example.com/hou-tai-ri-chang-bi-ji/</a>
+                    <a href="http://example.com/docker/">http://example.com/docker/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -750,13 +899,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/k8s/">
+                <a href="/git-shi-yong/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="k8s 日常笔记">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Git 使用笔记">
                         
-                        <span class="card-title">k8s 日常笔记</span>
+                        <span class="card-title">Git 使用笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -787,13 +936,13 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/bian-yi-huan-jing-bu-shu/">
+                <a href="/k8s/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="后台日常笔记">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="k8s 日常笔记">
                         
-                        <span class="card-title">后台日常笔记</span>
+                        <span class="card-title">k8s 日常笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">

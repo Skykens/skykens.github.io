@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="后台日常笔记, BanThink 纯粹写写文字的地方~">
+    <meta name="keywords" content="Shell脚本编写笔记, BanThink 纯粹写写文字的地方~">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>后台日常笔记 | BanThink 纯粹写写文字的地方~</title>
+    <title>Shell脚本编写笔记 | BanThink 纯粹写写文字的地方~</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -313,12 +313,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">后台日常笔记</h1>
+                    <h1 class="description center-align post-title">Shell脚本编写笔记</h1>
                 </div>
             </div>
         </div>
@@ -446,7 +446,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-04-26
+                    2021-04-06
                 </div>
                 
 
@@ -470,50 +470,45 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>k8s<br>sidecar ： istio-proxy </p>
-<p>配置<br>docker</p>
-<p>后台：整体概念： 处理什么事情 - &gt; 转发、路由（主流怎么用 ）-&gt;</p>
-<h1 id="主要内容"><a href="#主要内容" class="headerlink" title="主要内容"></a>主要内容</h1><h2 id="后台主要解决的事情"><a href="#后台主要解决的事情" class="headerlink" title="后台主要解决的事情"></a>后台主要解决的事情</h2><ul>
-<li><p>网络包</p>
-</li>
-<li><p>定时器</p>
-</li>
-<li><p>存储</p>
-<h2 id="网络包"><a href="#网络包" class="headerlink" title="网络包"></a>网络包</h2><p>从包的生命期开始：来源、解析 、去向</p>
-</li>
-<li><p>来源</p>
-<ul>
-<li>上级服务是如何将包投递过来的</li>
-<li>这个过程包的正确性</li>
-<li>投递速度</li>
-<li>健壮性如何保证（丢包、宕机）</li>
-<li>恶意攻击</li>
-<li>高负载情况</li>
-</ul>
-</li>
-<li><p>解析</p>
-<ul>
-<li>效率</li>
-<li>正确性</li>
-<li>校验</li>
-<li>完整性</li>
-</ul>
-</li>
-<li><p>去向 </p>
-<ul>
-<li>包的下一级如何处理的</li>
-<li>如何投递的</li>
-<li>具体给谁</li>
-<li>与下一级的关系</li>
-<li>效率（线程、如果有锁的话粒度如何）</li>
-</ul>
-</li>
-</ul>
-<h2 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h2><p>主要关心：精度、追frame</p>
-<h3 id="思考方式"><a href="#思考方式" class="headerlink" title="思考方式"></a>思考方式</h3><ol>
-<li>需求背景</li>
-</ol>
+                <h1 id="Shell脚本编写笔记"><a href="#Shell脚本编写笔记" class="headerlink" title="Shell脚本编写笔记"></a>Shell脚本编写笔记</h1><h2 id="读取外部输入"><a href="#读取外部输入" class="headerlink" title="读取外部输入"></a>读取外部输入</h2><pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx">echo <span class="token operator">-</span>n <span class="token string">"enter:"</span> ##<span class="token operator">-</span>n <span class="token operator">:</span>不换行
+read 存放的变量<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
+<h2 id="控制流-if-while-for"><a href="#控制流-if-while-for" class="headerlink" title="控制流 if / while / for"></a>控制流 if / while / for</h2><p>读取文件内容</p>
+<pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">while</span> read line
+<span class="token keyword">do</span> 
+	  body ##通常对变量line进行处理
+done <span class="token operator">&lt;</span> 文件名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>循环n次</p>
+<pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">while</span> <span class="token punctuation">[</span> $i <span class="token operator">-</span>lt $num<span class="token punctuation">]</span>
+<span class="token keyword">do</span>
+  body
+done<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>判断文件夹不存在的情况：</p>
+<pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">if</span> <span class="token punctuation">[</span> <span class="token operator">!</span> <span class="token operator">-</span>d <span class="token string">"文件夹"</span> <span class="token punctuation">]</span><span class="token punctuation">;</span> then 
+	body
+fi
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="变量使用"><a href="#变量使用" class="headerlink" title="变量使用"></a>变量使用</h3><pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx">$变量名
+<span class="token keyword">var</span><span class="token operator">=</span><span class="token function">$</span><span class="token punctuation">(</span>command<span class="token punctuation">)</span> #变量接收命令值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>在echo命令中使用变量需要用双引号：</p>
+<pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx">echo <span class="token string">"print my $变量"</span>
+echo <span class="token string">"print my ${变量}"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>在shell中，会对双引号里面的内容进行转义，但是对单引号的不会</p>
+<h2 id="变量运算"><a href="#变量运算" class="headerlink" title="变量运算"></a>变量运算</h2><pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">let</span> <span class="token string">'++i'</span> 
+<span class="token keyword">let</span> <span class="token string">'--i'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="函数编写"><a href="#函数编写" class="headerlink" title="函数编写"></a>函数编写</h2><pre class="line-numbers language-jsx" data-language="jsx"><code class="language-jsx"><span class="token keyword">function</span> <span class="token function">func</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+	body
+<span class="token punctuation">}</span>
+##参数我一般直接用全局变量
+## 返回值用echo $<span class="token operator">?</span> 获取<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Awk"><a href="#Awk" class="headerlink" title="Awk"></a>Awk</h2><h1 id="Sed"><a href="#Sed" class="headerlink" title="Sed"></a>Sed</h1>
                 
             </div>
             <hr/>
@@ -539,7 +534,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/hou-tai-ri-chang-bi-ji/">http://example.com/hou-tai-ri-chang-bi-ji/</a>
+                    <a href="http://example.com/shell-jiao-ben-bian-xie-bi-ji/">http://example.com/shell-jiao-ben-bian-xie-bi-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -750,13 +745,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/k8s/">
+                <a href="/rabbitmq/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="k8s 日常笔记">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="RabbitMQ 知识库">
                         
-                        <span class="card-title">k8s 日常笔记</span>
+                        <span class="card-title">RabbitMQ 知识库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -767,7 +762,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-26
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-16
                         </span>
                         <span class="publish-author">
                             
@@ -784,16 +779,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
+                Current&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/bian-yi-huan-jing-bu-shu/">
+                <a href="/shell-jiao-ben-bian-xie-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="后台日常笔记">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Shell脚本编写笔记">
                         
-                        <span class="card-title">后台日常笔记</span>
+                        <span class="card-title">Shell脚本编写笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -804,7 +799,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-06
                             </span>
                         <span class="publish-author">
                             
@@ -814,6 +809,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
