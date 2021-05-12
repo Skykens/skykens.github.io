@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-05-05T09:24:13.271Z</updated>
+  <updated>2021-05-06T02:25:14.669Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,9 +17,93 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CMakes 编写手册</title>
+    <link href="http://example.com/cmakes-bian-xie-shou-ce/"/>
+    <id>http://example.com/cmakes-bian-xie-shou-ce/</id>
+    <published>2021-05-06T02:25:14.000Z</published>
+    <updated>2021-05-06T02:25:14.669Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>从C++ 到 Go 快速上手</title>
+    <link href="http://example.com/cong-c-dao-go-kuai-su-shang-shou/"/>
+    <id>http://example.com/cong-c-dao-go-kuai-su-shang-shou/</id>
+    <published>2021-05-06T02:20:27.000Z</published>
+    <updated>2021-05-06T02:25:19.394Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;不面向完全新手。至少要有C++或者Java的语言基础。&lt;/p&gt;
+&lt;/blockquote&gt;
+</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Go,入门,golang" scheme="http://example.com/tags/Go-%E5%85%A5%E9%97%A8-golang/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>容器相关名词解释</title>
+    <link href="http://example.com/rong-qi-xiang-guan-ming-ci-jie-shi/"/>
+    <id>http://example.com/rong-qi-xiang-guan-ming-ci-jie-shi/</id>
+    <published>2021-05-06T02:09:21.000Z</published>
+    <updated>2021-05-06T02:19:37.472Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;容器相关名词解释&quot;&gt;&lt;a href=&quot;#容器相关名词解释&quot; class=&quot;headerlink&quot; title=&quot;容器相关名词解释&quot;&gt;&lt;/a&gt;容器相关名词解释&lt;/h1&gt;&lt;h2 id=&quot;Helm-和-Chart&quot;&gt;&lt;a href=&quot;#Helm-和-Chart&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>C++后台开发环境部署</title>
+    <link href="http://example.com/c-bian-yi-huan-jing-bu-shu/"/>
+    <id>http://example.com/c-bian-yi-huan-jing-bu-shu/</id>
+    <published>2021-04-26T11:37:01.000Z</published>
+    <updated>2021-05-06T02:08:02.439Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;C-后台开发环境部署&quot;&gt;&lt;a href=&quot;#C-后台开发环境部署&quot; class=&quot;headerlink&quot; title=&quot;C++ 后台开发环境部署&quot;&gt;&lt;/a&gt;C++ 后台开发环境部署&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt; 记录C++</summary>
+        
+      
+    
+    
+    
+    
+    <category term="编译环境, vscode, clang, llvm" scheme="http://example.com/tags/%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83-vscode-clang-llvm/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Git 使用笔记</title>
-    <link href="http://example.com/git-shi-yong/"/>
-    <id>http://example.com/git-shi-yong/</id>
+    <link href="http://example.com/git-shi-yong-bi-ji/"/>
+    <id>http://example.com/git-shi-yong-bi-ji/</id>
     <published>2021-04-26T11:37:01.000Z</published>
     <updated>2021-05-05T09:24:13.271Z</updated>
     
@@ -41,8 +125,8 @@
   
   <entry>
     <title>docker 入门笔记</title>
-    <link href="http://example.com/docker/"/>
-    <id>http://example.com/docker/</id>
+    <link href="http://example.com/docker-ru-men-bi-ji/"/>
+    <id>http://example.com/docker-ru-men-bi-ji/</id>
     <published>2021-04-26T11:37:01.000Z</published>
     <updated>2021-05-05T09:23:53.636Z</updated>
     
@@ -64,8 +148,8 @@
   
   <entry>
     <title>k8s 日常笔记</title>
-    <link href="http://example.com/k8s/"/>
-    <id>http://example.com/k8s/</id>
+    <link href="http://example.com/k8s-ri-chang-bi-ji/"/>
+    <id>http://example.com/k8s-ri-chang-bi-ji/</id>
     <published>2021-04-26T11:37:01.000Z</published>
     <updated>2021-05-05T09:24:36.235Z</updated>
     
@@ -112,34 +196,11 @@
   </entry>
   
   <entry>
-    <title>C++编译环境部署</title>
-    <link href="http://example.com/bian-yi-huan-jing-bu-shu/"/>
-    <id>http://example.com/bian-yi-huan-jing-bu-shu/</id>
-    <published>2021-04-26T11:37:01.000Z</published>
-    <updated>2021-05-05T09:23:16.573Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;C-编译环境部署&quot;&gt;&lt;a href=&quot;#C-编译环境部署&quot; class=&quot;headerlink&quot; title=&quot;C++ 编译环境部署&quot;&gt;&lt;/a&gt;C++</summary>
-        
-      
-    
-    
-    
-    
-    <category term="编译环境, vscode, clang, llvm" scheme="http://example.com/tags/%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83-vscode-clang-llvm/"/>
-    
-  </entry>
-  
-  <entry>
     <title>RabbitMQ 知识库</title>
     <link href="http://example.com/rabbitmq/"/>
     <id>http://example.com/rabbitmq/</id>
     <published>2021-04-16T11:37:01.000Z</published>
-    <updated>2021-05-06T01:35:15.382Z</updated>
+    <updated>2021-05-06T01:43:52.263Z</updated>
     
     
       
@@ -162,7 +223,7 @@
     <link href="http://example.com/shell-jiao-ben-bian-xie-bi-ji/"/>
     <id>http://example.com/shell-jiao-ben-bian-xie-bi-ji/</id>
     <published>2021-04-06T11:37:01.000Z</published>
-    <updated>2021-05-05T09:25:58.984Z</updated>
+    <updated>2021-05-06T05:49:36.442Z</updated>
     
     
       
@@ -177,6 +238,500 @@
     
     
     <category term="shell,笔记,知识总结,脚本语言" scheme="http://example.com/tags/shell-%E7%AC%94%E8%AE%B0-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93-%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>skylu网络库 开发日志</title>
+    <link href="http://example.com/skylu-wang-luo-ku-kai-fa-ri-zhi/"/>
+    <id>http://example.com/skylu-wang-luo-ku-kai-fa-ri-zhi/</id>
+    <published>2020-04-26T13:57:00.000Z</published>
+    <updated>2020-04-30T14:59:27.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;skylu网络库&quot;&gt;&lt;a href=&quot;#skylu网络库&quot; class=&quot;headerlink&quot; title=&quot;skylu网络库&quot;&gt;&lt;/a&gt;skylu网络库&lt;/h1&gt;&lt;p&gt;主要参考sylar和handy的实现&lt;/p&gt;
+&lt;h1 id=&quot;时间戳&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="高性能服务器框架" scheme="http://example.com/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="地址" scheme="http://example.com/tags/%E5%9C%B0%E5%9D%80/"/>
+    
+    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="内容" scheme="http://example.com/tags/%E5%86%85%E5%AE%B9/"/>
+    
+    <category term="时候" scheme="http://example.com/tags/%E6%97%B6%E5%80%99/"/>
+    
+    <category term="例" scheme="http://example.com/tags/%E4%BE%8B/"/>
+    
+    <category term="模式" scheme="http://example.com/tags/%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="服务器" scheme="http://example.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    
+    <category term="信号" scheme="http://example.com/tags/%E4%BF%A1%E5%8F%B7/"/>
+    
+    <category term="日志" scheme="http://example.com/tags/%E6%97%A5%E5%BF%97/"/>
+    
+    <category term="sylar" scheme="http://example.com/tags/sylar/"/>
+    
+    <category term="文件" scheme="http://example.com/tags/%E6%96%87%E4%BB%B6/"/>
+    
+    <category term="线程池" scheme="http://example.com/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    
+    <category term="系统" scheme="http://example.com/tags/%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="socket" scheme="http://example.com/tags/socket/"/>
+    
+    <category term="github" scheme="http://example.com/tags/github/"/>
+    
+    <category term="类" scheme="http://example.com/tags/%E7%B1%BB/"/>
+    
+    <category term="模块" scheme="http://example.com/tags/%E6%A8%A1%E5%9D%97/"/>
+    
+    <category term="东西" scheme="http://example.com/tags/%E4%B8%9C%E8%A5%BF/"/>
+    
+    <category term="时间" scheme="http://example.com/tags/%E6%97%B6%E9%97%B4/"/>
+    
+    <category term="skylu" scheme="http://example.com/tags/skylu/"/>
+    
+    <category term="handy" scheme="http://example.com/tags/handy/"/>
+    
+    <category term="句柄" scheme="http://example.com/tags/%E5%8F%A5%E6%9F%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C++ 11 新特性（1）智能指针（转）</title>
+    <link href="http://example.com/c-11-xin-te-xing-1-zhi-neng-zhi-zhen-zhuan/"/>
+    <id>http://example.com/c-11-xin-te-xing-1-zhi-neng-zhi-zhen-zhuan/</id>
+    <published>2020-04-23T13:27:43.000Z</published>
+    <updated>2020-04-23T13:47:00.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;众所周知 ，指针是C/C++ 最大的特点，同时也是C/C++</summary>
+        
+      
+    
+    
+    
+    <category term="C++" scheme="http://example.com/categories/C/"/>
+    
+    
+    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="区别" scheme="http://example.com/tags/%E5%8C%BA%E5%88%AB/"/>
+    
+    <category term="方法" scheme="http://example.com/tags/%E6%96%B9%E6%B3%95/"/>
+    
+    <category term="错误" scheme="http://example.com/tags/%E9%94%99%E8%AF%AF/"/>
+    
+    <category term="int" scheme="http://example.com/tags/int/"/>
+    
+    <category term="出现" scheme="http://example.com/tags/%E5%87%BA%E7%8E%B0/"/>
+    
+    <category term="o" scheme="http://example.com/tags/o/"/>
+    
+    <category term="编译" scheme="http://example.com/tags/%E7%BC%96%E8%AF%91/"/>
+    
+    <category term="例" scheme="http://example.com/tags/%E4%BE%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>翻过那座山，让他们听到你的故事。</title>
+    <link href="http://example.com/fan-guo-na-zuo-shan-rang-ta-men-ting-dao-ni-de-gu-shi/"/>
+    <id>http://example.com/fan-guo-na-zuo-shan-rang-ta-men-ting-dao-ni-de-gu-shi/</id>
+    <published>2020-04-15T00:40:00.000Z</published>
+    <updated>2020-04-15T01:43:47.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;2019.11 - 2020.4.15&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;花了好长时间在准备腾讯的暑假实习，大概第一次</summary>
+        
+      
+    
+    
+    
+    <category term="日志" scheme="http://example.com/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="时候" scheme="http://example.com/tags/%E6%97%B6%E5%80%99/"/>
+    
+    <category term="视频" scheme="http://example.com/tags/%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="东西" scheme="http://example.com/tags/%E4%B8%9C%E8%A5%BF/"/>
+    
+    <category term="模型" scheme="http://example.com/tags/%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="过" scheme="http://example.com/tags/%E8%BF%87/"/>
+    
+    <category term="实习" scheme="http://example.com/tags/%E5%AE%9E%E4%B9%A0/"/>
+    
+    <category term="腾讯" scheme="http://example.com/tags/%E8%85%BE%E8%AE%AF/"/>
+    
+    <category term="学长" scheme="http://example.com/tags/%E5%AD%A6%E9%95%BF/"/>
+    
+    <category term="牛客" scheme="http://example.com/tags/%E7%89%9B%E5%AE%A2/"/>
+    
+    <category term="面经" scheme="http://example.com/tags/%E9%9D%A2%E7%BB%8F/"/>
+    
+    <category term="大厂" scheme="http://example.com/tags/%E5%A4%A7%E5%8E%82/"/>
+    
+    <category term="简历" scheme="http://example.com/tags/%E7%AE%80%E5%8E%86/"/>
+    
+    <category term="双非" scheme="http://example.com/tags/%E5%8F%8C%E9%9D%9E/"/>
+    
+    <category term="感谢信" scheme="http://example.com/tags/%E6%84%9F%E8%B0%A2%E4%BF%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>高性能服务器框架  （1）日志模块</title>
+    <link href="http://example.com/gao-xing-neng-fu-wu-qi-kuang-jia-1-ri-zhi-mo-kuai/"/>
+    <id>http://example.com/gao-xing-neng-fu-wu-qi-kuang-jia-1-ri-zhi-mo-kuai/</id>
+    <published>2020-04-07T07:28:00.000Z</published>
+    <updated>2020-04-08T03:34:26.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;github地址： &lt;a href=&quot;https://github.com/sylar-yin&quot;&gt;https://github.com/sylar-yin&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;UML类图&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="高性能服务器框架" scheme="http://example.com/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="地址" scheme="http://example.com/tags/%E5%9C%B0%E5%9D%80/"/>
+    
+    <category term="方法" scheme="http://example.com/tags/%E6%96%B9%E6%B3%95/"/>
+    
+    <category term="o" scheme="http://example.com/tags/o/"/>
+    
+    <category term="void" scheme="http://example.com/tags/void/"/>
+    
+    <category term="日志" scheme="http://example.com/tags/%E6%97%A5%E5%BF%97/"/>
+    
+    <category term="sylar" scheme="http://example.com/tags/sylar/"/>
+    
+    <category term="github" scheme="http://example.com/tags/github/"/>
+    
+    <category term="类" scheme="http://example.com/tags/%E7%B1%BB/"/>
+    
+    <category term="模块" scheme="http://example.com/tags/%E6%A8%A1%E5%9D%97/"/>
+    
+    <category term="log4j" scheme="http://example.com/tags/log4j/"/>
+    
+    <category term="跳" scheme="http://example.com/tags/%E8%B7%B3/"/>
+    
+    <category term="图" scheme="http://example.com/tags/%E5%9B%BE/"/>
+    
+    <category term="logger" scheme="http://example.com/tags/logger/"/>
+    
+    <category term="器件" scheme="http://example.com/tags/%E5%99%A8%E4%BB%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>10分钟快速 学会UML 类图 （附视频）</title>
+    <link href="http://example.com/10-fen-zhong-kuai-su-xue-hui-uml-lei-tu-fu-shi-pin/"/>
+    <id>http://example.com/10-fen-zhong-kuai-su-xue-hui-uml-lei-tu-fu-shi-pin/</id>
+    <published>2020-04-07T03:17:00.000Z</published>
+    <updated>2020-04-08T01:55:48.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;觉得看文字比较费解的可以看视频&lt;br&gt;视频地址：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="日志" scheme="http://example.com/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="地址" scheme="http://example.com/tags/%E5%9C%B0%E5%9D%80/"/>
+    
+    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="内容" scheme="http://example.com/tags/%E5%86%85%E5%AE%B9/"/>
+    
+    <category term="时候" scheme="http://example.com/tags/%E6%97%B6%E5%80%99/"/>
+    
+    <category term="区别" scheme="http://example.com/tags/%E5%8C%BA%E5%88%AB/"/>
+    
+    <category term="视频" scheme="http://example.com/tags/%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="文字" scheme="http://example.com/tags/%E6%96%87%E5%AD%97/"/>
+    
+    <category term="方法" scheme="http://example.com/tags/%E6%96%B9%E6%B3%95/"/>
+    
+    <category term="packetage" scheme="http://example.com/tags/packetage/"/>
+    
+    <category term="protected" scheme="http://example.com/tags/protected/"/>
+    
+    <category term="public-" scheme="http://example.com/tags/public/"/>
+    
+    <category term="关联" scheme="http://example.com/tags/%E5%85%B3%E8%81%94/"/>
+    
+    <category term="箭头" scheme="http://example.com/tags/%E7%AE%AD%E5%A4%B4/"/>
+    
+    <category term="售票处" scheme="http://example.com/tags/%E5%94%AE%E7%A5%A8%E5%A4%84/"/>
+    
+    <category term="关系" scheme="http://example.com/tags/%E5%85%B3%E7%B3%BB/"/>
+    
+    <category term="继承" scheme="http://example.com/tags/%E7%BB%A7%E6%89%BF/"/>
+    
+    <category term="乌龟" scheme="http://example.com/tags/%E4%B9%8C%E9%BE%9F/"/>
+    
+    <category term="聚合" scheme="http://example.com/tags/%E8%81%9A%E5%90%88/"/>
+    
+    <category term="动物园" scheme="http://example.com/tags/%E5%8A%A8%E7%89%A9%E5%9B%AD/"/>
+    
+    <category term="依赖" scheme="http://example.com/tags/%E4%BE%9D%E8%B5%96/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>cmake 编写 从实战中学习</title>
+    <link href="http://example.com/cmake-bian-xie-cong-shi-zhan-zhong-xue-xi/"/>
+    <id>http://example.com/cmake-bian-xie-cong-shi-zhan-zhong-xue-xi/</id>
+    <published>2020-04-05T02:18:00.000Z</published>
+    <updated>2020-04-06T12:27:43.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;cmake&quot;&gt;&lt;a href=&quot;#cmake&quot; class=&quot;headerlink&quot; title=&quot;cmake&quot;&gt;&lt;/a&gt;cmake&lt;/h2&gt;&lt;p&gt;关于cmake 和make 的区别以及什么是cmake这里就不赘述了&lt;/p&gt;
+&lt;h2 id=&quot;实战&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="后台开发" scheme="http://example.com/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
+    
+    
+    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="区别" scheme="http://example.com/tags/%E5%8C%BA%E5%88%AB/"/>
+    
+    <category term="编译" scheme="http://example.com/tags/%E7%BC%96%E8%AF%91/"/>
+    
+    <category term="动态" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81/"/>
+    
+    <category term="链接" scheme="http://example.com/tags/%E9%93%BE%E6%8E%A5/"/>
+    
+    <category term="路径" scheme="http://example.com/tags/%E8%B7%AF%E5%BE%84/"/>
+    
+    <category term="日志" scheme="http://example.com/tags/%E6%97%A5%E5%BF%97/"/>
+    
+    <category term="sylar" scheme="http://example.com/tags/sylar/"/>
+    
+    <category term="cmake" scheme="http://example.com/tags/cmake/"/>
+    
+    <category term="文件" scheme="http://example.com/tags/%E6%96%87%E4%BB%B6/"/>
+    
+    <category term="make" scheme="http://example.com/tags/make/"/>
+    
+    <category term="赘述" scheme="http://example.com/tags/%E8%B5%98%E8%BF%B0/"/>
+    
+    <category term="set" scheme="http://example.com/tags/set/"/>
+    
+    <category term="test" scheme="http://example.com/tags/test/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>高性能服务器框架 总览</title>
+    <link href="http://example.com/gao-xing-neng-fu-wu-qi-kuang-jia-zong-lan/"/>
+    <id>http://example.com/gao-xing-neng-fu-wu-qi-kuang-jia-zong-lan/</id>
+    <published>2020-04-04T01:57:00.000Z</published>
+    <updated>2020-04-07T03:47:56.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;基于对sylar-的开源框架的学习&quot;&gt;&lt;a href=&quot;#基于对sylar-的开源框架的学习&quot; class=&quot;headerlink&quot; title=&quot;基于对sylar 的开源框架的学习&quot;&gt;&lt;/a&gt;基于对sylar 的开源框架的学习&lt;/h1&gt;&lt;p&gt;github  ：</summary>
+        
+      
+    
+    
+    
+    <category term="高性能服务器框架" scheme="http://example.com/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="路径" scheme="http://example.com/tags/%E8%B7%AF%E5%BE%84/"/>
+    
+    <category term="日志" scheme="http://example.com/tags/%E6%97%A5%E5%BF%97/"/>
+    
+    <category term="sylar" scheme="http://example.com/tags/sylar/"/>
+    
+    <category term="cmake" scheme="http://example.com/tags/cmake/"/>
+    
+    <category term="文件" scheme="http://example.com/tags/%E6%96%87%E4%BB%B6/"/>
+    
+    <category term="系统" scheme="http://example.com/tags/%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="socket" scheme="http://example.com/tags/socket/"/>
+    
+    <category term="协议" scheme="http://example.com/tags/%E5%8D%8F%E8%AE%AE/"/>
+    
+    <category term="gcc" scheme="http://example.com/tags/gcc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>视频播放器 （服务端）遇到的一些问题（总结）</title>
+    <link href="http://example.com/shi-pin-bo-fang-qi-fu-wu-duan-yu-dao-de-yi-xie-wen-ti-zong-jie/"/>
+    <id>http://example.com/shi-pin-bo-fang-qi-fu-wu-duan-yu-dao-de-yi-xie-wen-ti-zong-jie/</id>
+    <published>2020-03-26T07:03:00.000Z</published>
+    <updated>2020-03-29T15:15:04.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;相关知识补充&quot;&gt;&lt;a href=&quot;#相关知识补充&quot; class=&quot;headerlink&quot; title=&quot;相关知识补充&quot;&gt;&lt;/a&gt;相关知识补充&lt;/h1&gt;&lt;h2 id=&quot;EPOLL的相关API是线程安全吗&quot;&gt;&lt;a href=&quot;#EPOLL的相关API是线程安全吗&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="开发日志" scheme="http://example.com/categories/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="时候" scheme="http://example.com/tags/%E6%97%B6%E5%80%99/"/>
+    
+    <category term="模式" scheme="http://example.com/tags/%E6%A8%A1%E5%BC%8F/"/>
+    
+    <category term="任务" scheme="http://example.com/tags/%E4%BB%BB%E5%8A%A1/"/>
+    
+    <category term="发布" scheme="http://example.com/tags/%E5%8F%91%E5%B8%83/"/>
+    
+    <category term="唤醒" scheme="http://example.com/tags/%E5%94%A4%E9%86%92/"/>
+    
+    <category term="速度" scheme="http://example.com/tags/%E9%80%9F%E5%BA%A6/"/>
+    
+    <category term="线程" scheme="http://example.com/tags/%E7%BA%BF%E7%A8%8B/"/>
+    
+    <category term="空闲" scheme="http://example.com/tags/%E7%A9%BA%E9%97%B2/"/>
+    
+    <category term="epoll" scheme="http://example.com/tags/epoll/"/>
+    
+    <category term="发包" scheme="http://example.com/tags/%E5%8F%91%E5%8C%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法复习- 动态规划总结（6）</title>
+    <link href="http://example.com/suan-fa-fu-xi-dong-tai-gui-hua-zong-jie-6/"/>
+    <id>http://example.com/suan-fa-fu-xi-dong-tai-gui-hua-zong-jie-6/</id>
+    <published>2020-03-20T02:35:00.000Z</published>
+    <updated>2020-04-02T12:59:40.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;内容整合自[动态编程模式][1]  同时加上自己的一些总结&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;模型&quot;&gt;&lt;a href=&quot;#模型&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="算法" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="总结" scheme="http://example.com/tags/%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="动态规格" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E6%A0%BC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>（转）ELF文件装载链接过程及hook原理</title>
+    <link href="http://example.com/zhuan-elf-wen-jian-zhuang-zai-lian-jie-guo-cheng-ji-hook-yuan-li/"/>
+    <id>http://example.com/zhuan-elf-wen-jian-zhuang-zai-lian-jie-guo-cheng-ji-hook-yuan-li/</id>
+    <published>2020-03-19T13:35:00.000Z</published>
+    <updated>2020-04-02T13:06:45.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;原地址：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="日志" scheme="http://example.com/categories/%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="地址" scheme="http://example.com/tags/%E5%9C%B0%E5%9D%80/"/>
+    
+    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    
+    <category term="链接" scheme="http://example.com/tags/%E9%93%BE%E6%8E%A5/"/>
+    
+    <category term="elf" scheme="http://example.com/tags/elf/"/>
+    
+    <category term="hook" scheme="http://example.com/tags/hook/"/>
+    
+    <category term="装载" scheme="http://example.com/tags/%E8%A3%85%E8%BD%BD/"/>
+    
+    <category term="原理" scheme="http://example.com/tags/%E5%8E%9F%E7%90%86/"/>
+    
+    <category term="libco" scheme="http://example.com/tags/libco/"/>
     
   </entry>
   

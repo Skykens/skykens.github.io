@@ -485,7 +485,7 @@
 <p>据官网测试数据显示，对于普通队列，如果要发送1千万条消息，需要耗费801秒，平均发送速度约为13000条/秒。如果使用惰性队列，那么发送同样多的消息时，耗时是421秒，平均发送速度约为24000条/秒。出现性能偏差的原因是普通队列会由于内存不足而不得不将消息换页至磁盘。如果有消费者消费时，惰性队列会耗费将近40MB的空间来发送消息，对于一个消费者的情况，平均的消费速度约为14000条/秒。</p>
 <h2 id="镜像队列-vs-仲裁队列"><a href="#镜像队列-vs-仲裁队列" class="headerlink" title="镜像队列 vs 仲裁队列"></a>镜像队列 vs 仲裁队列</h2><p>以下围绕同步模型和性能。 </p>
 <h3 id="镜像队列"><a href="#镜像队列" class="headerlink" title="镜像队列"></a>镜像队列</h3><p>RabbitMQ的集群在默认模式下，队列实例只存在于一个节点上，既不能保证该节点崩溃的情况下队列还可以继续运行，也不能线性扩展该队列的吞吐量。虽然RabbitMQ的队列实际只会在一个节点上，但元数据可以存在于各个节点上。举个例子来说，当创建一个新的交换器时，RabbitMQ会把该信息同步到所有节点上，这个时候客户端不管连接到哪个RabbitMQ节点，都可以访问到这个新的交换器，也就能找到交换器下的队列：</p>
-<p><img src="https://gitee.com/skykens/photos/raw/master/OFqjExcshZpj=tsMaQJXIBApa06sCdts0=91EuBoQhpl31544076799852compressflag.png" alt="img"></p>
+<p><img src="https://gitee.com/skykens/photos/raw/master/OFqjExcshZpj=tsMaQJXIBApa06sCdts0=91EuBoQhpl31544076799852compressflag.png" alt="镜像队列"></p>
 <p>RabbitMQ内部的元数据主要有：</p>
 <ol>
 <li>队列元数据：队列名称和属性</li>
@@ -493,12 +493,12 @@
 <li>绑定元数据：路由信息</li>
 </ol>
 <p>尽管交换器和绑定关系能够在单点故障问题上幸免于难，但是队列和其上存储的消息却不行，它们仅存在于单个节点上。引入镜像队列的机制，可以将队列镜像到集群中的其它Broker节点之上，如果集群中的一个节点失效了，队列能够自动地切换到镜像中的另一个节点上以保证服务的可用性。通常情况下，针对每一个配置镜像的队列都包含一个主拷贝和若干个从拷贝，相应架构如下：</p>
-<p><img src="https://gitee.com/skykens/photos/raw/master/0JeBkrdwK7qUqTzySTsBegsoe6Bhg9PiMa3HYIMFSnPGQ1544076799852compressflag.png" alt="img"></p>
+<p><img src="https://gitee.com/skykens/photos/raw/master/%E6%9E%B6%E6%9E%84-1620265400840.png" alt="架构"></p>
 <p>除了发送消息外的所有动作都只会向主拷贝发送，然后再由主拷贝将命令执行的结果广播给各个从拷贝，从拷贝实际只是个冷备（默认的情况下所有RabbitMQ节点上都会有镜像队列的拷贝），如果使用消息确认模式，RabbitMQ会在主拷贝和从拷贝都安全的接受到消息时才通知生产者。从这个结构上来看，如果从拷贝的节点挂了，实际没有任何影响，如果主拷贝挂了，那么会有一个重新选举的过程，这也是镜像队列的优点，除非所有节点都挂了，才会导致消息丢失。重新选举后，RabbitMQ会给消费者一个消费者取消通知（Consumer Cancellation），让消费者重连新的主拷贝。</p>
-<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><p>不同于普通的非镜像队列，镜像队列的实现结构如下：<br><img src="https://gitee.com/skykens/photos/raw/master/8=93STeAbnCfJrE7VLgGxEOr1IDyCPEUR8Lb8jY1F6IiF1544076799852compressflag.png" alt="img"></p>
+<h4 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h4><p>不同于普通的非镜像队列，镜像队列的实现结构如下：<br><img src="https://gitee.com/skykens/photos/raw/master/8=93STeAbnCfJrE7VLgGxEOr1IDyCPEUR8Lb8jY1F6IiF1544076799852compressflag.png" alt="镜像队列实现结构"></p>
 <p>所有对镜像队列主拷贝的操作，都会通过GM同步到各个slave节点，Coodinator负责组播结果的确认。GM是一种可靠的组播通信协议，该协议能够保证组播消息的原子性，即保证组内的存活节点要么都收到消息要么都收不到。</p>
 <p>GM的组播并不是由master来负责通知所有slave的（目的是为了避免master压力过大，同时避免master失效导致消息无法最终ack)，RabbitMQ把所有节点组成一个链表，每个节点都会监控位于自己左右两边的节点，当有节点新增时，相邻的节点保证当前广播的消息会复制到新节点上；当有节点失效时，相邻的节点会接管以保证本次广播的消息会复制到所有的节点。操作命令由master发起，也由master最终确认通知到了所有的slave，而中间过程则由slave接力的方式进行消息传播。</p>
-<p><img src="https://gitee.com/skykens/photos/raw/master/WUD5eU3KpIo3rCJZti5tw1TvD0yeQMZYCnHvQ6i5fXoCb1544076799853compressflag.png" alt="img"></p>
+<p><img src="https://gitee.com/skykens/photos/raw/master/WUD5eU3KpIo3rCJZti5tw1TvD0yeQMZYCnHvQ6i5fXoCb1544076799853compressflag.png" alt="原理"></p>
 <p>镜像队列性能低于应有的速度，使用leader 队列 和一个以上的镜像队列，读写操作都经过leader队列，同时将所有的命令复制到镜像队列里，一旦所有的镜像队列都持有这个消息，leader队列才会发送confirm。 一旦过程中leader下线了，一个镜像队列将会成为leader使得整个队列依然可用。</p>
 <p>在节点与节点之间有一个Inter-node Communication Buffer，用来临时缓存尚未同步的消息， 在某些情况下，节点间的通信量可能非常大，并且会耗尽缓存区的容量，默认配置是128M 。如果要修改可以使用环境变量。当缓存区耗尽的时候会导致节点阻塞。</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token assign-left variable">RABBITMQ_DISTRIBUTION_BUFFER_SIZE</span><span class="token operator">=</span><span class="token number">192000</span>  <span class="token comment">#直接设置值</span>
@@ -811,7 +811,7 @@
 <li>client访问需要知道每个队列的主队列保存在哪个服务器；</li>
 <li>如果某个服务器down了，需要知道哪个从队列被选择成为继任的主队列。<br>于是，Load Balancing a RabbitMQ Cluster的作者给出了下图的结构。</li>
 </ol>
-<p>[<img src="rabbitmq-cluster-with-monitor-service.png" alt="负载均衡架构"></p>
+<p><img src="https://gitee.com/skykens/photos/raw/master/rabbitmq-cluster-with-monitor-service.png" alt="负载均衡架构"></p>
 <p>这还是颇有点复杂的。首先，在建立一个新队列的时候，Randomiser会随机选择一个服务器，这样能够保证队列均匀分散在各个服务器（这里暂且不考虑负载）。建立队列后需要在Meta data里记录这个队列对应的服务器；另外，Monitor Service是关键，它用于处理某个服务器down掉的情况。一旦发生down机，它需要为之前主队列在该服务器的队列重新建立起与服务器的映射关系。</p>
 <p>这里会遇到一个问题，即怎么判断某个队列的主队列呢？一个方法是通过rabbitmqctl，如下面的例子：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">./rabbitmqctl -p production list_queues pid slave_pids
@@ -1060,13 +1060,13 @@ registration-sms-queue  <span class="token operator">&lt;</span>rabbit@mq01.2.10
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/bian-yi-huan-jing-bu-shu/">
+                <a href="/hou-tai-ri-chang-bi-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="C++编译环境部署">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="后台日常笔记">
                         
-                        <span class="card-title">C++编译环境部署</span>
+                        <span class="card-title">后台日常笔记</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1090,8 +1090,8 @@ registration-sms-queue  <span class="token operator">&lt;</span>rabbit@mq01.2.10
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83-vscode-clang-llvm/">
-                        <span class="chip bg-color">编译环境, vscode, clang, llvm</span>
+                    <a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE-%E5%BC%80%E5%8F%91-%E6%80%9D%E8%80%83/">
+                        <span class="chip bg-color">后端开发,笔记,网络数据,开发,思考</span>
                     </a>
                     
                 </div>

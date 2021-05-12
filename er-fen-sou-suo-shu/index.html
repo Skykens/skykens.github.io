@@ -1,0 +1,2491 @@
+<!DOCTYPE HTML>
+<html lang="ch">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="二分搜索树, BanThink 纯粹写写文字的地方~">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>二分搜索树 | BanThink 纯粹写写文字的地方~</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="BanThink 纯粹写写文字的地方~" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">BanThink 纯粹写写文字的地方~</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">BanThink 纯粹写写文字的地方~</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">二分搜索树</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                数据结构
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2020-01-21
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="二叉搜索树wiki定义"><a href="#二叉搜索树wiki定义" class="headerlink" title="二叉搜索树wiki定义"></a>二叉搜索树wiki定义</h1><p>二叉查找树（英语：Binary Search Tree），也称为二叉搜索树、有序二叉树（ordered binary tree）或排序二叉树（sorted binary tree），是指一棵空树或者具有下列性质的二叉树：</p>
+<ol>
+<li>若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值；</li>
+<li>若任意节点的右子树不空，则右子树上所有节点的值均大于它的根节点的值；</li>
+<li>任意节点的左、右子树也分别为二叉查找树；</li>
+<li>没有键值相等的节点。</li>
+</ol>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><table>
+<thead>
+<tr>
+<th>算法</th>
+<th>平均</th>
+<th>最差</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>空间</td>
+<td>O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>搜索</td>
+<td>O(log n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>插入</td>
+<td>O(log n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>删除</td>
+<td>O(log n)</td>
+<td>O(n)</td>
+</tr>
+</tbody></table>
+<h1 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h1><p>二叉查找树相比于其他数据结构的优势在于查找、插入的时间复杂度较低。为O(log n)。二叉查找树是基础性数据结构，用于构建更为抽象的数据结构，如集合、多重集、关联数组等。</p>
+<p>二叉查找树的查找过程和次优二叉树类似，通常采取二叉链表作为二叉查找树的存储结构。中序遍历二叉查找树可得到一个关键字的有序序列，一个无序序列可以透过建构一棵二叉查找树变成一个有序序列，建构树的过程即为对无序序列进行查找的过程。</p>
+<p>每次插入的新的结点都是二叉查找树上新的叶子结点，在进行插入操作时，不必移动其它结点，只需改动某个结点的指针，由空变为非空即可。搜索、插入、删除的复杂度等于树高，期望O(log n)，最坏O(n)（数列有序，树退化成线性表）。</p>
+<p>虽然二叉查找树的最坏效率是O(n)，但它支持动态查询，且有很多改进版的二叉查找树可以使树高为O(log n)，从而将最坏效率降至O(log n)，如AVL树、红黑树等。</p>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><h2 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h2><p>二分搜索树是一种极具递归性质的树,需要掌握下面四种遍历算法:</p>
+<p>层次遍历、前序遍历、中序遍历、后序遍历。</p>
+<p>层次遍历很简单，就是根据每层的节点从左到右访问下来</p>
+<p>前中后序遍历三种方法的区别是对于根节点的访问顺序上面。每个节点都是各自子树的根节点（叶子节点可以看做孩子节点为NULL），对于这些根节点的访问顺序分别是第1\2\3个访问。</p>
+<p>前序遍历: 每次对根节点优先访问，用途可以是输出某个文件夹下所有文件名称(可以有子文件夹)</p>
+<p>中序遍历：当树中存放的值为可比较的时，遍历的结果将会有序。</p>
+<p>后序遍历：优先访问最底下的孩子节点，也就是在释放二叉树的节点内存时候可以使用得到。</p>
+<p><img src="https://banthink.com/usr/uploads/2020/01/1888861647.jpg" alt="数据结构笔记-1.jpg"></p>
+<h2 id="添加和删除"><a href="#添加和删除" class="headerlink" title="添加和删除"></a>添加和删除</h2><p>添加操作简而言之就是从根节点开始递归到底,找到相应位置插入即可</p>
+<p>删除操作比较复杂,首先需要判断被删除节点是否有左孩子或者右孩子，如果有就只需要将孩子节点顶替被删节点在其父节点中的位置即可。</p>
+<p>如果同时有左右孩子就需要在删除前，找到最接近被删节点值的节点来顶替被删节点的位置.我们用被删节点的左子树中最大值来顶替被删节点的位置和用右子树中最小值来顶替被删节点的位置是一样的，这两者都不会改变中序遍历的顺序。</p>
+<p>通过用复杂的删除操作、添加操作来保持二分搜索树中节点的排序规则，可以保证二分搜索树的性质不变。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>下面是C++代码实现</p>
+<pre class="line-numbers language-none"><code class="language-none">//BST.hpp
+# include &lt;iostream&gt;
+# include &lt;string&gt;
+# include &lt;stack&gt;
+# include &lt;queue&gt;
+# include &lt;time.h&gt;
+using namespace std;
+template &lt;typename T&gt; class BST;
+template &lt;class T&gt;
+class Node {
+public:
+	Node(T e)
+	{
+		this-&gt;e = e;
+		left = NULL;
+		right - NULL;
+	}
+	inline T getElement() { return e; }
+	friend class BST&lt;T&gt;;
+private:
+	T e;
+	Node&lt;T&gt;* left;
+	Node&lt;T&gt;* right;
+
+};
+template &lt;class T&gt;
+class BST
+{
+public:
+	BST()
+	{
+		root = NULL;
+		size = 0;
+	}
+	inline int Size()
+	{
+		return size;
+	}
+	void add(T e)  //向二分搜索树添加新的元素e 
+	{
+		/*第一版
+		if(root==NULL)// 特殊处理
+		{
+			root=new Node&lt;T&gt;(e);
+			size++;
+		}else
+			add(root,e);*/
+			/*第二版*/
+		root = add(root, e);
+	}
+	bool contains(T e)
+	{
+		return contains(root, e);
+	}
+	void preOrder()
+	{
+		preOrder(root);
+
+	}
+	void preOrderNR()
+	{
+		stack&lt;Node&lt;T&gt;*&gt; stack ;
+		stack.push(root);
+		while (!stack.empty())
+		{
+			Node&lt;T&gt;* cur= stack.top();;
+			stack.pop();
+			cout &lt;&lt; cur-&gt;e &lt;&lt; " ";
+			if(cur-&gt;left!=NULL)
+				stack.push(cur-&gt;left);
+			if(cur-&gt;right!=NULL)
+				stack.push(cur-&gt;right);
+		}
+	}
+	void inOrder()
+	{
+		inOrder(root);
+	}
+	void postOrder()  //应用:内存释放方面,先将孩子节点的内存都释放干净，再释放根节点
+	{
+		postOrder(root);
+	}
+	//层次遍历(广度优先遍历) 
+	void levelOrder()
+	{
+		queue&lt;Node&lt;T&gt;*&gt; q;
+		q.push(root);
+		while (!q.empty())
+		{
+			Node&lt;T&gt;* cur = q.front();
+			q.pop();
+			cout &lt;&lt; cur-&gt;e &lt;&lt; " ";
+			if (cur-&gt;left != NULL)
+			{
+				q.push(cur-&gt;left);
+			}
+			if (cur-&gt;right != NULL)
+				q.push(cur-&gt;right);
+		}
+
+
+
+	}
+	T minElement()
+	{
+		if (!size)
+			throw "BST is empty";
+		return minElement(root)-&gt;e;
+
+	}
+	T maxElement()
+	{
+		if (!size)
+			throw "BST is empty";
+		maxElement(root)-&gt;e;
+	}
+	string toString()
+	{
+		string val;
+		generateBSTString(root, 0, val);
+		return val;
+	}
+	
+	T removeMin()
+	{
+		T val = minElement();
+		root = removeMin(root);
+		return val;
+	}
+	T removeMax()
+	{
+		T val = maxElement();
+		root = removeMax(root);
+		return val;
+	}
+	void remove(T val)
+	{
+		root=remove(root, val);
+	}
+
+
+
+private:
+
+	//第一版
+	/*
+		void add(Node&lt;T&gt;* root,T e)//以Node为根的二分搜索树插入元素e 递归
+		{
+			if(e==root.e)
+				return ;
+			else if(e&lt;root.e&amp;&amp;root.left==NULL)
+			{
+				root.left=new Node&lt;T&gt;(e);
+				size++;
+				return ;
+			}else if(e&gt;root.e&amp;&amp;root.right==NULL)
+			{
+				root.right=new Node&lt;T&gt;(e);
+				size++;
+				return ;
+			}
+			if(e&lt;root.e)
+				add(root.left,e);
+			else
+				add(root.right,e);
+
+		}*/
+		//第二版 相等的时候返回回去
+	Node&lt;T&gt;* add(Node &lt;T&gt;* node, T e)
+	{
+		if (node == NULL)
+		{
+			size++;
+			return new Node&lt;T&gt;(e);
+		}
+		if (e &lt; node-&gt;e)
+			node-&gt;left = add(node-&gt;left, e);
+		else if(e&gt;node-&gt;e)
+			node-&gt;right = add(node-&gt;right, e);
+		return node;
+	}
+	bool contains(Node &lt;T&gt;* node, T e)
+	{
+		if (node == NULL)
+			return false;
+		if (node-&gt;e == e)
+			return true;
+		else if (node-&gt;e &lt; e)
+			return contains(node-&gt;left, e);
+		else
+			return contains(node-&gt;right, e);
+	}
+
+	void preOrder(Node &lt;T&gt;* node)
+	{
+		if (node == NULL)
+			return;
+		cout &lt;&lt; node-&gt;e&lt;&lt;" ";
+		preOrder(node-&gt;left);
+		preOrder(node-&gt;right);
+	}
+	void inOrder(Node&lt;T&gt;* node)
+	{
+		if (node == NULL)
+			return;
+		
+		inOrder(node-&gt;left);
+		cout &lt;&lt; node-&gt;e &lt;&lt; " ";
+		inOrder(node-&gt;right);
+	}
+	void postOrder(Node&lt;T&gt;* node)
+	{
+		if (node == NULL)
+			return;
+
+		postOrder(node-&gt;left);
+		postOrder(node-&gt;right);
+		cout &lt;&lt; node-&gt;e &lt;&lt; " ";
+
+	}
+	//打印输出函数
+	void  generateBSTString(Node&lt;T&gt;* node, int depth, string&amp; str)
+	{
+		if (node == NULL)
+		{
+			str += generateDepthString(depth) + "null\n";
+			return;
+
+
+		}
+		
+		str =str+ generateDepthString(depth) + to_string(node-&gt;e) + "\n";
+		generateBSTString(node-&gt;left, depth + 1, str);
+		generateBSTString(node-&gt;right, depth + 1, str);
+	}
+	string generateDepthString(int depth)
+	{
+		string str;
+		for (int i = 0; i &lt; depth; i++)
+			str += "--";
+		return str;
+		
+	}
+	Node&lt;T&gt;* minElement(Node&lt;T&gt;*node)
+	{
+		if (node-&gt;left == NULL)
+			return node;
+		return minElement(node-&gt;left);
+	}
+
+	Node&lt;T&gt;* maxElement(Node&lt;T&gt;* node)
+	{
+		if (node-&gt;right == NULL)
+			return node;
+		return minElement(node-&gt;right);
+	}
+	//删除以node为根的二分搜索树中的最小节点
+	//返回删除节点后新的二分搜索树的根
+	Node&lt;T&gt;* removeMin(Node&lt;T&gt; *node)
+	{
+		if (node-&gt;left == NULL)
+		{
+			Node&lt;T&gt;* rightNode = node-&gt;right;
+			node-&gt;right = NULL;
+			delete node;
+			size--;
+			return rightNode;
+		}
+		node-&gt;left=removeMin(node-&gt;left);
+		return node;
+	}
+	Node&lt;T&gt; * removeMax(Node&lt;T&gt; *node)
+	{
+		if (node-&gt;right == NULL)  //当前节点为最大值
+		{
+			Node* leftNode = node-&gt;left;
+			node-&gt;left = NULL;
+			delete node;
+			size--;
+			return leftNode;
+
+		}
+		node-&gt;right = removeMax(node-&gt;right);
+		return node;
+	}
+	
+	//任意删除节点
+	Node&lt;T&gt;* remove(Node&lt;T&gt;* node, T e)
+	{
+		if (node == NULL)
+			return NULL;
+		if (e &lt; node-&gt;e)
+		{
+			node-&gt;left=remove(node-&gt;left,e);
+			return node;
+		}
+		else if (e &gt; node-&gt;e)
+		{
+			node-&gt;right = remove(node-&gt;right, e);
+			return node;
+		}
+		else
+		{
+			if (node-&gt;left == NULL)
+			{
+				Node&lt;T&gt;* rightNode = node-&gt;right;
+				node-&gt;right = NULL;
+				delete node;
+				size--;
+				return rightNode;
+			}
+			if (node-&gt;right == NULL)
+			{
+				Node&lt;T&gt;* leftNode = node-&gt;left;
+				node-&gt;left = NULL;
+				delete node;
+				size--;
+				return leftNode;
+			}
+			Node&lt;T&gt;* successor = new Node&lt;T&gt;(*minElement(node-&gt;right);
+			successor-&gt;right = removeMin(node-&gt;right);
+			successor-&gt;left = node-&gt;left;
+			node-&gt;left = NULL;
+			node-&gt;right = NULL;
+			delete node;
+			return successor;
+		}
+	}
+
+
+private:
+	Node&lt;T&gt;* root;
+	int size;
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h1 id="基于二分搜索树的集合-set"><a href="#基于二分搜索树的集合-set" class="headerlink" title="基于二分搜索树的集合(set)"></a>基于二分搜索树的集合(set)</h1><pre class="line-numbers language-none"><code class="language-none">template &lt;class T&gt;
+class Set
+{
+	public:
+		virtual void add(T e) = 0;
+		virtual void remove(T e) = 0;
+		virtual bool contains(T e) = 0;
+		virtual int size() = 0;
+		virtual bool empty() = 0;
+};
+template &lt;class T&gt;
+class BSTSet:public Set
+{
+public:
+	virtual void add(T e) {
+		bst.add(e);
+	}
+	virtual void remove(T e)
+	{
+		bst.remove(e);
+	}
+	virtual bool contains(T e)
+	{
+		return bst.contains(e);
+	}
+	virtual int size()
+	{
+		return bst.Size();
+	}
+	virtual bool empty()
+	{
+		return bst.Size() == 0;
+	}
+private:
+	BST&lt;T&gt;  bst;
+};
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="基于二分搜索树的映射-map"><a href="#基于二分搜索树的映射-map" class="headerlink" title="基于二分搜索树的映射(map)"></a>基于二分搜索树的映射(map)</h1><pre class="line-numbers language-none"><code class="language-none"># include &lt;iostream&gt;
+# include &lt;string&gt;
+# include &lt;stack&gt;
+# include &lt;queue&gt;
+# include &lt;time.h&gt;
+using namespace std;
+
+template &lt;class K, class V&gt; class BSTMap;
+template&lt;class K, class V&gt;
+class Map {
+public:
+	virtual void add(K key, V value) = 0;
+	virtual V remove(K key) = 0;
+	virtual bool contains(K key) = 0;
+	virtual V get(K key) = 0;
+	virtual int Size() = 0;
+	virtual bool empty() = 0;
+};
+template &lt;class K,class V&gt;
+class Node {
+public:
+	Node(K key,V value)
+	{
+		this-&gt;key = key;
+		this-&gt;value = value;
+		left = NULL;
+		right - NULL;
+	}
+	friend class BSTMap&lt;K,V&gt;;
+private:
+	K key;
+	V value;
+	Node&lt;K,V&gt;* left;
+	Node&lt;K,V&gt;* right;
+
+};
+template &lt;class K, class V&gt;
+class BSTMap :public Map&lt;K,V&gt;
+{
+public:
+	BSTMap()
+	{
+		root = NULL;
+		size = 0;
+	}
+	inline int Size()
+	{
+		return size;
+	}
+	V get(K key)
+	{
+		return getNode(root, key)-&gt;value;
+	}
+	bool empty()
+	{
+		return size == 0;
+	}
+	void add(K key,V value)  //向二分搜索树添加新的元素e 
+	{
+		/*第一版
+		if(root==NULL)// 特殊处理
+		{
+			root=new Node&lt;T&gt;(e);
+			size++;
+		}else
+			add(root,e);*/
+			/*第二版*/
+		root = add(root, key,value);
+	}
+	bool contains(K e)
+	{
+		return contains(root, e);
+	}
+	void preOrder()
+	{
+		preOrder(root);
+
+	}
+	void preOrderNR()
+	{
+		stack&lt;Node&lt;K,V&gt;*&gt; stack ;
+		stack.push(root);
+		while (!stack.empty())
+		{
+			Node&lt;K,V&gt;* cur= stack.top();;
+			stack.pop();
+			cout &lt;&lt; cur-&gt;e &lt;&lt; " ";
+			if(cur-&gt;left!=NULL)
+				stack.push(cur-&gt;left);
+			if(cur-&gt;right!=NULL)
+				stack.push(cur-&gt;right);
+		}
+	}
+	void inOrder()
+	{
+		inOrder(root);
+	}
+	void postOrder()  //应用:内存释放方面,先将孩子节点的内存都释放干净，再释放根节点
+	{
+		postOrder(root);
+	}
+	//层次遍历(广度优先遍历) 
+	void levelOrder()
+	{
+		queue&lt;Node&lt;K,V&gt;*&gt; q;
+		q.push(root);
+		while (!q.empty())
+		{
+			Node&lt;K,V&gt;* cur = q.front();
+			q.pop();
+			cout &lt;&lt; cur-&gt;e &lt;&lt; " ";
+			if (cur-&gt;left != NULL)
+			{
+				q.push(cur-&gt;left);
+			}
+			if (cur-&gt;right != NULL)
+				q.push(cur-&gt;right);
+		}
+
+
+
+	}
+	V minElement()
+	{
+		if (!size)
+			throw "BST is empty";
+		return minElement(root)-&gt;value;
+
+	}
+	V maxElement()
+	{
+		if (!size)
+			throw "BST is empty";
+		maxElement(root)-&gt;value;
+	}
+	string toString()
+	{
+		string val;
+		generateBSTString(root, 0, val);
+		return val;
+	}
+	
+	V removeMin()
+	{
+		V val = minElement();
+		root = removeMin(root);
+		return val;
+	}
+	V removeMax()
+	{
+		V val = maxElement();
+		root = removeMax(root);
+		return val;
+	}
+	V remove(K key)
+	{
+		V val=getNode(root, key)-&gt;value;
+		root=remove(root, key);
+		return val;
+	}
+
+
+
+private:
+
+	//第一版
+	/*
+		void add(Node&lt;T&gt;* root,T e)//以Node为根的二分搜索树插入元素e 递归
+		{
+			if(e==root.e)
+				return ;
+			else if(e&lt;root.e&amp;&amp;root.left==NULL)
+			{
+				root.left=new Node&lt;T&gt;(e);
+				size++;
+				return ;
+			}else if(e&gt;root.e&amp;&amp;root.right==NULL)
+			{
+				root.right=new Node&lt;T&gt;(e);
+				size++;
+				return ;
+			}
+			if(e&lt;root.e)
+				add(root.left,e);
+			else
+				add(root.right,e);
+
+		}*/
+		//第二版 相等的时候返回回去
+	Node&lt;K,V&gt;* add(Node &lt;K,V&gt;* node, K key,V value)
+	{
+		if (node == NULL)
+		{
+			size++;
+			return new Node&lt;K,V&gt;(key,value);
+		}
+		if (key &lt; node-&gt;key)
+			node-&gt;left = add(node-&gt;left, key,value);
+		else if(key &gt;node-&gt;key)
+			node-&gt;right = add(node-&gt;right, key, value);
+		return node;
+	}
+	bool contains(Node &lt;K, V&gt;* node, K e)
+	{
+		if (node == NULL)
+			return false;
+		if (node-&gt;key == e)
+			return true;
+		else if (node-&gt;key &lt; e)
+			return contains(node-&gt;left, e);
+		else
+			return contains(node-&gt;right, e);
+	}
+
+	void preOrder(Node &lt;K, V&gt;* node)
+	{
+		if (node == NULL)
+			return;
+		cout &lt;&lt; node-&gt;value&lt;&lt;" ";
+		preOrder(node-&gt;left);
+		preOrder(node-&gt;right);
+	}
+	void inOrder(Node&lt;K, V&gt;* node)
+	{
+		if (node == NULL)
+			return;
+		
+		inOrder(node-&gt;left);
+		cout &lt;&lt; node-&gt;value &lt;&lt; " ";
+		inOrder(node-&gt;right);
+	}
+	void postOrder(Node&lt;K, V&gt;* node)
+	{
+		if (node == NULL)
+			return;
+
+		postOrder(node-&gt;left);
+		postOrder(node-&gt;right);
+		cout &lt;&lt; node-&gt;value &lt;&lt; " ";
+
+	}
+	//打印输出函数
+	void  generateBSTString(Node&lt;K, V&gt;* node, int depth, string&amp; str)
+	{
+		if (node == NULL)
+		{
+			str += generateDepthString(depth) + "null\n";
+			return;
+
+
+		}
+		
+		str =str+ generateDepthString(depth) + to_string(node-&gt;value) + "\n";
+		generateBSTString(node-&gt;left, depth + 1, str);
+		generateBSTString(node-&gt;right, depth + 1, str);
+	}
+	string generateDepthString(int depth)
+	{
+		string str;
+		for (int i = 0; i &lt; depth; i++)
+			str += "--";
+		return str;
+		
+	}
+	Node&lt;K, V&gt;* minElement(Node&lt;K, V&gt;*node)
+	{
+		if (node-&gt;left == NULL)
+			return node;
+		return minElement(node-&gt;left);
+	}
+
+	Node&lt;K, V&gt;* maxElement(Node&lt;K, V&gt;* node)
+	{
+		if (node-&gt;right == NULL)
+			return node;
+		return minElement(node-&gt;right);
+	}
+	//删除以node为根的二分搜索树中的最小节点
+	//返回删除节点后新的二分搜索树的根
+	Node&lt;K, V&gt;* removeMin(Node&lt;K, V&gt;*node)
+	{
+		if (node-&gt;left == NULL)
+		{
+			Node&lt;K, V&gt;* rightNode = node-&gt;right;
+			node-&gt;right = NULL;
+			delete node;
+			size--;
+			return rightNode;
+		}
+		node-&gt;left=removeMin(node-&gt;left);
+		return node;
+	}
+	Node&lt;K, V&gt;* removeMax(Node&lt;K, V&gt;*node)
+	{
+		if (node-&gt;right == NULL)  //当前节点为最大值
+		{
+			Node* leftNode = node-&gt;left;
+			node-&gt;left = NULL;
+			delete node;
+			size--;
+			return leftNode;
+
+		}
+		node-&gt;right = removeMax(node-&gt;right);
+		return node;
+	}
+	
+	//任意删除节点
+	Node&lt;K, V&gt;* remove(Node&lt;K, V&gt;* node, K e)
+	{
+		if (node == NULL)
+			return NULL;
+		if (e &lt; node-&gt;key)
+		{
+			node-&gt;left=remove(node-&gt;left,e);
+			return node;
+		}
+		else if (e &gt; node-&gt;key)
+		{
+			node-&gt;right = remove(node-&gt;right, e);
+			return node;
+		}
+		else
+		{
+			if (node-&gt;left == NULL)
+			{
+				Node&lt;K,V&gt;* rightNode = node-&gt;right;
+				node-&gt;right = NULL;
+				delete node;
+				size--;
+				return rightNode;
+			}
+			if (node-&gt;right == NULL)
+			{
+				Node&lt;K, V&gt;* leftNode = node-&gt;left;
+				node-&gt;left = NULL;
+				delete node;
+				size--;
+				return leftNode;
+			}
+			Node&lt;T&gt;* successor = new Node&lt;T&gt;(*minElement(node-&gt;right));
+			successor-&gt;right = removeMin(node-&gt;right);
+			successor-&gt;left = node-&gt;left;
+			node-&gt;left = NULL;
+			node-&gt;right = NULL;
+			delete node;
+			return successor;
+		}
+	}
+	Node&lt;K, V&gt;* getNode(Node&lt;K,V&gt; *node,K key)
+	{
+		if (node == NULL)
+			return NULL;
+		if (key &lt; node-&gt;key)
+			getNode(node-&gt;left, key);
+		else if (key &gt; node-&gt;key)
+			getNode(node-&gt;right, key);
+		else
+			return node;
+	}
+
+private:
+	Node&lt;K,V&gt;* root;
+	int size;
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h1 id="完整的基于BST映射代码实现"><a href="#完整的基于BST映射代码实现" class="headerlink" title="完整的基于BST映射代码实现"></a>完整的基于BST映射代码实现</h1><pre class="line-numbers language-none"><code class="language-none">//BST.hpp
+# include &lt;iostream&gt;
+# include &lt;string&gt;
+# include &lt;stack&gt;
+# include &lt;queue&gt;
+# include &lt;time.h&gt;
+using namespace std;
+template &lt;typename K,typename V&gt; class BST;
+template &lt;class K,class V&gt;
+
+class BST
+{
+private:
+	template &lt;class K, class V&gt;
+	class Node {
+	public:
+		Node(K key, V value)
+		{
+			this-&gt;key = key;
+			this-&gt;value = value;
+			height = 1;  //初始为叶子节点
+			left = NULL;
+			right = NULL;
+		}
+
+	public:
+		K key;
+		V value;
+		Node&lt;K, V&gt;* left;
+		Node&lt;K, V&gt;* right;
+		int height;
+	};
+public:
+
+	
+
+
+	BST()
+	{
+		root = NULL;
+		size = 0;
+	}
+	
+	
+	inline int Size()
+	{
+		return size;
+	}
+	V get(K key)
+	{
+		V ret=getNode(root, key)-&gt;value;
+		return ret;
+	}
+	void add(K key,V value)  //向二分搜索树添加新的元素e 
+	{
+		/*第一版
+		if(root==NULL)// 特殊处理
+		{
+			root=new Node(e);
+			size++;
+		}else
+			add(root,e);*/
+			/*第二版*/
+		root = add(root, key,value);
+	}
+	bool contains(K e)
+	{
+		return contains(root, e);
+	}
+	void preOrder()
+	{
+		preOrder(root);
+
+	}
+	void preOrderNR()
+	{
+		stack&lt;Node&lt;K,V&gt;*&gt; stack;
+		stack.push(root);
+		while (!stack.empty())
+		{
+			Node&lt;K,V&gt;* cur = stack.top();;
+			stack.pop();
+			cout &lt;&lt; cur-&gt;key &lt;&lt; " ";
+			if (cur-&gt;left != NULL)
+				stack.push(cur-&gt;left);
+			if (cur-&gt;right != NULL)
+				stack.push(cur-&gt;right);
+		}
+	}
+	void inOrder()
+	{
+		inOrder(root);
+	}
+	void postOrder()  //应用:内存释放方面,先将孩子节点的内存都释放干净，再释放根节点
+	{
+		postOrder(root);
+	}
+	//层次遍历(广度优先遍历) 
+	void levelOrder()
+	{
+		queue&lt;Node&lt;K,V&gt;*&gt; q;
+		q.push(root);
+		while (!q.empty())
+		{
+			Node&lt;K,V&gt;* cur = q.front();
+			q.pop();
+			cout &lt;&lt; cur-&gt;key &lt;&lt; " ";
+			if (cur-&gt;left != NULL)
+			{
+				q.push(cur-&gt;left);
+			}
+			if (cur-&gt;right != NULL)
+				q.push(cur-&gt;right);
+		}
+
+
+
+	}
+	K minElement()
+	{
+		if (!size)
+			throw "BST is empty";
+		return minElement(root)-&gt;key;
+
+	}
+	K maxElement()
+	{
+		if (!size)
+			throw "BST is empty";
+		maxElement(root)-&gt;key;
+	}
+	string toString()
+	{
+		string val;
+		generateBSTString(root, 0, val);
+		return val;
+	}
+
+	K removeMin()
+	{
+		K val = minElement();
+		root = removeMin(root);
+		return val;
+	}
+	K removeMax()
+	{
+		K val = maxElement();
+		root = removeMax(root);
+		return val;
+	}
+	void remove(K val)
+	{
+		root = remove(root, val);
+	}
+	bool isBST()
+	{
+		vector&lt;K&gt; keys;
+		inOrder(root, keys);
+		for (int i = 1; i &lt; keys.size(); i++)
+		{
+			if (keys[i] &lt; keys[i - 1])
+				return false;
+		}
+		return true;
+	}
+
+
+
+private:
+
+	Node&lt;K, V&gt;* getNode(Node&lt;K, V&gt;* node, K key)
+	{
+		if (node == NULL)
+			return NULL;
+		if (key &lt; node-&gt;key)
+			return getNode(node-&gt;left, key);
+		else if (key &gt; node-&gt;key)
+			return getNode(node-&gt;right, key);
+		else
+			return node;
+	}
+	Node&lt;K,V&gt;* add(Node&lt;K,V&gt;* node, K key,V value)
+	{
+		if (node == NULL)
+		{
+			size++;
+			return new Node&lt;K,V&gt;(key,value);
+		}
+		if (key &lt; node-&gt;key)
+			node-&gt;left = add(node-&gt;left, key,value);
+		else if (key &gt; node-&gt;key)
+			node-&gt;right = add(node-&gt;right, key, value);
+		return node;
+	}
+	bool contains(Node&lt;K,V&gt;* node, K e)
+	{
+		if (node == NULL)
+			return false;
+		if (node-&gt;key == e)
+			return true;
+		else if (node-&gt;key &lt; e)
+			return contains(node-&gt;left, e);
+		else
+			return contains(node-&gt;right, e);
+	}
+
+	void preOrder(Node&lt;K,V&gt;* node)
+	{
+		if (node == NULL)
+			return;
+		cout &lt;&lt; node-&gt;key &lt;&lt; " ";
+		preOrder(node-&gt;left);
+		preOrder(node-&gt;right);
+	}
+	void inOrder(Node&lt;K,V&gt;* node)
+	{
+		if (node == NULL)
+			return;
+
+		inOrder(node-&gt;left);
+		cout &lt;&lt; node-&gt;key &lt;&lt; " ";
+		inOrder(node-&gt;right);
+	}
+	void inOrder(Node&lt;K, V&gt;* node, vector&lt;K&gt;&amp; keys)
+	{
+		if (node == NULL)
+			return;
+
+		inOrder(node-&gt;left,keys);
+		keys.push_back(node-&gt;key);
+		inOrder(node-&gt;right, keys);
+
+
+	}
+	void postOrder(Node&lt;K,V&gt;* node)
+	{
+		if (node == NULL)
+			return;
+
+		postOrder(node-&gt;left);
+		postOrder(node-&gt;right);
+		cout &lt;&lt; node-&gt;key &lt;&lt; " ";
+
+	}
+	//打印输出函数
+	void  generateBSTString(Node&lt;K,V&gt;* node, int depth, string&amp; str)
+	{
+		if (node == NULL)
+		{
+			str += generateDepthString(depth) + "null\n";
+			return;
+
+
+		}
+
+		str = str + generateDepthString(depth) + to_string(node-&gt;key) + "\n";
+		generateBSTString(node-&gt;left, depth + 1, str);
+		generateBSTString(node-&gt;right, depth + 1, str);
+	}
+	string generateDepthString(int depth)
+	{
+		string str;
+		for (int i = 0; i &lt; depth; i++)
+			str += "--";
+		return str;
+
+	}
+	Node&lt;K,V&gt;* minElement(Node&lt;K,V&gt;* node)
+	{
+		if (node-&gt;left == NULL)
+			return node;
+		return minElement(node-&gt;left);
+	}
+
+	Node&lt;K,V&gt;* maxElement(Node&lt;K,V&gt;* node)
+	{
+		if (node-&gt;right == NULL)
+			return node;
+		return minElement(node-&gt;right);
+	}
+	//删除以node为根的二分搜索树中的最小节点
+	//返回删除节点后新的二分搜索树的根
+	Node&lt;K,V&gt;* removeMin(Node&lt;K,V&gt;* node)
+	{
+		if (node-&gt;left == NULL)
+		{
+			Node&lt;K,V&gt;* rightNode = node-&gt;right;
+			node-&gt;right = NULL;
+			delete node;
+			size--;
+			return rightNode;
+		}
+		node-&gt;left = removeMin(node-&gt;left);
+		return node;
+	}
+	Node&lt;K,V&gt;* removeMax(Node&lt;K,V&gt;* node)
+	{
+		if (node-&gt;right == NULL)  //当前节点为最大值
+		{
+			Node* leftNode = node-&gt;left;
+			node-&gt;left = NULL;
+			delete node;
+			size--;
+			return leftNode;
+
+		}
+		node-&gt;right = removeMax(node-&gt;right);
+		return node;
+	}
+
+	//任意删除节点
+	Node&lt;K,V&gt;* remove(Node&lt;K,V&gt;* node, K e)
+	{
+		if (node == NULL)
+			return NULL;
+		if (e &lt; node-&gt;key)
+		{
+			node-&gt;left = remove(node-&gt;left, e);
+			return node;
+		}
+		else if (e &gt; node-&gt;key)
+		{
+			node-&gt;right = remove(node-&gt;right, e);
+			return node;
+		}
+		else
+		{
+			if (node-&gt;left == NULL)
+			{
+				Node&lt;K,V&gt;* rightNode =node-&gt;right;
+				node-&gt;right = NULL;
+				delete node;
+				node = NULL;
+				size--;
+				return rightNode;
+			}
+			if (node-&gt;right == NULL)
+			{
+				Node&lt;K,V&gt;* leftNode = node-&gt;left;
+				node-&gt;left = NULL;
+				delete node;
+				node = NULL;
+				size--;
+				return leftNode;
+			}  //有两个孩子节点且都不为空
+			Node&lt;K,V&gt;* successor = new Node&lt;K,V&gt;(*minElement(node-&gt;right));
+			successor-&gt;right = removeMin(node-&gt;right);
+			successor-&gt;left = node-&gt;left;
+			node-&gt;left = NULL;
+			node-&gt;right = NULL;
+			delete node;
+			node = NULL;
+			return successor;
+		}
+	}
+
+
+private:
+	
+	Node&lt;K, V&gt;* root;
+	int size;
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>set和map的二分搜索树实现和链表实现的方式其实都很简单,首先需要声明个set/map接口后继承，然后实现接口中的方法即可。二分搜索树只能应用于有序集合/键 中，链表都可以。</p>
+<p>本身二分搜索树就满足集合的性质(值唯一),如果要改写为映射的话实际上也很简单,在每个节点中添加一个值属性，并改写节点的构造函数.</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Skykens</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/er-fen-sou-suo-shu/">http://example.com/er-fen-sou-suo-shu/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Skykens</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/zi-ping-heng-er-cha-shu-1-avl-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="自平衡二叉树(1) -- AVL树">
+                        
+                        <span class="card-title">自平衡二叉树(1) -- AVL树</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/trie-zi-dian-shu-or-qian-zhui-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Trie 字典树or前缀树">
+                        
+                        <span class="card-title">Trie 字典树or前缀树</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                    数据结构
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: BanThink 纯粹写写文字的地方~<br />'
+            + 'Author: Skykens<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Skykens</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "7";
+                    var startDate = "10";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/skykens" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:470798745@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=4700798745" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 4700798745" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 07, 10, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

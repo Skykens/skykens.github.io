@@ -1,0 +1,1869 @@
+<!DOCTYPE HTML>
+<html lang="ch">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="深入理解select 模型     （源码分析 ）, BanThink 纯粹写写文字的地方~">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>深入理解select 模型     （源码分析 ） | BanThink 纯粹写写文字的地方~</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="BanThink 纯粹写写文字的地方~" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">BanThink 纯粹写写文字的地方~</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>Index</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>Tags</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>Categories</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>Archives</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>About</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>Contact</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>Friends</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="Search" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">BanThink 纯粹写写文字的地方~</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			Index
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			Tags
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			Categories
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			Archives
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			About
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			Friends
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">深入理解select 模型     （源码分析 ）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/" class="post-category">
+                                后台开发
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2020-02-01
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p> 本篇主要参照 [深入select多路复用内核源码加驱动实现][1] 和 [Linux内核select源码剖析][2]</p>
+</blockquote>
+<h1 id="select"><a href="#select" class="headerlink" title="select"></a>select</h1><p>下面这些是用户态下可调用的API函数</p>
+<pre class="line-numbers language-none"><code class="language-none"># include &lt;sys/select.h&gt;
+int select(int nfds, fd_set *readfds, fd_set *writefds, 
+           fd_set *exceptfds, struct timeval *timeout);
+void FD_CLR(int fd, fd_set *set);
+int  FD_ISSET(int fd, fd_set *set);
+void FD_SET(int fd, fd_set *set);
+void FD_ZERO(fd_set *set);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中以大写的FD_为前缀的函数并非系统调用，而是几个对fd_set进行相关位操作的宏，对应原型定义如下<strong>（/usr/include/sys/select.h和/usr/include/bits/select.h）</strong>：</p>
+<pre class="line-numbers language-none"><code class="language-none">typedef long int __fd_mask;
+ 
+# define __NFDBITS       (8 * (int) sizeof (__fd_mask))
+# define __FD_ELT(d)     ((d) / __NFDBITS)
+# define __FD_MASK(d)    ((__fd_mask) 1 &lt;&lt; ((d) % __NFDBITS))
+ 
+/* fd_set for select and pselect.  */
+ typedef struct
+   {
+     /* XPG4.2 requires this member name.  Otherwise avoid the name
+        from the global namespace.  */
+ # ifdef __USE_XOPEN
+     __fd_mask fds_bits[__FD_SETSIZE / __NFDBITS];
+ # define __FDS_BITS(set) ((set)-&gt;fds_bits)
+ # else
+     __fd_mask __fds_bits[__FD_SETSIZE / __NFDBITS];
+ # define __FDS_BITS(set) ((set)-&gt;__fds_bits)
+ # endif
+   } fd_set;
+ 
+/* Maximum number of file descriptors in `fd_set'.  */
+# define FD_SETSIZE              __FD_SETSIZE  //这是指定 最大数量的文件描述符
+ 
+// sys/select.h
+# define FD_SET(fd, fdsetp)      __FD_SET (fd, fdsetp)
+# define FD_CLR(fd, fdsetp)      __FD_CLR (fd, fdsetp)
+# define FD_ISSET(fd, fdsetp)    __FD_ISSET (fd, fdsetp)
+# define FD_ZERO(fdsetp)         __FD_ZERO (fdsetp)
+ 
+// bits/select.h
+# define __FD_ZERO(fdsp) \
+  do {                                                                        \
+    int __d0, __d1;                                                           \
+    __asm__ __volatile__ ("cld; rep; " __FD_ZERO_STOS                         \
+                          : "=c" (__d0), "=D" (__d1)                          \
+                          : "a" (0), "0" (sizeof (fd_set)                     \
+                                          / sizeof (__fd_mask)),              \
+                            "1" (&amp;__FDS_BITS (fdsp)[0])                       \
+                          : "memory");                                        \
+  } while (0)
+ 
+//实际调用的宏
+# define __FD_SET(d, set) \  
+   ((void) (__FDS_BITS (set)[__FD_ELT (d)] |= __FD_MASK (d)))
+# define __FD_CLR(d, set) \
+   ((void) (__FDS_BITS (set)[__FD_ELT (d)] &amp;= ~__FD_MASK (d)))
+# define __FD_ISSET(d, set) \
+   ((__FDS_BITS (set)[__FD_ELT (d)] &amp; __FD_MASK (d)) != 0)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>上面可以看到fd_set结构体的定义实际包含的是fds_bits位数组，其大小固定，由FD_SETSIZE指定（/usr/include/bits/typesizes.h中），在当前内核中数值为1024，可见每次select系统调用可监听处理的文件描述符最大数量为1024。<br>其中宏定义体中如__FD_SET对应的（void），作用为消除编译器对类型不一致相关的警告，并无其它附加意义。</p>
+<p>言归正传，找到用户态下select系统调用入口为为：</p>
+<p>SYSCALL_DEFINE5(select, int, n, fd_set __user *, inp, fd_set __user *, outp,<br>        fd_set __user *, exp, struct timeval __user *, tvp)<br>{<br>    struct timespec end_time, *to = NULL;<br>    struct timeval tv;<br>    int ret;</p>
+<pre><code>if (tvp) {
+    if (copy_from_user(&amp;tv, tvp, sizeof(tv)))
+        return -EFAULT;
+
+    to = &amp;end_time;
+    if (poll_select_set_timeout(to,
+            tv.tv_sec + (tv.tv_usec / USEC_PER_SEC),
+            (tv.tv_usec % USEC_PER_SEC) * NSEC_PER_USEC))
+        return -EINVAL;
+}
+
+ret = core_sys_select(n, inp, outp, exp, to);
+ret = poll_select_copy_remaining(&amp;end_time, tvp, 1, ret);
+
+return ret;
+</code></pre>
+<p>}</p>
+<h2 id="sys-select"><a href="#sys-select" class="headerlink" title="sys_select"></a>sys_select</h2><p>言归正传，找到用户态下select系统调用入口为为：</p>
+<p>这里主要做的事情：</p>
+<ol>
+<li>将用户设置的超时时间从用户态拷贝到内核态</li>
+<li>对时间进行转换</li>
+<li>调用core_sys_select</li>
+<li>将剩余时间拷贝到用户进程时间<pre class="line-numbers language-none"><code class="language-none"># undef __NFDBITS
+# define __NFDBITS    (8 * sizeof(unsigned long))
+
+# undef __FD_SETSIZE
+# define __FD_SETSIZE    1024
+
+# undef __FDSET_LONGS
+# define __FDSET_LONGS    (__FD_SETSIZE/__NFDBITS)
+
+ 
+typedef struct {
+    unsigned longfds_bits [__FDSET_LONGS];   //1024个bit。可以看到可以支持1024个描述符
+} __kernel_fd_set;
+
+//系统调用（内核态）
+//参数为 maxfd, r_fds, w_fds, e_fds, timeout。
+asmlinkage long sys_select(int n, fd_set __user *inp, fd_set __user *outp, fd_set __user *exp, struct timeval __user *tvp)
+{
+    s64 timeout = -1;
+    struct timeval tv;
+    int ret;
+
+    //将超时时间换成jiffies
+    if (tvp) {
+        if (copy_from_user(&amp;tv, tvp, sizeof(tv))) //将用户态参数拷贝到内核态
+            return -EFAULT;
+         if (tv.tv_sec &lt; 0 || tv.tv_usec &lt; 0)
+            return -EINVAL;
+         /* Cast to u64 to make GCC stop complaining */
+        if ((u64)tv.tv_sec &gt;= (u64)MAX_INT64_SECONDS)
+            timeout = -1;    /* infinite */
+        else {
+            timeout = ROUND_UP(tv.tv_usec, USEC_PER_SEC/HZ);
+            timeout += tv.tv_sec * HZ;
+        }
+    }
+    // (***) 调用 core_sys_select
+    ret = core_sys_select(n, inp, outp, exp, &amp;timeout);
+
+    //将剩余时间拷贝回用户空间进程
+    if (tvp) {
+        struct timeval rtv;
+        if (current-&gt;personality &amp; STICKY_TIMEOUTS) //判断当前环境是否支持修改超时时间（不确定）
+            goto sticky;
+        rtv.tv_usec = jiffies_to_usecs(do_div((*(u64*)&amp;timeout), HZ));
+        rtv.tv_sec = timeout;
+        if (timeval_compare(&amp;rtv, &amp;tv) &gt;= 0)
+            rtv = tv;
+        if (copy_to_user(tvp, &amp;rtv, sizeof(rtv))) {
+sticky:
+            /*
+             * 如果应用程序将timeval值放在只读存储中，
+             * 我们不希望在成功完成select后引发错误（修改timeval）
+             * 但是，因为没修改timeval，所以我们不能重启这个系统调用。
+             */
+            if (ret == -ERESTARTNOHAND)
+                ret = -EINTR;
+        }
+    }
+    return ret;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h2 id="core-sys-select"><a href="#core-sys-select" class="headerlink" title="core_sys_select"></a>core_sys_select</h2><p>上面的都是时间方面的准备工作 , 对于需要监听的集合的操作是通过core_sys_select 来进行的</p>
+<pre class="line-numbers language-none"><code class="language-none">
+//主要的工作在这个函数中完成
+staticint core_sys_select(int n, fd_set __user *inp, fd_set __user *outp, fd_set __user *exp, s64 *timeout)
+{
+    fd_set_bits fds;
+    /*  fd_set_bits 结构如下：
+     typedef struct {
+         unsigned long *in, *out, *ex;
+         unsigned long *res_in, *res_out, *res_ex;
+    } fd_set_bits;
+
+    这个结构体中定义的全是指针，这些指针都是用来指向描述符集合的。
+
+     */
+
+    void *bits;
+    int ret, max_fds;
+    unsigned int size;
+    struct fdtable *fdt;
+    /* Allocate small arguments on the stack to save memory and be faster 先尝试使用栈（因为栈省内存且快速）*/
+
+    long stack_fds[SELECT_STACK_ALLOC/sizeof(long)];  // SELECT_STACK_ALLOC=256
+    //执行后stack_fds= 32  (sizeof(long)=8)
+    ret = -EINVAL;
+    if (n &lt; 0)   //传入的描述符无效 
+        goto out_nofds;
+
+    /* max_fds can increase, so grab it once to avoid race */
+     //最大描述符是会改变的,加锁避免竞争
+    rcu_read_lock(); //rcu锁
+
+    fdt = files_fdtable(current-&gt;files); //读取文件描述符表
+    /*  struct fdtable 结构如下：
+    struct fdtable {
+       unsigned int max_fds;
+       struct file **fd;
+       ...
+    };
+     */
+
+    max_fds = fdt-&gt;max_fds; //从files结构中获取最大值（当前进程能够处理的最大文件数目）
+    rcu_read_unlock();
+    if (n &gt; max_fds)
+// 如果传入的n大于当前进程最大的文件描述符，给予修正
+        n = max_fds;
+
+    /* 我们需要使用6倍于最大描述符的描述符个数,
+     * 分别是in/out/exception（参见fd_set_bits结构体）,
+     * 并且每份有一个输入和一个输出(用于结果返回) */
+    size = FDS_BYTES(n);// 以一个文件描述符占一bit来计算，传递进来的这些fd_set需要用掉多少个字
+    bits = stack_fds;
+    if (size &gt; sizeof(stack_fds) / 6) { // 除以6，因为每个文件描述符需要6个bitmaps上的位。
+        //栈不能满足，先前的尝试失败，只能使用kmalloc方式
+        /* Not enough space in on-stack array; must use kmalloc */
+        ret = -ENOMEM;
+        bits = kmalloc(6 * size, GFP_KERNEL);
+        if (!bits)
+            goto out_nofds;
+    }
+    //设置fds
+    fds.in      = bits;
+    fds.out     = bits +   size;
+    fds.ex      = bits + 2*size;
+    fds.res_in  = bits + 3*size;
+    fds.res_out = bits + 4*size;
+    fds.res_ex  = bits + 5*size;
+
+    // get_fd_set仅仅调用copy_from_user从用户空间拷贝了fd_se
+    if ((ret = get_fd_set(n, inp, fds.in)) ||
+        (ret = get_fd_set(n, outp, fds.out)) ||
+        (ret = get_fd_set(n, exp, fds.ex)))
+        goto out;
+
+    // 对这些存放返回状态的字段清0
+    zero_fd_set(n, fds.res_in);
+    zero_fd_set(n, fds.res_out);
+    zero_fd_set(n, fds.res_ex);
+
+    // 执行do_select，完成监控功能
+    ret = do_select(n, &amp;fds, timeout);
+    if (ret &lt; 0) // 有错误
+        goto out;
+    if (!ret) {  // 超时返回，无设备就绪
+        ret = -ERESTARTNOHAND;
+        if (signal_pending(current))
+            goto out;
+        ret = 0;
+    }
+
+    if (set_fd_set(n, inp, fds.res_in) ||
+        set_fd_set(n, outp, fds.res_out) ||
+        set_fd_set(n, exp, fds.res_ex))
+        ret = -EFAULT;
+
+out:
+    if (bits != stack_fds)
+        kfree(bits);
+
+out_nofds:
+    return ret;
+}
+
+
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>![core_select.png][3]</p>
+<h2 id="do-select"><a href="#do-select" class="headerlink" title="do_select"></a>do_select</h2><p>到目前为止,之前所有的准备工作都已经做完了,现在我们需要到真正运行的do_select 中一探究竟.但是在此之前，我们需要知道源码中比较重要的四个结构体：</p>
+<pre class="line-numbers language-none"><code class="language-none">
+struct poll_wqueues
+
+struct poll_table_page
+
+struct poll_table_entry
+
+struct poll_table_struct。
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>每一个调用select()系统调用的应用进程都会存在一个struct poll_wqueues结构体，用来统一辅佐实现这个进程中所有待监测的fd的轮询工作，后面所有的工作和都这个结构体有关，所以它非常重要。</p>
+<pre class="line-numbers language-none"><code class="language-none">struct poll_wqueues {
+       poll_table pt;
+       struct poll_table_page *table;
+       struct task_struct *polling_task; //保存当前调用select的用户进程struct task_struct结构体
+       int triggered;            // 当前用户进程被唤醒后置成1，以免该进程接着进睡眠
+       int error;                 // 错误码
+       int inline_index;        // 数组inline_entries的引用下标
+       struct poll_table_entry inline_entries[N_INLINE_POLL_ENTRIES];
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<p>实际上结构体<strong>poll_wqueues</strong>内嵌的<strong>poll_table_entry</strong>数组<strong>inline_entries[]</strong> 的大小是有限的，如果空间不够用，后续会动态申请物理内存页以链表的形式挂载<strong>poll_wqueues.table</strong>上统一管理。接下来的两个结构体就和这项内容密切相关：</p>
+<pre class="line-numbers language-none"><code class="language-none">struct poll_table_page { // 申请的物理页都会将起始地址强制转换成该结构体指针
+       struct poll_table_page   *next;      // 指向下一个申请的物理页
+       struct poll_table_entry  *entry;     // 指向entries[]中首个待分配(空的) poll_table_entry地址
+       struct poll_table_entry  entries[0]; // 该page页后面剩余的空间都是待分配的poll_table_entry结构体
+};
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>对每一个fd调用<strong>fop-&gt;poll() =&gt; poll_wait() =&gt; __pollwait()<strong>都会先从</strong>poll_wqueues.inline_entries[]<strong>中分配一个</strong>poll_table_entry</strong>结构体，直到该数组用完才会分配物理页挂在链表指针<strong>poll_wqueues.table</strong>上然后才会分配一个<strong>poll_table_entry</strong>结构体（poll_get_entry函数）。</p>
+<p>poll_table_entry具体用处：函数__pollwait声明如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">static void __pollwait(struct file *filp, wait_queue_head_t *wait_address, poll_table *p);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<p>该函数调用时需要3个参数，第一个是特定fd对应的file结构体指针，第二个就是特定fd对应的硬件驱动程序中的等待队列头指针，第3个是调用select()的应用进程中poll_wqueues结构体的poll_table项（该进程监测的所有fd调用fop-&gt;poll函数都用这一个poll_table结构体）。</p>
+<pre class="line-numbers language-none"><code class="language-none">struct poll_table_entry {
+       struct file     *filp;                 // 指向特定fd对应的file结构体;
+       unsigned long   key;                   // 等待特定fd对应硬件设备的事件掩码，如POLLIN、 POLLOUT、POLLERR;
+       wait_queue_t    wait;                  // 代表调用select()的应用进程，等待在fd对应设备的特定事件 (读或者写)的等待队列头上的等待队列项;
+       wait_queue_head_t   *wait_address;     // 设备驱动程序中特定事件的等待队列头(该fd执行fop-&gt;poll，需要等待时在哪等，所以叫等待地址)；
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+<pre class="line-numbers language-none"><code class="language-none"># define POLLIN_SET (POLLRDNORM | POLLRDBAND | POLLIN | POLLHUP | POLLERR)
+# define POLLOUT_SET (POLLWRBAND | POLLWRNORM | POLLOUT | POLLERR)
+# define POLLEX_SET (POLLPRI)
+
+int do_select(int n, fd_set_bits *fds, s64 *timeout)
+{
+    struct poll_wqueues table;
+
+    /*
+     struct poll_wqueues {
+          poll_table pt;
+          struct poll_table_page *table;
+          struct task_struct *polling_task; //保存当前调用select的用户进程struct task_struct结构体
+          int triggered;         // 当前用户进程被唤醒后置成1，以免该进程接着进睡眠
+          int error;             // 错误码
+          int inline_index;      // 数组inline_entries的引用下标
+          struct poll_table_entry inline_entries[N_INLINE_POLL_ENTRIES];
+    };
+
+     */
+
+    poll_table *wait;
+    int retval, i;
+    rcu_read_lock();
+    //根据已经设置好的fd位图检查用户打开的fd, 要求对应fd必须打开, 并且返回最大的fd。
+    retval = max_select_fd(n, fds);
+    rcu_read_unlock();
+    if (retval &lt; 0)
+        return retval;
+
+    n = retval;
+    /* 一些重要的初始化：
+       poll_wqueues.poll_table.qproc函数指针初始化，
+       该函数是驱动程序中poll函数（fop-&gt;poll）实现中必须要调用的poll_wait()中使用的函数。  */
+    poll_initwait(&amp;table);
+/*
+
+void poll_initwait(struct poll_wqueues *pwq)
+{
+    // 设置回调函数 __pollwait
+    init_poll_funcptr(&amp;pwq-&gt;pt, __pollwait);
+    pwq-&gt;error = 0;
+    pwq-&gt;table = NULL;
+    pwq-&gt;inline_index = 0;
+}
+
+static inline void init_poll_funcptr(poll_table *pt, poll_queue_proc qproc)
+{
+    pt-&gt;qproc = qproc;
+}
+这个函数实现很关键，这里 init_poll_funcptr 初始化回调函数为 __pollwait, 后面轮询会回调这个函数，然后通过这个函数把进程添加到对应的监听文件等待队列，当有事件到来时，就会唤醒这个进程。
+
+*/
+
+    wait = &amp;table.pt;   //这里把 wait 设置为这个回调函数的指针
+
+
+    if (!*timeout)//当 timeout=0 的时候把wait设置为 0，这个可以实现非阻塞的功能
+        wait = NULL;       
+    retval = 0;
+
+    for (;;) {
+        unsigned long *rinp, *routp, *rexp, *inp, *outp, *exp;
+        long __timeout;
+        set_current_state(TASK_INTERRUPTIBLE);
+        inp = fds-&gt;in; outp = fds-&gt;out; exp = fds-&gt;ex;
+        rinp = fds-&gt;res_in; routp = fds-&gt;res_out; rexp = fds-&gt;res_ex;
+        // 所有n个fd的循环
+        for (i = 0; i &lt; n; ++rinp, ++routp, ++rexp) {
+            unsigned long in, out, ex, all_bits, bit = 1, mask, j;
+            unsigned long res_in = 0, res_out = 0, res_ex = 0;
+            const struct file_operations *f_op = NULL;
+            struct file *file = NULL;
+             // 先取出当前循环周期中的32（设long占32位）个文件描述符对应的bitmaps
+            in = *inp++; out = *outp++; ex = *exp++;
+            all_bits = in | out | ex;// 组合一下，有的fd可能只监测读，或者写，或者err，或者同时都监测
+            if (all_bits == 0) {
+                i += __NFDBITS; //如果这个字没有待查找的描述符, 跳过这个长字(32位，__NFDBITS=32)，取下一个32个fd的循环中
+                continue;
+
+            }
+            // 本次32个fd的循环中有需要监测的状态存在
+            for (j = 0; j &lt; __NFDBITS; ++j, ++i, bit &lt;&lt;= 1) {
+                int fput_needed;
+                if (i &gt;= n)
+                   break;
+                if (!(bit &amp; all_bits)) // bit每次循环后左移一位的作用在这里，用来跳过没有状态监测的fd
+                   continue;
+
+                file = fget_light(i, &amp;fput_needed);//得到file结构指针，并增加引用计数字段f_count
+                if (file) {// 如果file存在（这个文件描述符对应的文件确实打开了）
+                    f_op = file-&gt;f_op;
+                    mask = DEFAULT_POLLMASK;
+                // 这里会调用 struct file*实现的poll函数进行轮询
+                    if (f_op &amp;&amp; f_op-&gt;poll) //这个文件对应的驱动程序提供了poll函数（fop-&gt;poll）。
+                        mask = (*f_op-&gt;poll)(file, retval ? NULL : wait);//调用驱动程序中的poll函数。
+                    /*  调用驱动程序中的poll函数，以evdev驱动中的evdev_poll()为例
+                     *  该函数会调用函数poll_wait(file, &amp;evdev-&gt;wait, wait)，
+                     *  继续调用__pollwait()回调来分配一个poll_table_entry结构体，
+                     *  该结构体有一个内嵌的等待队列项，
+                     *  设置好wake时调用的回调函数后将其添加到驱动程序中的等待队列头中。  */
+
+                    fput_light(file, fput_needed);  // 释放file结构指针，实际就是减小他的一个引用计数字段f_count。
+                    //记录结果。poll函数返回的mask是设备的状态掩码。
+                    if ((mask &amp; POLLIN_SET) &amp;&amp; (in &amp; bit)) {
+                        res_in |= bit; //如果是这个描述符可读, 将这个位置位
+                        retval++;   //返回描述符个数加1
+                    }
+
+                    if ((mask &amp; POLLOUT_SET) &amp;&amp; (out &amp; bit)) {
+                        res_out |= bit;
+                        retval++;
+                    }
+
+                    if ((mask &amp; POLLEX_SET) &amp;&amp; (ex &amp; bit)) {
+                        res_ex |= bit;
+                        retval++;
+                    }
+                }
+                /*
+                 *  cond_resched()将判断是否有进程需要抢占当前进程，
+                 *  如果是将立即发生调度，这只是为了增加强占点。
+                 *  （给其他紧急进程一个机会去执行，增加了实时性）
+                 *  在支持抢占式调度的内核中（定义了CONFIG_PREEMPT），
+                 *  cond_resched是空操作。
+                 */
+                cond_resched();
+            }
+
+            //返回结果
+            if (res_in)
+                *rinp = res_in;
+            if (res_out)
+                *routp = res_out;
+            if (res_ex)
+               *rexp = res_ex;
+        }
+        wait = NULL;
+        if (retval || !*timeout || signal_pending(current)) // signal_pending(current)检查当前进程是否有信号要处理
+            break;
+        if(table.error) {
+            retval = table.error;
+            break;
+        }
+ 
+        if (*timeout &lt; 0) {
+            /* Wait indefinitely 无限期等待*/
+            __timeout = MAX_SCHEDULE_TIMEOUT;
+        } elseif (unlikely(*timeout &gt;= (s64)MAX_SCHEDULE_TIMEOUT - 1)) {
+            /* Wait for longer than MAX_SCHEDULE_TIMEOUT. Do it in a loop */
+            __timeout = MAX_SCHEDULE_TIMEOUT - 1;
+            *timeout -= __timeout;
+        } else {
+            __timeout = *timeout;
+            *timeout = 0;
+       }
+
+         /* schedule_timeout 用来让出CPU；
+          * 在指定的时间用完以后或者其它事件到达并唤醒进程（比如接收了一个信号量）时，
+          * 该进程才可以继续运行  */
+        __timeout = schedule_timeout(__timeout);
+        if (*timeout &gt;= 0)
+            *timeout += __timeout;
+    }
+    __set_current_state(TASK_RUNNING);
+
+    poll_freewait(&amp;table);
+    return retval;
+}
+
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>![do_select.png][4]</p>
+<blockquote>
+<p>引用自论[select的实现][5]</p>
+</blockquote>
+<p>上面的实现看起来一上来就是轮询，假设所有的文件描述符都没有数据可以读写，会怎么样呢? 理论上应该需要监听所有的文件描述符，当有其中一个有数据到来时就唤醒进程。那么哪个地方把进程添加到文件描述符对应的监听列表呢?</p>
+<p>对于 tcp 的文件描述符, 他的 poll 函数实现（跟我们上面的poll不是一个东西），调用了sock_poll, 里面又调用了 tcp_poll, tcp_poll 里面会执行下面步骤:</p>
+<p>调用 poll_wait<br>查询当前文件描述符的状态，是否可读写。</p>
+<pre class="line-numbers language-none"><code class="language-none">unsigned int tcp_poll(struct file *file, struct socket *sock, poll_table *wait)
+{
+    ...
+    poll_wait(file, sk-&gt;sk_sleep, wait);
+    ...
+}
+
+static inline void poll_wait(struct file * filp, wait_queue_head_t * wait_address, poll_table *p)
+{
+    if (p &amp;&amp; wait_address)
+        p-&gt;qproc(filp, wait_address, p);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>回到上面的问题，就是通过 poll_wait 函数把当前进程挂到 sk-&gt;sk_sleep 这个队列里面来，当有读写事件到来时，就会唤醒这个队列里面的进程，让他们重新运行，来轮询读写数据。</p>
+<p>而这个 qproc 函数就是上面 poll_initwait 函数初始化的回调函数 __pollwait。</p>
+<pre class="line-numbers language-none"><code class="language-none">static void __pollwait(struct file *filp, wait_queue_head_t *wait_address,
+                poll_table *p)
+{
+    struct poll_table_entry *entry = poll_get_entry(p);
+    if (!entry)
+        return;
+    get_file(filp);
+    entry-&gt;filp = filp;
+    entry-&gt;wait_address = wait_address;
+    init_waitqueue_entry(&amp;entry-&gt;wait, current);
+
+    // 新添加的进程添加到设备事件触发等待队列
+    add_wait_queue(wait_address, &amp;entry-&gt;wait);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这个函数实现就是把当前进程挂到 sk-&gt;sleep 队列。 上面还可以看到调用回调函数的条件必须是 wait_address 和 p 不为空，也就是说如果不想把文件描述挂到监听列表，只需要把 p 这个参数设置为 NULL.</p>
+<p>因为进程挂到某一个文件的监听列表，只要挂一次即可。所以第一次循环之后把所有的文件描述符挂一遍之后就会把这个参数设置为 NULL。</p>
+<p>还有两种情况也会把这个参数设置为 NULL:</p>
+<p>1、 已经有文件描述符有读写事件，不需要再挂，因为一遍轮询就会退出，取消所有监听。</p>
+<pre class="line-numbers language-none"><code class="language-none">if (f_op &amp;&amp; f_op-&gt;poll)
+    mask = (*f_op-&gt;poll)(file, retval ? NULL : wait);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>2、 最上面提到的, timeout = 0, 会把 wait 参数为 NULL, 即不会有挂载行为，轮询一遍立即返回，不等待事件到来，类似 non-blocking 的效果。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>通过上面的叙述，我们能看到每一次轮询调用select都需要将 集合 从用户态拷贝到内核态中，当有时间发生的时候又需要再拷贝回来.当监听的数量多的时候这样效率极低，同时也需要重新将进程挂载到监听的文件描述符中.</p>
+<p>同时返回回来的时候并不知道有哪些事件有响应需要再重新轮询一遍.再次降低了效率.</p>
+<h2 id="EPOLL-的改进"><a href="#EPOLL-的改进" class="headerlink" title="EPOLL 的改进"></a>EPOLL 的改进</h2><p>进程挂载到监听的文件描述符只会挂一次。<br>用专门的链表来存储有事件到来的文件描述符，返回给用户进程，只需要拷贝这个链表。<br>使用红黑树来管理文件描述符，可以做到快速添加监听的文件描述符。</p>
+<h1 id="惊群效应"><a href="#惊群效应" class="headerlink" title="惊群效应"></a>惊群效应</h1><p>简言之，惊群现象就是多进程（多线程）在同时阻塞等待同一个事件的时候（休眠状态），如果等待的这个事件发生，那么他就会唤醒等待的所有进程（或者线程），但是最终却只可能有一个进程（线程）获得这个时间的“控制权”，对该事件进行处理，而其他进程（线程）获取“控制权”失败，只能重新进入休眠状态，这种现象和性能浪费就叫做惊群。</p>
+<p>这是因为这些进程都处在同一个监听等待队列中,当有事件响应的时候，内核会通知这个队列并唤醒队列中的所有进程。</p>
+<h2 id="惊群效应到底消耗了什么？"><a href="#惊群效应到底消耗了什么？" class="headerlink" title="惊群效应到底消耗了什么？"></a>惊群效应到底消耗了什么？</h2><ol>
+<li>系统对用户进程/线程频繁地做无效的调度，上下文切换系统性能大打折扣。</li>
+<li>为了确保只有一个进程得到资源，用户必须对资源操作进行加锁保护，进一步加大了系统开销。<br>&nbsp; &nbsp;&nbsp;&nbsp;是不是还是觉得不够深入，概念化？看下面：</li>
+</ol>
+<p>1、上下文切换（context&nbsp; switch）过高会导致cpu像个搬运工，频繁地在寄存器和运行队列之间奔波，更多的时间花在了进程（线程）切换，而不是在真正工作的进程（线程）上面。直接的消耗包括cpu寄存器要保存和加载（例如程序计数器）、系统调度器的代码需要执行。间接的消耗在于多核cache之间的共享数据。</p>
+<p>看一下：wiki上下文切换</p>
+<p>2、通过锁机制解决惊群效应是一种方法，在任意时刻只让一个进程（线程）处理等待的事件。但是锁机制也会造成cpu等资源的消耗和性能损耗。目前一些常见的服务器软件有的是通过锁机制解决的，比如nginx（它的锁机制是默认开启的，可以关闭）；还有些认为惊群对系统性能影响不大，没有去处理，比如lighttpd。</p>
+<p>  [1]: <a target="_blank" rel="noopener" href="https://my.oschina.net/fileoptions/blog/911091?tdsourcetag=s_pctim_aiomsg#">https://my.oschina.net/fileoptions/blog/911091?tdsourcetag=s_pctim_aiomsg#</a> h1_1<br>  [2]: <a target="_blank" rel="noopener" href="http://www.pandademo.com/2016/11/linux-kernel-select-source-dissect/?tdsourcetag=s_pctim_aiomsg">http://www.pandademo.com/2016/11/linux-kernel-select-source-dissect/?tdsourcetag=s_pctim_aiomsg</a><br>  [3]: <a target="_blank" rel="noopener" href="https://banthink.com/usr/uploads/2020/02/2227498139.png">https://banthink.com/usr/uploads/2020/02/2227498139.png</a><br>  [4]: <a target="_blank" rel="noopener" href="https://banthink.com/usr/uploads/2020/02/1227669105.png">https://banthink.com/usr/uploads/2020/02/1227669105.png</a><br>  [5]: <a target="_blank" rel="noopener" href="http://www.hulkdev.com/posts/select-io">http://www.hulkdev.com/posts/select-io</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        Author:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Skykens</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        Link:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/shen-ru-li-jie-select-mo-xing-yuan-ma-fen-xi/">http://example.com/shen-ru-li-jie-select-mo-xing-yuan-ma-fen-xi/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        Reprint policy:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    All articles in this blog are used except for special statements
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    reprint policy. If reproduced, please indicate source
+                    <a href="/about" target="_blank">Skykens</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/linuxepoll-mo-xing-xiang-jie-ji-yuan-ma-fen-xi-zhuan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Linux epoll模型详解及源码分析 ( 转)">
+                        
+                        <span class="card-title">Linux epoll模型详解及源码分析 ( 转)</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-02-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/" class="post-category">
+                                    后台开发
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/linux-io-mo-xing/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="Linux  I/O模型">
+                        
+                        <span class="card-title">Linux  I/O模型</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/" class="post-category">
+                                    后台开发
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + 'From: BanThink 纯粹写写文字的地方~<br />'
+            + 'Author: Skykens<br />'
+            + 'Link: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">Skykens</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "7";
+                    var startDate = "10";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/skykens" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:470798745@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=4700798745" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 4700798745" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<script language=javascript>
+    function siteTime() {
+        window.setTimeout("siteTime()", 1000);
+        var seconds = 1000;
+        var minutes = seconds * 60;
+        var hours = minutes * 60;
+        var days = hours * 24;
+        var years = days * 365;
+        var today = new Date();
+        var todayYear = today.getFullYear();
+        var todayMonth = today.getMonth() + 1;
+        var todayDate = today.getDate();
+        var todayHour = today.getHours();
+        var todayMinute = today.getMinutes();
+        var todaySecond = today.getSeconds();
+        /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+        year - 作为date对象的年份，为4位年份值
+        month - 0-11之间的整数，做为date对象的月份
+        day - 1-31之间的整数，做为date对象的天数
+        hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+        minutes - 0-59之间的整数，做为date对象的分钟数
+        seconds - 0-59之间的整数，做为date对象的秒数
+        microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+        var t1 = Date.UTC(2019, 07, 10, 00, 00, 00); //北京时间2018-2-13 00:00:00
+        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+        var diff = t2 - t1;
+        var diffYears = Math.floor(diff / years);
+        var diffDays = Math.floor((diff / days) - diffYears * 365);
+        var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+        var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+        var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes * minutes) / seconds);
+        document.getElementById("sitetime").innerHTML = "本站已运行 " +diffYears+" 年 "+diffDays + " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+    }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+    siteTime();
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
