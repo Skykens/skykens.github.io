@@ -1,40 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>BanThink 纯粹写写文字的地方~</title>
-  
+  <icon>https://www.gravatar.com/avatar/52660f55668cb36012f015db7bb0c8f9</icon>
   <subtitle>一个简单程序员的博客</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://banthink.com/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2021-05-06T02:25:14.669Z</updated>
-  <id>http://example.com/</id>
+  <link href="https://banthink.com/"/>
+  <updated>2021-05-13T09:28:31.878Z</updated>
+  <id>https://banthink.com/</id>
   
   <author>
     <name>Skykens</name>
-    
+    <email>470798745@qq.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>CMakes 编写手册</title>
-    <link href="http://example.com/cmakes-bian-xie-shou-ce/"/>
-    <id>http://example.com/cmakes-bian-xie-shou-ce/</id>
-    <published>2021-05-06T02:25:14.000Z</published>
-    <updated>2021-05-06T02:25:14.669Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>从C++ 到 Go 快速上手</title>
-    <link href="http://example.com/cong-c-dao-go-kuai-su-shang-shou/"/>
-    <id>http://example.com/cong-c-dao-go-kuai-su-shang-shou/</id>
+    <link href="https://banthink.com/cong-c-dao-go-kuai-su-shang-shou/"/>
+    <id>https://banthink.com/cong-c-dao-go-kuai-su-shang-shou/</id>
     <published>2021-05-06T02:20:27.000Z</published>
-    <updated>2021-05-06T02:25:19.394Z</updated>
+    <updated>2021-05-13T09:28:31.878Z</updated>
     
     
       
@@ -51,16 +38,16 @@
     
     
     
-    <category term="Go,入门,golang" scheme="http://example.com/tags/Go-%E5%85%A5%E9%97%A8-golang/"/>
+    <category term="Go,入门,golang" scheme="https://banthink.com/tags/Go-%E5%85%A5%E9%97%A8-golang/"/>
     
   </entry>
   
   <entry>
     <title>容器相关名词解释</title>
-    <link href="http://example.com/rong-qi-xiang-guan-ming-ci-jie-shi/"/>
-    <id>http://example.com/rong-qi-xiang-guan-ming-ci-jie-shi/</id>
+    <link href="https://banthink.com/rong-qi-xiang-guan-ming-ci-jie-shi/"/>
+    <id>https://banthink.com/rong-qi-xiang-guan-ming-ci-jie-shi/</id>
     <published>2021-05-06T02:09:21.000Z</published>
-    <updated>2021-05-06T02:19:37.472Z</updated>
+    <updated>2021-05-13T09:29:57.080Z</updated>
     
     
       
@@ -78,10 +65,10 @@
   
   <entry>
     <title>C++后台开发环境部署</title>
-    <link href="http://example.com/c-bian-yi-huan-jing-bu-shu/"/>
-    <id>http://example.com/c-bian-yi-huan-jing-bu-shu/</id>
+    <link href="https://banthink.com/c-bian-yi-huan-jing-bu-shu/"/>
+    <id>https://banthink.com/c-bian-yi-huan-jing-bu-shu/</id>
     <published>2021-04-26T11:37:01.000Z</published>
-    <updated>2021-05-06T02:08:02.439Z</updated>
+    <updated>2021-05-13T09:31:05.141Z</updated>
     
     
       
@@ -96,16 +83,22 @@
     
     
     
-    <category term="编译环境, vscode, clang, llvm" scheme="http://example.com/tags/%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83-vscode-clang-llvm/"/>
+    <category term="编译环境" scheme="https://banthink.com/tags/%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/"/>
+    
+    <category term="vscode" scheme="https://banthink.com/tags/vscode/"/>
+    
+    <category term="clang" scheme="https://banthink.com/tags/clang/"/>
+    
+    <category term="llvm" scheme="https://banthink.com/tags/llvm/"/>
     
   </entry>
   
   <entry>
     <title>Git 使用笔记</title>
-    <link href="http://example.com/git-shi-yong-bi-ji/"/>
-    <id>http://example.com/git-shi-yong-bi-ji/</id>
+    <link href="https://banthink.com/git-shi-yong-bi-ji/"/>
+    <id>https://banthink.com/git-shi-yong-bi-ji/</id>
     <published>2021-04-26T11:37:01.000Z</published>
-    <updated>2021-05-05T09:24:13.271Z</updated>
+    <updated>2021-05-13T09:32:41.268Z</updated>
     
     
       
@@ -119,16 +112,18 @@
     
     
     
-    <category term="git,入门" scheme="http://example.com/tags/git-%E5%85%A5%E9%97%A8/"/>
+    <category term="git" scheme="https://banthink.com/tags/git/"/>
+    
+    <category term="入门" scheme="https://banthink.com/tags/%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
   <entry>
     <title>docker 入门笔记</title>
-    <link href="http://example.com/docker-ru-men-bi-ji/"/>
-    <id>http://example.com/docker-ru-men-bi-ji/</id>
+    <link href="https://banthink.com/docker-ru-men-bi-ji/"/>
+    <id>https://banthink.com/docker-ru-men-bi-ji/</id>
     <published>2021-04-26T11:37:01.000Z</published>
-    <updated>2021-05-05T09:23:53.636Z</updated>
+    <updated>2021-05-13T09:32:14.567Z</updated>
     
     
       
@@ -142,16 +137,16 @@
     
     
     
-    <category term="docker,入门" scheme="http://example.com/tags/docker-%E5%85%A5%E9%97%A8/"/>
+    <category term="docker,入门" scheme="https://banthink.com/tags/docker-%E5%85%A5%E9%97%A8/"/>
     
   </entry>
   
   <entry>
     <title>k8s 日常笔记</title>
-    <link href="http://example.com/k8s-ri-chang-bi-ji/"/>
-    <id>http://example.com/k8s-ri-chang-bi-ji/</id>
+    <link href="https://banthink.com/k8s-ri-chang-bi-ji/"/>
+    <id>https://banthink.com/k8s-ri-chang-bi-ji/</id>
     <published>2021-04-26T11:37:01.000Z</published>
-    <updated>2021-05-05T09:24:36.235Z</updated>
+    <updated>2021-05-13T09:32:51.852Z</updated>
     
     
       
@@ -165,16 +160,16 @@
     
     
     
-    <category term="k8s,知识总结" scheme="http://example.com/tags/k8s-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    <category term="k8s,知识总结" scheme="https://banthink.com/tags/k8s-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>后台日常笔记</title>
-    <link href="http://example.com/hou-tai-ri-chang-bi-ji/"/>
-    <id>http://example.com/hou-tai-ri-chang-bi-ji/</id>
+    <link href="https://banthink.com/hou-tai-ri-chang-bi-ji/"/>
+    <id>https://banthink.com/hou-tai-ri-chang-bi-ji/</id>
     <published>2021-04-26T11:37:01.000Z</published>
-    <updated>2021-05-05T09:23:38.359Z</updated>
+    <updated>2021-05-13T09:29:38.028Z</updated>
     
     
       
@@ -191,16 +186,16 @@
     
     
     
-    <category term="后端开发,笔记,网络数据,开发,思考" scheme="http://example.com/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE-%E5%BC%80%E5%8F%91-%E6%80%9D%E8%80%83/"/>
+    <category term="后端开发,笔记,网络数据,开发,思考" scheme="https://banthink.com/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91-%E7%AC%94%E8%AE%B0-%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE-%E5%BC%80%E5%8F%91-%E6%80%9D%E8%80%83/"/>
     
   </entry>
   
   <entry>
     <title>RabbitMQ 知识库</title>
-    <link href="http://example.com/rabbitmq/"/>
-    <id>http://example.com/rabbitmq/</id>
+    <link href="https://banthink.com/rabbitmq/"/>
+    <id>https://banthink.com/rabbitmq/</id>
     <published>2021-04-16T11:37:01.000Z</published>
-    <updated>2021-05-06T01:43:52.263Z</updated>
+    <updated>2021-05-13T09:28:05.812Z</updated>
     
     
       
@@ -213,17 +208,31 @@
     
     
     
+    <category term="消息队列" scheme="https://banthink.com/categories/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/"/>
     
-    <category term="rabbitmq,知识总结,仲裁队列,镜像队列,AMQP,性能优化,交换机" scheme="http://example.com/tags/rabbitmq-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93-%E4%BB%B2%E8%A3%81%E9%98%9F%E5%88%97-%E9%95%9C%E5%83%8F%E9%98%9F%E5%88%97-AMQP-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-%E4%BA%A4%E6%8D%A2%E6%9C%BA/"/>
+    
+    <category term="知识总结" scheme="https://banthink.com/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="rabbitmq" scheme="https://banthink.com/tags/rabbitmq/"/>
+    
+    <category term="仲裁队列" scheme="https://banthink.com/tags/%E4%BB%B2%E8%A3%81%E9%98%9F%E5%88%97/"/>
+    
+    <category term="镜像队列" scheme="https://banthink.com/tags/%E9%95%9C%E5%83%8F%E9%98%9F%E5%88%97/"/>
+    
+    <category term="AMQP" scheme="https://banthink.com/tags/AMQP/"/>
+    
+    <category term="性能优化" scheme="https://banthink.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+    <category term="交换机" scheme="https://banthink.com/tags/%E4%BA%A4%E6%8D%A2%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>Shell脚本编写笔记</title>
-    <link href="http://example.com/shell-jiao-ben-bian-xie-bi-ji/"/>
-    <id>http://example.com/shell-jiao-ben-bian-xie-bi-ji/</id>
+    <link href="https://banthink.com/shell-jiao-ben-bian-xie-bi-ji/"/>
+    <id>https://banthink.com/shell-jiao-ben-bian-xie-bi-ji/</id>
     <published>2021-04-06T11:37:01.000Z</published>
-    <updated>2021-05-06T05:49:36.442Z</updated>
+    <updated>2021-05-13T09:33:18.705Z</updated>
     
     
       
@@ -236,15 +245,23 @@
     
     
     
+    <category term="Linux" scheme="https://banthink.com/categories/Linux/"/>
     
-    <category term="shell,笔记,知识总结,脚本语言" scheme="http://example.com/tags/shell-%E7%AC%94%E8%AE%B0-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93-%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/"/>
+    
+    <category term="shell" scheme="https://banthink.com/tags/shell/"/>
+    
+    <category term="笔记" scheme="https://banthink.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="知识总结" scheme="https://banthink.com/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="脚本语言" scheme="https://banthink.com/tags/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
   <entry>
     <title>skylu网络库 开发日志</title>
-    <link href="http://example.com/skylu-wang-luo-ku-kai-fa-ri-zhi/"/>
-    <id>http://example.com/skylu-wang-luo-ku-kai-fa-ri-zhi/</id>
+    <link href="https://banthink.com/skylu-wang-luo-ku-kai-fa-ri-zhi/"/>
+    <id>https://banthink.com/skylu-wang-luo-ku-kai-fa-ri-zhi/</id>
     <published>2020-04-26T13:57:00.000Z</published>
     <updated>2020-04-30T14:59:27.000Z</updated>
     
@@ -260,59 +277,59 @@
     
     
     
-    <category term="高性能服务器框架" scheme="http://example.com/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
+    <category term="高性能服务器框架" scheme="https://banthink.com/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
     
     
-    <category term="地址" scheme="http://example.com/tags/%E5%9C%B0%E5%9D%80/"/>
+    <category term="地址" scheme="https://banthink.com/tags/%E5%9C%B0%E5%9D%80/"/>
     
-    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    <category term="函数" scheme="https://banthink.com/tags/%E5%87%BD%E6%95%B0/"/>
     
-    <category term="内容" scheme="http://example.com/tags/%E5%86%85%E5%AE%B9/"/>
+    <category term="内容" scheme="https://banthink.com/tags/%E5%86%85%E5%AE%B9/"/>
     
-    <category term="时候" scheme="http://example.com/tags/%E6%97%B6%E5%80%99/"/>
+    <category term="时候" scheme="https://banthink.com/tags/%E6%97%B6%E5%80%99/"/>
     
-    <category term="例" scheme="http://example.com/tags/%E4%BE%8B/"/>
+    <category term="例" scheme="https://banthink.com/tags/%E4%BE%8B/"/>
     
-    <category term="模式" scheme="http://example.com/tags/%E6%A8%A1%E5%BC%8F/"/>
+    <category term="模式" scheme="https://banthink.com/tags/%E6%A8%A1%E5%BC%8F/"/>
     
-    <category term="服务器" scheme="http://example.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="https://banthink.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="信号" scheme="http://example.com/tags/%E4%BF%A1%E5%8F%B7/"/>
+    <category term="信号" scheme="https://banthink.com/tags/%E4%BF%A1%E5%8F%B7/"/>
     
-    <category term="日志" scheme="http://example.com/tags/%E6%97%A5%E5%BF%97/"/>
+    <category term="日志" scheme="https://banthink.com/tags/%E6%97%A5%E5%BF%97/"/>
     
-    <category term="sylar" scheme="http://example.com/tags/sylar/"/>
+    <category term="sylar" scheme="https://banthink.com/tags/sylar/"/>
     
-    <category term="文件" scheme="http://example.com/tags/%E6%96%87%E4%BB%B6/"/>
+    <category term="文件" scheme="https://banthink.com/tags/%E6%96%87%E4%BB%B6/"/>
     
-    <category term="线程池" scheme="http://example.com/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
+    <category term="线程池" scheme="https://banthink.com/tags/%E7%BA%BF%E7%A8%8B%E6%B1%A0/"/>
     
-    <category term="系统" scheme="http://example.com/tags/%E7%B3%BB%E7%BB%9F/"/>
+    <category term="系统" scheme="https://banthink.com/tags/%E7%B3%BB%E7%BB%9F/"/>
     
-    <category term="socket" scheme="http://example.com/tags/socket/"/>
+    <category term="socket" scheme="https://banthink.com/tags/socket/"/>
     
-    <category term="github" scheme="http://example.com/tags/github/"/>
+    <category term="github" scheme="https://banthink.com/tags/github/"/>
     
-    <category term="类" scheme="http://example.com/tags/%E7%B1%BB/"/>
+    <category term="类" scheme="https://banthink.com/tags/%E7%B1%BB/"/>
     
-    <category term="模块" scheme="http://example.com/tags/%E6%A8%A1%E5%9D%97/"/>
+    <category term="模块" scheme="https://banthink.com/tags/%E6%A8%A1%E5%9D%97/"/>
     
-    <category term="东西" scheme="http://example.com/tags/%E4%B8%9C%E8%A5%BF/"/>
+    <category term="东西" scheme="https://banthink.com/tags/%E4%B8%9C%E8%A5%BF/"/>
     
-    <category term="时间" scheme="http://example.com/tags/%E6%97%B6%E9%97%B4/"/>
+    <category term="时间" scheme="https://banthink.com/tags/%E6%97%B6%E9%97%B4/"/>
     
-    <category term="skylu" scheme="http://example.com/tags/skylu/"/>
+    <category term="skylu" scheme="https://banthink.com/tags/skylu/"/>
     
-    <category term="handy" scheme="http://example.com/tags/handy/"/>
+    <category term="handy" scheme="https://banthink.com/tags/handy/"/>
     
-    <category term="句柄" scheme="http://example.com/tags/%E5%8F%A5%E6%9F%84/"/>
+    <category term="句柄" scheme="https://banthink.com/tags/%E5%8F%A5%E6%9F%84/"/>
     
   </entry>
   
   <entry>
     <title>C++ 11 新特性（1）智能指针（转）</title>
-    <link href="http://example.com/c-11-xin-te-xing-1-zhi-neng-zhi-zhen-zhuan/"/>
-    <id>http://example.com/c-11-xin-te-xing-1-zhi-neng-zhi-zhen-zhuan/</id>
+    <link href="https://banthink.com/c-11-xin-te-xing-1-zhi-neng-zhi-zhen-zhuan/"/>
+    <id>https://banthink.com/c-11-xin-te-xing-1-zhi-neng-zhi-zhen-zhuan/</id>
     <published>2020-04-23T13:27:43.000Z</published>
     <updated>2020-04-23T13:47:00.000Z</updated>
     
@@ -327,33 +344,25 @@
     
     
     
-    <category term="C++" scheme="http://example.com/categories/C/"/>
+    <category term="C++" scheme="https://banthink.com/categories/C/"/>
     
     
-    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    <category term="函数" scheme="https://banthink.com/tags/%E5%87%BD%E6%95%B0/"/>
     
-    <category term="区别" scheme="http://example.com/tags/%E5%8C%BA%E5%88%AB/"/>
+    <category term="区别" scheme="https://banthink.com/tags/%E5%8C%BA%E5%88%AB/"/>
     
-    <category term="方法" scheme="http://example.com/tags/%E6%96%B9%E6%B3%95/"/>
+    <category term="方法" scheme="https://banthink.com/tags/%E6%96%B9%E6%B3%95/"/>
     
-    <category term="错误" scheme="http://example.com/tags/%E9%94%99%E8%AF%AF/"/>
+    <category term="编译" scheme="https://banthink.com/tags/%E7%BC%96%E8%AF%91/"/>
     
-    <category term="int" scheme="http://example.com/tags/int/"/>
-    
-    <category term="出现" scheme="http://example.com/tags/%E5%87%BA%E7%8E%B0/"/>
-    
-    <category term="o" scheme="http://example.com/tags/o/"/>
-    
-    <category term="编译" scheme="http://example.com/tags/%E7%BC%96%E8%AF%91/"/>
-    
-    <category term="例" scheme="http://example.com/tags/%E4%BE%8B/"/>
+    <category term="智能指針" scheme="https://banthink.com/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%87%9D/"/>
     
   </entry>
   
   <entry>
     <title>翻过那座山，让他们听到你的故事。</title>
-    <link href="http://example.com/fan-guo-na-zuo-shan-rang-ta-men-ting-dao-ni-de-gu-shi/"/>
-    <id>http://example.com/fan-guo-na-zuo-shan-rang-ta-men-ting-dao-ni-de-gu-shi/</id>
+    <link href="https://banthink.com/fan-guo-na-zuo-shan-rang-ta-men-ting-dao-ni-de-gu-shi/"/>
+    <id>https://banthink.com/fan-guo-na-zuo-shan-rang-ta-men-ting-dao-ni-de-gu-shi/</id>
     <published>2020-04-15T00:40:00.000Z</published>
     <updated>2020-04-15T01:43:47.000Z</updated>
     
@@ -371,45 +380,35 @@
     
     
     
-    <category term="日志" scheme="http://example.com/categories/%E6%97%A5%E5%BF%97/"/>
+    <category term="心情" scheme="https://banthink.com/categories/%E5%BF%83%E6%83%85/"/>
     
     
-    <category term="时候" scheme="http://example.com/tags/%E6%97%B6%E5%80%99/"/>
+    <category term="视频" scheme="https://banthink.com/tags/%E8%A7%86%E9%A2%91/"/>
     
-    <category term="视频" scheme="http://example.com/tags/%E8%A7%86%E9%A2%91/"/>
+    <category term="算法" scheme="https://banthink.com/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="腾讯" scheme="https://banthink.com/tags/%E8%85%BE%E8%AE%AF/"/>
     
-    <category term="东西" scheme="http://example.com/tags/%E4%B8%9C%E8%A5%BF/"/>
+    <category term="模型" scheme="https://banthink.com/tags/%E6%A8%A1%E5%9E%8B/"/>
     
-    <category term="模型" scheme="http://example.com/tags/%E6%A8%A1%E5%9E%8B/"/>
+    <category term="实习" scheme="https://banthink.com/tags/%E5%AE%9E%E4%B9%A0/"/>
     
-    <category term="过" scheme="http://example.com/tags/%E8%BF%87/"/>
+    <category term="牛客" scheme="https://banthink.com/tags/%E7%89%9B%E5%AE%A2/"/>
     
-    <category term="实习" scheme="http://example.com/tags/%E5%AE%9E%E4%B9%A0/"/>
+    <category term="面经" scheme="https://banthink.com/tags/%E9%9D%A2%E7%BB%8F/"/>
     
-    <category term="腾讯" scheme="http://example.com/tags/%E8%85%BE%E8%AE%AF/"/>
+    <category term="大厂" scheme="https://banthink.com/tags/%E5%A4%A7%E5%8E%82/"/>
     
-    <category term="学长" scheme="http://example.com/tags/%E5%AD%A6%E9%95%BF/"/>
+    <category term="简历" scheme="https://banthink.com/tags/%E7%AE%80%E5%8E%86/"/>
     
-    <category term="牛客" scheme="http://example.com/tags/%E7%89%9B%E5%AE%A2/"/>
-    
-    <category term="面经" scheme="http://example.com/tags/%E9%9D%A2%E7%BB%8F/"/>
-    
-    <category term="大厂" scheme="http://example.com/tags/%E5%A4%A7%E5%8E%82/"/>
-    
-    <category term="简历" scheme="http://example.com/tags/%E7%AE%80%E5%8E%86/"/>
-    
-    <category term="双非" scheme="http://example.com/tags/%E5%8F%8C%E9%9D%9E/"/>
-    
-    <category term="感谢信" scheme="http://example.com/tags/%E6%84%9F%E8%B0%A2%E4%BF%A1/"/>
+    <category term="双非" scheme="https://banthink.com/tags/%E5%8F%8C%E9%9D%9E/"/>
     
   </entry>
   
   <entry>
     <title>高性能服务器框架  （1）日志模块</title>
-    <link href="http://example.com/gao-xing-neng-fu-wu-qi-kuang-jia-1-ri-zhi-mo-kuai/"/>
-    <id>http://example.com/gao-xing-neng-fu-wu-qi-kuang-jia-1-ri-zhi-mo-kuai/</id>
+    <link href="https://banthink.com/gao-xing-neng-fu-wu-qi-kuang-jia-1-ri-zhi-mo-kuai/"/>
+    <id>https://banthink.com/gao-xing-neng-fu-wu-qi-kuang-jia-1-ri-zhi-mo-kuai/</id>
     <published>2020-04-07T07:28:00.000Z</published>
     <updated>2020-04-08T03:34:26.000Z</updated>
     
@@ -427,43 +426,43 @@
     
     
     
-    <category term="高性能服务器框架" scheme="http://example.com/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
+    <category term="高性能服务器框架" scheme="https://banthink.com/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
     
     
-    <category term="地址" scheme="http://example.com/tags/%E5%9C%B0%E5%9D%80/"/>
+    <category term="地址" scheme="https://banthink.com/tags/%E5%9C%B0%E5%9D%80/"/>
     
-    <category term="方法" scheme="http://example.com/tags/%E6%96%B9%E6%B3%95/"/>
+    <category term="方法" scheme="https://banthink.com/tags/%E6%96%B9%E6%B3%95/"/>
     
-    <category term="o" scheme="http://example.com/tags/o/"/>
+    <category term="o" scheme="https://banthink.com/tags/o/"/>
     
-    <category term="void" scheme="http://example.com/tags/void/"/>
+    <category term="void" scheme="https://banthink.com/tags/void/"/>
     
-    <category term="日志" scheme="http://example.com/tags/%E6%97%A5%E5%BF%97/"/>
+    <category term="日志" scheme="https://banthink.com/tags/%E6%97%A5%E5%BF%97/"/>
     
-    <category term="sylar" scheme="http://example.com/tags/sylar/"/>
+    <category term="sylar" scheme="https://banthink.com/tags/sylar/"/>
     
-    <category term="github" scheme="http://example.com/tags/github/"/>
+    <category term="github" scheme="https://banthink.com/tags/github/"/>
     
-    <category term="类" scheme="http://example.com/tags/%E7%B1%BB/"/>
+    <category term="类" scheme="https://banthink.com/tags/%E7%B1%BB/"/>
     
-    <category term="模块" scheme="http://example.com/tags/%E6%A8%A1%E5%9D%97/"/>
+    <category term="模块" scheme="https://banthink.com/tags/%E6%A8%A1%E5%9D%97/"/>
     
-    <category term="log4j" scheme="http://example.com/tags/log4j/"/>
+    <category term="log4j" scheme="https://banthink.com/tags/log4j/"/>
     
-    <category term="跳" scheme="http://example.com/tags/%E8%B7%B3/"/>
+    <category term="跳" scheme="https://banthink.com/tags/%E8%B7%B3/"/>
     
-    <category term="图" scheme="http://example.com/tags/%E5%9B%BE/"/>
+    <category term="图" scheme="https://banthink.com/tags/%E5%9B%BE/"/>
     
-    <category term="logger" scheme="http://example.com/tags/logger/"/>
+    <category term="logger" scheme="https://banthink.com/tags/logger/"/>
     
-    <category term="器件" scheme="http://example.com/tags/%E5%99%A8%E4%BB%B6/"/>
+    <category term="器件" scheme="https://banthink.com/tags/%E5%99%A8%E4%BB%B6/"/>
     
   </entry>
   
   <entry>
     <title>10分钟快速 学会UML 类图 （附视频）</title>
-    <link href="http://example.com/10-fen-zhong-kuai-su-xue-hui-uml-lei-tu-fu-shi-pin/"/>
-    <id>http://example.com/10-fen-zhong-kuai-su-xue-hui-uml-lei-tu-fu-shi-pin/</id>
+    <link href="https://banthink.com/10-fen-zhong-kuai-su-xue-hui-uml-lei-tu-fu-shi-pin/"/>
+    <id>https://banthink.com/10-fen-zhong-kuai-su-xue-hui-uml-lei-tu-fu-shi-pin/</id>
     <published>2020-04-07T03:17:00.000Z</published>
     <updated>2020-04-08T01:55:48.000Z</updated>
     
@@ -479,55 +478,55 @@
     
     
     
-    <category term="日志" scheme="http://example.com/categories/%E6%97%A5%E5%BF%97/"/>
+    <category term="日志" scheme="https://banthink.com/categories/%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="地址" scheme="http://example.com/tags/%E5%9C%B0%E5%9D%80/"/>
+    <category term="地址" scheme="https://banthink.com/tags/%E5%9C%B0%E5%9D%80/"/>
     
-    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    <category term="函数" scheme="https://banthink.com/tags/%E5%87%BD%E6%95%B0/"/>
     
-    <category term="内容" scheme="http://example.com/tags/%E5%86%85%E5%AE%B9/"/>
+    <category term="内容" scheme="https://banthink.com/tags/%E5%86%85%E5%AE%B9/"/>
     
-    <category term="时候" scheme="http://example.com/tags/%E6%97%B6%E5%80%99/"/>
+    <category term="时候" scheme="https://banthink.com/tags/%E6%97%B6%E5%80%99/"/>
     
-    <category term="区别" scheme="http://example.com/tags/%E5%8C%BA%E5%88%AB/"/>
+    <category term="区别" scheme="https://banthink.com/tags/%E5%8C%BA%E5%88%AB/"/>
     
-    <category term="视频" scheme="http://example.com/tags/%E8%A7%86%E9%A2%91/"/>
+    <category term="视频" scheme="https://banthink.com/tags/%E8%A7%86%E9%A2%91/"/>
     
-    <category term="文字" scheme="http://example.com/tags/%E6%96%87%E5%AD%97/"/>
+    <category term="文字" scheme="https://banthink.com/tags/%E6%96%87%E5%AD%97/"/>
     
-    <category term="方法" scheme="http://example.com/tags/%E6%96%B9%E6%B3%95/"/>
+    <category term="方法" scheme="https://banthink.com/tags/%E6%96%B9%E6%B3%95/"/>
     
-    <category term="packetage" scheme="http://example.com/tags/packetage/"/>
+    <category term="packetage" scheme="https://banthink.com/tags/packetage/"/>
     
-    <category term="protected" scheme="http://example.com/tags/protected/"/>
+    <category term="protected" scheme="https://banthink.com/tags/protected/"/>
     
-    <category term="public-" scheme="http://example.com/tags/public/"/>
+    <category term="public-" scheme="https://banthink.com/tags/public/"/>
     
-    <category term="关联" scheme="http://example.com/tags/%E5%85%B3%E8%81%94/"/>
+    <category term="关联" scheme="https://banthink.com/tags/%E5%85%B3%E8%81%94/"/>
     
-    <category term="箭头" scheme="http://example.com/tags/%E7%AE%AD%E5%A4%B4/"/>
+    <category term="箭头" scheme="https://banthink.com/tags/%E7%AE%AD%E5%A4%B4/"/>
     
-    <category term="售票处" scheme="http://example.com/tags/%E5%94%AE%E7%A5%A8%E5%A4%84/"/>
+    <category term="售票处" scheme="https://banthink.com/tags/%E5%94%AE%E7%A5%A8%E5%A4%84/"/>
     
-    <category term="关系" scheme="http://example.com/tags/%E5%85%B3%E7%B3%BB/"/>
+    <category term="关系" scheme="https://banthink.com/tags/%E5%85%B3%E7%B3%BB/"/>
     
-    <category term="继承" scheme="http://example.com/tags/%E7%BB%A7%E6%89%BF/"/>
+    <category term="继承" scheme="https://banthink.com/tags/%E7%BB%A7%E6%89%BF/"/>
     
-    <category term="乌龟" scheme="http://example.com/tags/%E4%B9%8C%E9%BE%9F/"/>
+    <category term="乌龟" scheme="https://banthink.com/tags/%E4%B9%8C%E9%BE%9F/"/>
     
-    <category term="聚合" scheme="http://example.com/tags/%E8%81%9A%E5%90%88/"/>
+    <category term="聚合" scheme="https://banthink.com/tags/%E8%81%9A%E5%90%88/"/>
     
-    <category term="动物园" scheme="http://example.com/tags/%E5%8A%A8%E7%89%A9%E5%9B%AD/"/>
+    <category term="动物园" scheme="https://banthink.com/tags/%E5%8A%A8%E7%89%A9%E5%9B%AD/"/>
     
-    <category term="依赖" scheme="http://example.com/tags/%E4%BE%9D%E8%B5%96/"/>
+    <category term="依赖" scheme="https://banthink.com/tags/%E4%BE%9D%E8%B5%96/"/>
     
   </entry>
   
   <entry>
     <title>cmake 编写 从实战中学习</title>
-    <link href="http://example.com/cmake-bian-xie-cong-shi-zhan-zhong-xue-xi/"/>
-    <id>http://example.com/cmake-bian-xie-cong-shi-zhan-zhong-xue-xi/</id>
+    <link href="https://banthink.com/cmake-bian-xie-cong-shi-zhan-zhong-xue-xi/"/>
+    <id>https://banthink.com/cmake-bian-xie-cong-shi-zhan-zhong-xue-xi/</id>
     <published>2020-04-05T02:18:00.000Z</published>
     <updated>2020-04-06T12:27:43.000Z</updated>
     
@@ -543,43 +542,43 @@
     
     
     
-    <category term="后台开发" scheme="http://example.com/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
+    <category term="后台开发" scheme="https://banthink.com/categories/%E5%90%8E%E5%8F%B0%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    <category term="函数" scheme="https://banthink.com/tags/%E5%87%BD%E6%95%B0/"/>
     
-    <category term="区别" scheme="http://example.com/tags/%E5%8C%BA%E5%88%AB/"/>
+    <category term="区别" scheme="https://banthink.com/tags/%E5%8C%BA%E5%88%AB/"/>
     
-    <category term="编译" scheme="http://example.com/tags/%E7%BC%96%E8%AF%91/"/>
+    <category term="编译" scheme="https://banthink.com/tags/%E7%BC%96%E8%AF%91/"/>
     
-    <category term="动态" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81/"/>
+    <category term="动态" scheme="https://banthink.com/tags/%E5%8A%A8%E6%80%81/"/>
     
-    <category term="链接" scheme="http://example.com/tags/%E9%93%BE%E6%8E%A5/"/>
+    <category term="链接" scheme="https://banthink.com/tags/%E9%93%BE%E6%8E%A5/"/>
     
-    <category term="路径" scheme="http://example.com/tags/%E8%B7%AF%E5%BE%84/"/>
+    <category term="路径" scheme="https://banthink.com/tags/%E8%B7%AF%E5%BE%84/"/>
     
-    <category term="日志" scheme="http://example.com/tags/%E6%97%A5%E5%BF%97/"/>
+    <category term="日志" scheme="https://banthink.com/tags/%E6%97%A5%E5%BF%97/"/>
     
-    <category term="sylar" scheme="http://example.com/tags/sylar/"/>
+    <category term="sylar" scheme="https://banthink.com/tags/sylar/"/>
     
-    <category term="cmake" scheme="http://example.com/tags/cmake/"/>
+    <category term="cmake" scheme="https://banthink.com/tags/cmake/"/>
     
-    <category term="文件" scheme="http://example.com/tags/%E6%96%87%E4%BB%B6/"/>
+    <category term="文件" scheme="https://banthink.com/tags/%E6%96%87%E4%BB%B6/"/>
     
-    <category term="make" scheme="http://example.com/tags/make/"/>
+    <category term="make" scheme="https://banthink.com/tags/make/"/>
     
-    <category term="赘述" scheme="http://example.com/tags/%E8%B5%98%E8%BF%B0/"/>
+    <category term="赘述" scheme="https://banthink.com/tags/%E8%B5%98%E8%BF%B0/"/>
     
-    <category term="set" scheme="http://example.com/tags/set/"/>
+    <category term="set" scheme="https://banthink.com/tags/set/"/>
     
-    <category term="test" scheme="http://example.com/tags/test/"/>
+    <category term="test" scheme="https://banthink.com/tags/test/"/>
     
   </entry>
   
   <entry>
     <title>高性能服务器框架 总览</title>
-    <link href="http://example.com/gao-xing-neng-fu-wu-qi-kuang-jia-zong-lan/"/>
-    <id>http://example.com/gao-xing-neng-fu-wu-qi-kuang-jia-zong-lan/</id>
+    <link href="https://banthink.com/gao-xing-neng-fu-wu-qi-kuang-jia-zong-lan/"/>
+    <id>https://banthink.com/gao-xing-neng-fu-wu-qi-kuang-jia-zong-lan/</id>
     <published>2020-04-04T01:57:00.000Z</published>
     <updated>2020-04-07T03:47:56.000Z</updated>
     
@@ -594,35 +593,35 @@
     
     
     
-    <category term="高性能服务器框架" scheme="http://example.com/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
+    <category term="高性能服务器框架" scheme="https://banthink.com/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
     
     
-    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    <category term="函数" scheme="https://banthink.com/tags/%E5%87%BD%E6%95%B0/"/>
     
-    <category term="路径" scheme="http://example.com/tags/%E8%B7%AF%E5%BE%84/"/>
+    <category term="路径" scheme="https://banthink.com/tags/%E8%B7%AF%E5%BE%84/"/>
     
-    <category term="日志" scheme="http://example.com/tags/%E6%97%A5%E5%BF%97/"/>
+    <category term="日志" scheme="https://banthink.com/tags/%E6%97%A5%E5%BF%97/"/>
     
-    <category term="sylar" scheme="http://example.com/tags/sylar/"/>
+    <category term="sylar" scheme="https://banthink.com/tags/sylar/"/>
     
-    <category term="cmake" scheme="http://example.com/tags/cmake/"/>
+    <category term="cmake" scheme="https://banthink.com/tags/cmake/"/>
     
-    <category term="文件" scheme="http://example.com/tags/%E6%96%87%E4%BB%B6/"/>
+    <category term="文件" scheme="https://banthink.com/tags/%E6%96%87%E4%BB%B6/"/>
     
-    <category term="系统" scheme="http://example.com/tags/%E7%B3%BB%E7%BB%9F/"/>
+    <category term="系统" scheme="https://banthink.com/tags/%E7%B3%BB%E7%BB%9F/"/>
     
-    <category term="socket" scheme="http://example.com/tags/socket/"/>
+    <category term="socket" scheme="https://banthink.com/tags/socket/"/>
     
-    <category term="协议" scheme="http://example.com/tags/%E5%8D%8F%E8%AE%AE/"/>
+    <category term="协议" scheme="https://banthink.com/tags/%E5%8D%8F%E8%AE%AE/"/>
     
-    <category term="gcc" scheme="http://example.com/tags/gcc/"/>
+    <category term="gcc" scheme="https://banthink.com/tags/gcc/"/>
     
   </entry>
   
   <entry>
     <title>视频播放器 （服务端）遇到的一些问题（总结）</title>
-    <link href="http://example.com/shi-pin-bo-fang-qi-fu-wu-duan-yu-dao-de-yi-xie-wen-ti-zong-jie/"/>
-    <id>http://example.com/shi-pin-bo-fang-qi-fu-wu-duan-yu-dao-de-yi-xie-wen-ti-zong-jie/</id>
+    <link href="https://banthink.com/shi-pin-bo-fang-qi-fu-wu-duan-yu-dao-de-yi-xie-wen-ti-zong-jie/"/>
+    <id>https://banthink.com/shi-pin-bo-fang-qi-fu-wu-duan-yu-dao-de-yi-xie-wen-ti-zong-jie/</id>
     <published>2020-03-26T07:03:00.000Z</published>
     <updated>2020-03-29T15:15:04.000Z</updated>
     
@@ -637,37 +636,37 @@
     
     
     
-    <category term="开发日志" scheme="http://example.com/categories/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/"/>
+    <category term="开发日志" scheme="https://banthink.com/categories/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    <category term="函数" scheme="https://banthink.com/tags/%E5%87%BD%E6%95%B0/"/>
     
-    <category term="时候" scheme="http://example.com/tags/%E6%97%B6%E5%80%99/"/>
+    <category term="时候" scheme="https://banthink.com/tags/%E6%97%B6%E5%80%99/"/>
     
-    <category term="模式" scheme="http://example.com/tags/%E6%A8%A1%E5%BC%8F/"/>
+    <category term="模式" scheme="https://banthink.com/tags/%E6%A8%A1%E5%BC%8F/"/>
     
-    <category term="任务" scheme="http://example.com/tags/%E4%BB%BB%E5%8A%A1/"/>
+    <category term="任务" scheme="https://banthink.com/tags/%E4%BB%BB%E5%8A%A1/"/>
     
-    <category term="发布" scheme="http://example.com/tags/%E5%8F%91%E5%B8%83/"/>
+    <category term="发布" scheme="https://banthink.com/tags/%E5%8F%91%E5%B8%83/"/>
     
-    <category term="唤醒" scheme="http://example.com/tags/%E5%94%A4%E9%86%92/"/>
+    <category term="唤醒" scheme="https://banthink.com/tags/%E5%94%A4%E9%86%92/"/>
     
-    <category term="速度" scheme="http://example.com/tags/%E9%80%9F%E5%BA%A6/"/>
+    <category term="速度" scheme="https://banthink.com/tags/%E9%80%9F%E5%BA%A6/"/>
     
-    <category term="线程" scheme="http://example.com/tags/%E7%BA%BF%E7%A8%8B/"/>
+    <category term="线程" scheme="https://banthink.com/tags/%E7%BA%BF%E7%A8%8B/"/>
     
-    <category term="空闲" scheme="http://example.com/tags/%E7%A9%BA%E9%97%B2/"/>
+    <category term="空闲" scheme="https://banthink.com/tags/%E7%A9%BA%E9%97%B2/"/>
     
-    <category term="epoll" scheme="http://example.com/tags/epoll/"/>
+    <category term="epoll" scheme="https://banthink.com/tags/epoll/"/>
     
-    <category term="发包" scheme="http://example.com/tags/%E5%8F%91%E5%8C%85/"/>
+    <category term="发包" scheme="https://banthink.com/tags/%E5%8F%91%E5%8C%85/"/>
     
   </entry>
   
   <entry>
     <title>算法复习- 动态规划总结（6）</title>
-    <link href="http://example.com/suan-fa-fu-xi-dong-tai-gui-hua-zong-jie-6/"/>
-    <id>http://example.com/suan-fa-fu-xi-dong-tai-gui-hua-zong-jie-6/</id>
+    <link href="https://banthink.com/suan-fa-fu-xi-dong-tai-gui-hua-zong-jie-6/"/>
+    <id>https://banthink.com/suan-fa-fu-xi-dong-tai-gui-hua-zong-jie-6/</id>
     <published>2020-03-20T02:35:00.000Z</published>
     <updated>2020-04-02T12:59:40.000Z</updated>
     
@@ -685,21 +684,21 @@
     
     
     
-    <category term="算法" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://banthink.com/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://banthink.com/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="总结" scheme="http://example.com/tags/%E6%80%BB%E7%BB%93/"/>
+    <category term="总结" scheme="https://banthink.com/tags/%E6%80%BB%E7%BB%93/"/>
     
-    <category term="动态规格" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E6%A0%BC/"/>
+    <category term="动态规格" scheme="https://banthink.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E6%A0%BC/"/>
     
   </entry>
   
   <entry>
     <title>（转）ELF文件装载链接过程及hook原理</title>
-    <link href="http://example.com/zhuan-elf-wen-jian-zhuang-zai-lian-jie-guo-cheng-ji-hook-yuan-li/"/>
-    <id>http://example.com/zhuan-elf-wen-jian-zhuang-zai-lian-jie-guo-cheng-ji-hook-yuan-li/</id>
+    <link href="https://banthink.com/zhuan-elf-wen-jian-zhuang-zai-lian-jie-guo-cheng-ji-hook-yuan-li/"/>
+    <id>https://banthink.com/zhuan-elf-wen-jian-zhuang-zai-lian-jie-guo-cheng-ji-hook-yuan-li/</id>
     <published>2020-03-19T13:35:00.000Z</published>
     <updated>2020-04-02T13:06:45.000Z</updated>
     
@@ -714,24 +713,47 @@
     
     
     
-    <category term="日志" scheme="http://example.com/categories/%E6%97%A5%E5%BF%97/"/>
+    <category term="日志" scheme="https://banthink.com/categories/%E6%97%A5%E5%BF%97/"/>
     
     
-    <category term="地址" scheme="http://example.com/tags/%E5%9C%B0%E5%9D%80/"/>
+    <category term="地址" scheme="https://banthink.com/tags/%E5%9C%B0%E5%9D%80/"/>
     
-    <category term="函数" scheme="http://example.com/tags/%E5%87%BD%E6%95%B0/"/>
+    <category term="函数" scheme="https://banthink.com/tags/%E5%87%BD%E6%95%B0/"/>
     
-    <category term="链接" scheme="http://example.com/tags/%E9%93%BE%E6%8E%A5/"/>
+    <category term="链接" scheme="https://banthink.com/tags/%E9%93%BE%E6%8E%A5/"/>
     
-    <category term="elf" scheme="http://example.com/tags/elf/"/>
+    <category term="elf" scheme="https://banthink.com/tags/elf/"/>
     
-    <category term="hook" scheme="http://example.com/tags/hook/"/>
+    <category term="hook" scheme="https://banthink.com/tags/hook/"/>
     
-    <category term="装载" scheme="http://example.com/tags/%E8%A3%85%E8%BD%BD/"/>
+    <category term="装载" scheme="https://banthink.com/tags/%E8%A3%85%E8%BD%BD/"/>
     
-    <category term="原理" scheme="http://example.com/tags/%E5%8E%9F%E7%90%86/"/>
+    <category term="原理" scheme="https://banthink.com/tags/%E5%8E%9F%E7%90%86/"/>
     
-    <category term="libco" scheme="http://example.com/tags/libco/"/>
+    <category term="libco" scheme="https://banthink.com/tags/libco/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>迭代器失效的几种情况总结（转）</title>
+    <link href="https://banthink.com/die-dai-qi-shi-xiao-de-ji-chong-qing-kuang-zong-jie-zhuan/"/>
+    <id>https://banthink.com/die-dai-qi-shi-xiao-de-ji-chong-qing-kuang-zong-jie-zhuan/</id>
+    <published>2020-03-16T14:47:53.000Z</published>
+    <updated>2020-03-16T14:51:15.000Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;1.对于序列式容器(如vector,deque)，序列式容器就是数组式容器，删除当前的iterator会使后面所有元素的iterator都失效。这是因为vetor,deque使用了连续分配的内存，删除一个元素导致后面所有的元素会向前移动一个位置。所以不能使用erase(it</summary>
+        
+      
+    
+    
+    
+    <category term="C++" scheme="https://banthink.com/categories/C/"/>
+    
     
   </entry>
   
