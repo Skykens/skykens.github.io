@@ -207,6 +207,37 @@
     
     
     <entry>
+      <title>muduo网络库的实现(1)</title>
+      <link href="muduo-wang-luo-ku-de-shi-xian-1/"/>
+      <url>muduo-wang-luo-ku-de-shi-xian-1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>通过绑定回调函数的办法实现当请求到来的时候可以响应业务代码，避免侵入底层网络库。</p><h1 id="常用模型"><a href="#常用模型" class="headerlink" title="常用模型"></a>常用模型</h1><ol><li><p>单线程服务器<br>Reactor模式，其实简单来说就是将非阻塞IO绑定到IO复用模型（epoll,select,poll）上，当有请求到来的时候就通知我们去处理，这是同步的方式。其实有更先进的办法就是Proactor模式，即异步回调。像epoll 这类的IO复用模型都是有事件就会产生通知，但是如何处理，是否读取数据就需要在用户态来执行。Proactor不然，它在调用的时候同时需要传入缓冲区，这样一来当事件发生的时候同时数据也会一并读到用户态缓冲区中，就不用我们再手动去read/recv这样从用户态切换到内核态来进行拷贝，效率更高一些。可惜的是，我在Linux的系统API中并没有发现支持这一模式的API，据说Asio实现了，但是具体没用过。</p></li><li><p>多线程服务器<br>同样是非阻塞IO，这时候就是每个线程分配一个IO复用模型了。即：one loop per thread. 这里面的loop其实是上述的Reator模型。</p><h1 id="一些误区"><a href="#一些误区" class="headerlink" title="一些误区"></a>一些误区</h1></li><li><p>线程越多越好吗?<br>肯定不是呀。根据不同的应用场景，一昧的提高线程数没有意义，例如并发连接数的提升（要提高并发连接的话可能你需要去修改系统最大支持的FD数量了），提高吞吐： 对于计算密集的服务，多线程并不能提高吞吐量，但是可以降低响应延迟。众所周知，对于多核心CPU来说，一个线程分配一个核心是最理想的状态，如果每个线程都能跑满CPU就更好了。但是当线程数大于核心数的时候，线程数越多反而会成为累赘，频繁的CPU切换会导致无用的时间开销。</p></li><li><p>单线程一定比多线程差?<br>参照我example中的memcached程序。 多线程 远不如单线程快，原因是频繁的锁调度同样会导致无法完全发挥出线程并发的作用。极端情况下，当只有一条数据库连接，N个线程，每个线程对数据库进行操作前都需要加锁，这样一来原本计划是并行的程序因为需要等锁变成了串行，而且相比于单线程来说，这样的多线程程序增加了加锁解锁的额外开支。</p></li><li><p>线程池线程数应该多少?<br>根据书中的线程池大小的阻抗匹配原则：<br>T = C/P （之间可以上下浮动50%）<br>T ： 线程数<br>C ： 分配给该任务的CPU核心数<br>P ： 计算密集型任务所占时间比</p><h1 id="Copy-on-write-写时复制）"><a href="#Copy-on-write-写时复制）" class="headerlink" title="Copy-on-write(写时复制）"></a>Copy-on-write(写时复制）</h1><p>写入时复制（英语：Copy-on-write，简称COW）是一种计算机程序设计领域的优化策略。其核心思想是，如果有多个调用者（callers）同时请求相同资源（如内存或磁盘上的数据存储），他们会共同获取相同的指针指向相同的资源，直到某个调用者试图修改资源的内容时，系统才会真正复制一份专用副本（private copy）给该调用者，而其他调用者所见到的最初的资源仍然保持不变。这过程对其他的调用者都是透明的（transparently）。此作法主要的优点是如果调用者没有修改该资源，就不会有副本（private copy）被建立，因此多个调用者只是读取操作时可以共享同一份资源。(from wiki)<br>下面是通过shared_ptr来实现copy-on-write的内容</p><pre class="line-numbers language-none"><code class="language-none">void traverse(){    FooPtr foos; //一个智能指针    {        Lock        foos = g_foos    }   for(auto it: foos){       it-&gt;doit()   }}void post(const Foo &amp;f){    Lock    if(!g_foos.unique()){        g_foos.reset(new FooList(*g_foos))    }    g_foos-&gt;push_back(f)}//以上可以避免在doit中调用post导致的死锁<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>同样的，通过写时复制思想我们也能用普通Mutex 实现读写锁的功能。</p></li></ol><h1 id="EventLoop、Channel、Poll"><a href="#EventLoop、Channel、Poll" class="headerlink" title="EventLoop、Channel、Poll"></a>EventLoop、Channel、Poll</h1><p>这三者就是Muduo网络库的核心，可以说搞懂了这三个就懂了Muduo。</p><p>EventLoop: 一个线程最多只能有一个。相当于网络库中最外层的一个类</p><p>Channel： 属于EventLoop。只负责一个fd的IO分发和IO时间的更新（增删改）</p><p>Poll： 调用poll/epoll/select获得当前活动的IO来填入activeChannel</p><h2 id="EventLoop"><a href="#EventLoop" class="headerlink" title="EventLoop"></a>EventLoop</h2><p>One loop per thread 实际上就是指每个线程只能有一个eventloop对象，这个对象主要的工作还是在等待poll这一类多路复用的监听函数。当有时间到来的时候再通过管道（Channel）进行事件分发</p><p><img src="https://gitee.com/skykens/photos/raw/master/baUzTjORhnM2HlD.png" alt="loop代码"></p><p>值得一提的是doPendingFunctors()函数的功能，在这个函数执行的是一些需要加锁才能完成的函数。通过这个函数可以轻易地在线程间调配任务，比方说将TimerQueue的成员函数调用移动到所在的IO线程，这样就可以在不加锁的情况下保证了线程安全性。</p><p>同时由于平时loop()阻塞在poll调用中，当有任务来的时候，我们需要一个eventfd来唤醒它。</p><p>在下面函数的实现中，用到了COW来避免发生死锁。 试想一下，假如改成直接加锁，然后执行functors中的函数，会发生什么？</p><p><img src="https://gitee.com/skykens/photos/raw/master/Ck1RnXQLM2u7Fyx.png" alt="doPendingFunctors代码"></p><h2 id="Poll"><a href="#Poll" class="headerlink" title="Poll"></a>Poll</h2><p>这个类就是IO多路复用模型的一个接口类，后续可以实现epoll/poll/select 等IO复用模型</p><p><img src="https://gitee.com/skykens/photos/raw/master/JBnZKItkWgo6LmP.png" alt="Poll的抽象"></p><h2 id="Channel"><a href="#Channel" class="headerlink" title="Channel"></a>Channel</h2><p>这个类主要就是存放监听事件和回调函数了。如果更新相关事件的监听等都会实际上都是调用Poll的updateChannel来修改监听事件。<br>其中handleEvent是在有事件到来的时候根据其所监听的事件调用对应的回调函数。</p><p><img src="https://gitee.com/skykens/photos/raw/master/Kh1SCH8jGd6xZlD.png" alt="Channel"></p><p>三个类的时序图</p><p><img src="https://gitee.com/skykens/photos/raw/master/nxtAd8yOXoUhMmk.png" alt="时序图"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 高性能服务器框架 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 网络库 </tag>
+            
+            <tag> C++ </tag>
+            
+            <tag> muduo </tag>
+            
+            <tag> 陈硕 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>skylu网络库 开发日志</title>
       <link href="skylu-wang-luo-ku-kai-fa-ri-zhi/"/>
       <url>skylu-wang-luo-ku-kai-fa-ri-zhi/</url>
@@ -230,8 +261,6 @@
             <tag> 内容 </tag>
             
             <tag> 时候 </tag>
-            
-            <tag> 例 </tag>
             
             <tag> 模式 </tag>
             
@@ -258,6 +287,8 @@
             <tag> 模块 </tag>
             
             <tag> 东西 </tag>
+            
+            <tag> 例 </tag>
             
             <tag> 时间 </tag>
             
@@ -296,9 +327,9 @@
             
             <tag> 方法 </tag>
             
-            <tag> 编译 </tag>
-            
             <tag> 智能指針 </tag>
+            
+            <tag> 编译 </tag>
             
         </tags>
       
@@ -484,9 +515,9 @@
             
             <tag> 区别 </tag>
             
-            <tag> 编译 </tag>
-            
             <tag> 动态 </tag>
+            
+            <tag> 编译 </tag>
             
             <tag> 链接 </tag>
             
@@ -885,8 +916,6 @@
             
             <tag> 时候 </tag>
             
-            <tag> o </tag>
-            
             <tag> 模式 </tag>
             
             <tag> 动态 </tag>
@@ -894,6 +923,8 @@
             <tag> 字符 </tag>
             
             <tag> 进程 </tag>
+            
+            <tag> o </tag>
             
         </tags>
       
@@ -1055,17 +1086,17 @@
             
             <tag> 时候 </tag>
             
-            <tag> 错误 </tag>
-            
-            <tag> int </tag>
-            
             <tag> 进程 </tag>
             
             <tag> 嵌入式 </tag>
             
             <tag> 服务器 </tag>
             
+            <tag> 错误 </tag>
+            
             <tag> 信号 </tag>
+            
+            <tag> int </tag>
             
             <tag> void </tag>
             

@@ -259,6 +259,38 @@
   </entry>
   
   <entry>
+    <title>muduo网络库的实现(1)</title>
+    <link href="https://banthink.com/muduo-wang-luo-ku-de-shi-xian-1/"/>
+    <id>https://banthink.com/muduo-wang-luo-ku-de-shi-xian-1/</id>
+    <published>2020-06-10T02:10:35.000Z</published>
+    <updated>2021-05-14T02:18:32.460Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h1&gt;&lt;p&gt;通过绑定回调函数的办法实现当请求到来的时候可以响应业务代码，避免侵入底层网络库。&lt;/p&gt;
+&lt;h1 id=&quot;常用模型&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="高性能服务器框架" scheme="https://banthink.com/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
+    
+    
+    <category term="网络库" scheme="https://banthink.com/tags/%E7%BD%91%E7%BB%9C%E5%BA%93/"/>
+    
+    <category term="C++" scheme="https://banthink.com/tags/C/"/>
+    
+    <category term="muduo" scheme="https://banthink.com/tags/muduo/"/>
+    
+    <category term="陈硕" scheme="https://banthink.com/tags/%E9%99%88%E7%A1%95/"/>
+    
+  </entry>
+  
+  <entry>
     <title>skylu网络库 开发日志</title>
     <link href="https://banthink.com/skylu-wang-luo-ku-kai-fa-ri-zhi/"/>
     <id>https://banthink.com/skylu-wang-luo-ku-kai-fa-ri-zhi/</id>
@@ -288,8 +320,6 @@
     
     <category term="时候" scheme="https://banthink.com/tags/%E6%97%B6%E5%80%99/"/>
     
-    <category term="例" scheme="https://banthink.com/tags/%E4%BE%8B/"/>
-    
     <category term="模式" scheme="https://banthink.com/tags/%E6%A8%A1%E5%BC%8F/"/>
     
     <category term="服务器" scheme="https://banthink.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
@@ -315,6 +345,8 @@
     <category term="模块" scheme="https://banthink.com/tags/%E6%A8%A1%E5%9D%97/"/>
     
     <category term="东西" scheme="https://banthink.com/tags/%E4%B8%9C%E8%A5%BF/"/>
+    
+    <category term="例" scheme="https://banthink.com/tags/%E4%BE%8B/"/>
     
     <category term="时间" scheme="https://banthink.com/tags/%E6%97%B6%E9%97%B4/"/>
     
@@ -353,9 +385,9 @@
     
     <category term="方法" scheme="https://banthink.com/tags/%E6%96%B9%E6%B3%95/"/>
     
-    <category term="编译" scheme="https://banthink.com/tags/%E7%BC%96%E8%AF%91/"/>
-    
     <category term="智能指針" scheme="https://banthink.com/tags/%E6%99%BA%E8%83%BD%E6%8C%87%E9%87%9D/"/>
+    
+    <category term="编译" scheme="https://banthink.com/tags/%E7%BC%96%E8%AF%91/"/>
     
   </entry>
   
@@ -549,9 +581,9 @@
     
     <category term="区别" scheme="https://banthink.com/tags/%E5%8C%BA%E5%88%AB/"/>
     
-    <category term="编译" scheme="https://banthink.com/tags/%E7%BC%96%E8%AF%91/"/>
-    
     <category term="动态" scheme="https://banthink.com/tags/%E5%8A%A8%E6%80%81/"/>
+    
+    <category term="编译" scheme="https://banthink.com/tags/%E7%BC%96%E8%AF%91/"/>
     
     <category term="链接" scheme="https://banthink.com/tags/%E9%93%BE%E6%8E%A5/"/>
     
@@ -731,29 +763,6 @@
     <category term="原理" scheme="https://banthink.com/tags/%E5%8E%9F%E7%90%86/"/>
     
     <category term="libco" scheme="https://banthink.com/tags/libco/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>迭代器失效的几种情况总结（转）</title>
-    <link href="https://banthink.com/die-dai-qi-shi-xiao-de-ji-chong-qing-kuang-zong-jie-zhuan/"/>
-    <id>https://banthink.com/die-dai-qi-shi-xiao-de-ji-chong-qing-kuang-zong-jie-zhuan/</id>
-    <published>2020-03-16T14:47:53.000Z</published>
-    <updated>2020-03-16T14:51:15.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;1.对于序列式容器(如vector,deque)，序列式容器就是数组式容器，删除当前的iterator会使后面所有元素的iterator都失效。这是因为vetor,deque使用了连续分配的内存，删除一个元素导致后面所有的元素会向前移动一个位置。所以不能使用erase(it</summary>
-        
-      
-    
-    
-    
-    <category term="C++" scheme="https://banthink.com/categories/C/"/>
-    
     
   </entry>
   
