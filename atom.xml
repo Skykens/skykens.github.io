@@ -6,7 +6,7 @@
   <link href="https://banthink.com/atom.xml" rel="self"/>
   
   <link href="https://banthink.com/"/>
-  <updated>2021-05-14T09:10:09.491Z</updated>
+  <updated>2021-05-14T09:14:31.532Z</updated>
   <id>https://banthink.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2021-5-14 晴. 重新连接</title>
+    <link href="https://banthink.com/2021-5-14-qing-chong-xin-lian-jie/"/>
+    <id>https://banthink.com/2021-5-14-qing-chong-xin-lian-jie/</id>
+    <published>2021-05-14T16:22:46.000Z</published>
+    <updated>2021-05-14T09:14:31.532Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;阔别一年，重新开始写博客&quot;&gt;&lt;a href=&quot;#阔别一年，重新开始写博客&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="心情" scheme="https://banthink.com/categories/%E5%BF%83%E6%83%85/"/>
+    
+    
+    <category term="心情" scheme="https://banthink.com/tags/%E5%BF%83%E6%83%85/"/>
+    
+  </entry>
+  
+  <entry>
     <title>从C++ 到 Go 快速上手</title>
     <link href="https://banthink.com/cong-c-dao-go-kuai-su-shang-shou/"/>
     <id>https://banthink.com/cong-c-dao-go-kuai-su-shang-shou/</id>
     <published>2021-05-06T10:20:27.000Z</published>
-    <updated>2021-05-14T09:10:09.491Z</updated>
+    <updated>2021-05-14T09:14:31.536Z</updated>
     
     
       
@@ -47,7 +72,7 @@
     <link href="https://banthink.com/rong-qi-xiang-guan-ming-ci-jie-shi/"/>
     <id>https://banthink.com/rong-qi-xiang-guan-ming-ci-jie-shi/</id>
     <published>2021-05-06T10:09:21.000Z</published>
-    <updated>2021-05-14T09:10:09.491Z</updated>
+    <updated>2021-05-14T09:14:31.536Z</updated>
     
     
       
@@ -68,7 +93,7 @@
     <link href="https://banthink.com/c-bian-yi-huan-jing-bu-shu/"/>
     <id>https://banthink.com/c-bian-yi-huan-jing-bu-shu/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-05-14T09:10:09.487Z</updated>
+    <updated>2021-05-14T09:14:31.532Z</updated>
     
     
       
@@ -98,7 +123,7 @@
     <link href="https://banthink.com/git-shi-yong-bi-ji/"/>
     <id>https://banthink.com/git-shi-yong-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-05-14T09:10:09.487Z</updated>
+    <updated>2021-05-14T09:14:31.532Z</updated>
     
     
       
@@ -123,7 +148,7 @@
     <link href="https://banthink.com/docker-ru-men-bi-ji/"/>
     <id>https://banthink.com/docker-ru-men-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-05-14T09:10:09.487Z</updated>
+    <updated>2021-05-14T09:14:31.536Z</updated>
     
     
       
@@ -146,7 +171,7 @@
     <link href="https://banthink.com/k8s-ri-chang-bi-ji/"/>
     <id>https://banthink.com/k8s-ri-chang-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-05-14T09:10:09.491Z</updated>
+    <updated>2021-05-14T09:14:31.536Z</updated>
     
     
       
@@ -169,7 +194,7 @@
     <link href="https://banthink.com/hou-tai-ri-chang-bi-ji/"/>
     <id>https://banthink.com/hou-tai-ri-chang-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-05-14T09:10:09.491Z</updated>
+    <updated>2021-05-14T09:14:31.536Z</updated>
     
     
       
@@ -195,7 +220,7 @@
     <link href="https://banthink.com/rabbitmq/"/>
     <id>https://banthink.com/rabbitmq/</id>
     <published>2021-04-16T19:37:01.000Z</published>
-    <updated>2021-05-14T09:10:09.491Z</updated>
+    <updated>2021-05-14T09:14:31.536Z</updated>
     
     
       
@@ -232,7 +257,7 @@
     <link href="https://banthink.com/shell-jiao-ben-bian-xie-bi-ji/"/>
     <id>https://banthink.com/shell-jiao-ben-bian-xie-bi-ji/</id>
     <published>2021-04-06T19:37:01.000Z</published>
-    <updated>2021-05-14T09:10:09.487Z</updated>
+    <updated>2021-05-14T09:14:31.536Z</updated>
     
     
       
@@ -263,7 +288,7 @@
     <link href="https://banthink.com/muduo-wang-luo-ku-de-shi-xian-1/"/>
     <id>https://banthink.com/muduo-wang-luo-ku-de-shi-xian-1/</id>
     <published>2020-06-10T10:10:35.000Z</published>
-    <updated>2021-05-14T09:10:09.491Z</updated>
+    <updated>2021-05-14T09:14:31.536Z</updated>
     
     
       
@@ -724,45 +749,6 @@
     <category term="总结" scheme="https://banthink.com/tags/%E6%80%BB%E7%BB%93/"/>
     
     <category term="动态规格" scheme="https://banthink.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E6%A0%BC/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>（转）ELF文件装载链接过程及hook原理</title>
-    <link href="https://banthink.com/zhuan-elf-wen-jian-zhuang-zai-lian-jie-guo-cheng-ji-hook-yuan-li/"/>
-    <id>https://banthink.com/zhuan-elf-wen-jian-zhuang-zai-lian-jie-guo-cheng-ji-hook-yuan-li/</id>
-    <published>2020-03-19T21:35:00.000Z</published>
-    <updated>2020-04-02T21:06:45.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;原地址：&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="日志" scheme="https://banthink.com/categories/%E6%97%A5%E5%BF%97/"/>
-    
-    
-    <category term="地址" scheme="https://banthink.com/tags/%E5%9C%B0%E5%9D%80/"/>
-    
-    <category term="函数" scheme="https://banthink.com/tags/%E5%87%BD%E6%95%B0/"/>
-    
-    <category term="链接" scheme="https://banthink.com/tags/%E9%93%BE%E6%8E%A5/"/>
-    
-    <category term="elf" scheme="https://banthink.com/tags/elf/"/>
-    
-    <category term="hook" scheme="https://banthink.com/tags/hook/"/>
-    
-    <category term="装载" scheme="https://banthink.com/tags/%E8%A3%85%E8%BD%BD/"/>
-    
-    <category term="原理" scheme="https://banthink.com/tags/%E5%8E%9F%E7%90%86/"/>
-    
-    <category term="libco" scheme="https://banthink.com/tags/libco/"/>
     
   </entry>
   
