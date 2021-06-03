@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>关于CI/CD 持续部署、交付的一些想法吧</title>
+      <link href="guan-yu-cicd-chi-xu-bu-shu-jiao-fu-de-yi-xie-xiang-fa-ba/"/>
+      <url>guan-yu-cicd-chi-xu-bu-shu-jiao-fu-de-yi-xie-xiang-fa-ba/</url>
+      
+        <content type="html"><![CDATA[<h1 id="关于CI-CD-持续部署、交付的一些想法吧"><a href="#关于CI-CD-持续部署、交付的一些想法吧" class="headerlink" title="关于CI/CD 持续部署、交付的一些想法吧"></a>关于CI/CD 持续部署、交付的一些想法吧</h1><p>不得不说，这两样东西大大的节约了我博客部署的时间，以前我需要频繁的</p><pre class="line-numbers language-none"><code class="language-none">hexo cleannhexo g hexo d<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>才可以部署上我的博客。最糟糕的时候就是我转换到一个新的电脑/开发环境，想要写点博客内容，如果博客源程序没有在github上的话就没办法开始写作，即使是在GitHub上的话也要经过提交，之后再敲入上面的三个命令才可以上传一篇新的文章在我博客上。</p><h2 id="时代变了，大人"><a href="#时代变了，大人" class="headerlink" title="时代变了，大人"></a>时代变了，大人</h2><p>现在用上了CI/CD，来到一个崭新的电脑上，我仅仅需要<code>git clone</code>  然后写文章，最后提交就可以部署好所有的东西了，背后的GitAction会自动化的执行脚本，将博客清理缓存，然后生成文章，最后部署到实际的托管网站上。 </p><p>在我看来，CI/CD就是类似于流水线一样，把原来的一系列操作缩影成脚本一样的东西，程序员只要提交上去流水线程序会自动的将后面需要执行的操作自动化的执行完成，中间如果出现故障的话就会终止。 当然，这一系列自动化动作的起点就是需要一个明确的动作来触发流水线执行，在我这边的例子就是感知到当前Git仓库有新的提交，就会触发流水线重新构造。还没有仔细看GitAction里面的参数设置，我猜测应该还有一些其他的触发条件可供我们设置吧。</p><p>不得不说，有了这个省心太多了，尤其是在一个新的地方想要写博客的时候就不用担心需要重新搭建环境什么了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日志 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 持续部署 </tag>
+            
+            <tag> CI/CD </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2021-5-14 晴. 重新连接</title>
       <link href="2021-5-14-qing-chong-xin-lian-jie/"/>
       <url>2021-5-14-qing-chong-xin-lian-jie/</url>
