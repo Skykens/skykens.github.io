@@ -6,7 +6,7 @@
   <link href="https://banthink.com/atom.xml" rel="self"/>
   
   <link href="https://banthink.com/"/>
-  <updated>2021-06-03T06:03:12.962Z</updated>
+  <updated>2021-06-30T07:15:42.132Z</updated>
   <id>https://banthink.com/</id>
   
   <author>
@@ -17,11 +17,69 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Kubernetes学习笔记</title>
+    <link href="https://banthink.com/kubernetes-xue-xi-bi-ji/"/>
+    <id>https://banthink.com/kubernetes-xue-xi-bi-ji/</id>
+    <published>2021-06-30T15:20:27.000Z</published>
+    <updated>2021-06-30T07:15:42.132Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;云原生&quot;&gt;&lt;a href=&quot;#云原生&quot; class=&quot;headerlink&quot; title=&quot;云原生&quot;&gt;&lt;/a&gt;云原生&lt;/h2&gt;&lt;h2 id=&quot;Kubernetes和云原生的关系&quot;&gt;&lt;a href=&quot;#Kubernetes和云原生的关系&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="学习笔记" scheme="https://banthink.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Kubernetes" scheme="https://banthink.com/tags/Kubernetes/"/>
+    
+    <category term="云原生" scheme="https://banthink.com/tags/%E4%BA%91%E5%8E%9F%E7%94%9F/"/>
+    
+    <category term="实战" scheme="https://banthink.com/tags/%E5%AE%9E%E6%88%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Docker深入理解</title>
+    <link href="https://banthink.com/docker-shen-ru-li-jie/"/>
+    <id>https://banthink.com/docker-shen-ru-li-jie/</id>
+    <published>2021-06-27T10:20:27.000Z</published>
+    <updated>2021-06-30T07:15:42.132Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Docker-深入理解&quot;&gt;&lt;a href=&quot;#Docker-深入理解&quot; class=&quot;headerlink&quot; title=&quot;Docker 深入理解&quot;&gt;&lt;/a&gt;Docker 深入理解&lt;/h1&gt;&lt;h2 id=&quot;虚拟机与容器&quot;&gt;&lt;a href=&quot;#虚拟机与容器&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="容器" scheme="https://banthink.com/tags/%E5%AE%B9%E5%99%A8/"/>
+    
+    <category term="docker" scheme="https://banthink.com/tags/docker/"/>
+    
+    <category term="虚拟机" scheme="https://banthink.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+    <category term="学习笔记" scheme="https://banthink.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于CI/CD 持续部署、交付的一些想法吧</title>
     <link href="https://banthink.com/guan-yu-cicd-chi-xu-bu-shu-jiao-fu-de-yi-xie-xiang-fa-ba/"/>
     <id>https://banthink.com/guan-yu-cicd-chi-xu-bu-shu-jiao-fu-de-yi-xie-xiang-fa-ba/</id>
     <published>2021-06-03T10:20:27.000Z</published>
-    <updated>2021-06-03T06:03:12.962Z</updated>
+    <updated>2021-06-30T07:15:42.132Z</updated>
     
     
       
@@ -48,7 +106,7 @@
     <link href="https://banthink.com/2021-5-14-qing-chong-xin-lian-jie/"/>
     <id>https://banthink.com/2021-5-14-qing-chong-xin-lian-jie/</id>
     <published>2021-05-14T16:22:46.000Z</published>
-    <updated>2021-06-03T06:03:12.958Z</updated>
+    <updated>2021-06-30T07:15:42.128Z</updated>
     
     
       
@@ -73,7 +131,7 @@
     <link href="https://banthink.com/cong-c-dao-go-kuai-su-shang-shou/"/>
     <id>https://banthink.com/cong-c-dao-go-kuai-su-shang-shou/</id>
     <published>2021-05-06T10:20:27.000Z</published>
-    <updated>2021-06-03T06:03:12.962Z</updated>
+    <updated>2021-06-30T07:15:42.132Z</updated>
     
     
       
@@ -99,7 +157,7 @@
     <link href="https://banthink.com/rong-qi-xiang-guan-ming-ci-jie-shi/"/>
     <id>https://banthink.com/rong-qi-xiang-guan-ming-ci-jie-shi/</id>
     <published>2021-05-06T10:09:21.000Z</published>
-    <updated>2021-06-03T06:03:12.962Z</updated>
+    <updated>2021-06-30T07:15:42.132Z</updated>
     
     
       
@@ -120,7 +178,7 @@
     <link href="https://banthink.com/c-bian-yi-huan-jing-bu-shu/"/>
     <id>https://banthink.com/c-bian-yi-huan-jing-bu-shu/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-06-03T06:03:12.958Z</updated>
+    <updated>2021-06-30T07:15:42.128Z</updated>
     
     
       
@@ -150,7 +208,7 @@
     <link href="https://banthink.com/git-shi-yong-bi-ji/"/>
     <id>https://banthink.com/git-shi-yong-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-06-03T06:03:12.958Z</updated>
+    <updated>2021-06-30T07:15:42.132Z</updated>
     
     
       
@@ -175,7 +233,7 @@
     <link href="https://banthink.com/docker-ru-men-bi-ji/"/>
     <id>https://banthink.com/docker-ru-men-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-06-03T06:03:12.962Z</updated>
+    <updated>2021-06-30T07:15:42.132Z</updated>
     
     
       
@@ -198,7 +256,7 @@
     <link href="https://banthink.com/k8s-ri-chang-bi-ji/"/>
     <id>https://banthink.com/k8s-ri-chang-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-06-03T06:03:12.962Z</updated>
+    <updated>2021-06-30T07:15:42.132Z</updated>
     
     
       
@@ -212,7 +270,9 @@
     
     
     
-    <category term="k8s,知识总结" scheme="https://banthink.com/tags/k8s-%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    <category term="知识总结" scheme="https://banthink.com/tags/%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="k8s" scheme="https://banthink.com/tags/k8s/"/>
     
   </entry>
   
@@ -221,7 +281,7 @@
     <link href="https://banthink.com/hou-tai-ri-chang-bi-ji/"/>
     <id>https://banthink.com/hou-tai-ri-chang-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-06-03T06:03:12.962Z</updated>
+    <updated>2021-06-30T07:15:42.132Z</updated>
     
     
       
@@ -247,7 +307,7 @@
     <link href="https://banthink.com/rabbitmq/"/>
     <id>https://banthink.com/rabbitmq/</id>
     <published>2021-04-16T19:37:01.000Z</published>
-    <updated>2021-06-03T06:03:12.962Z</updated>
+    <updated>2021-06-30T07:15:42.132Z</updated>
     
     
       
@@ -284,7 +344,7 @@
     <link href="https://banthink.com/shell-jiao-ben-bian-xie-bi-ji/"/>
     <id>https://banthink.com/shell-jiao-ben-bian-xie-bi-ji/</id>
     <published>2021-04-06T19:37:01.000Z</published>
-    <updated>2021-06-03T06:03:12.962Z</updated>
+    <updated>2021-06-30T07:15:42.132Z</updated>
     
     
       
@@ -315,7 +375,7 @@
     <link href="https://banthink.com/muduo-wang-luo-ku-de-shi-xian-1/"/>
     <id>https://banthink.com/muduo-wang-luo-ku-de-shi-xian-1/</id>
     <published>2020-06-10T10:10:35.000Z</published>
-    <updated>2021-06-03T06:03:12.962Z</updated>
+    <updated>2021-06-30T07:15:42.132Z</updated>
     
     
       
@@ -656,94 +716,6 @@
     <category term="set" scheme="https://banthink.com/tags/set/"/>
     
     <category term="test" scheme="https://banthink.com/tags/test/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>高性能服务器框架 总览</title>
-    <link href="https://banthink.com/gao-xing-neng-fu-wu-qi-kuang-jia-zong-lan/"/>
-    <id>https://banthink.com/gao-xing-neng-fu-wu-qi-kuang-jia-zong-lan/</id>
-    <published>2020-04-04T09:57:00.000Z</published>
-    <updated>2020-04-07T11:47:56.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;基于对sylar-的开源框架的学习&quot;&gt;&lt;a href=&quot;#基于对sylar-的开源框架的学习&quot; class=&quot;headerlink&quot; title=&quot;基于对sylar 的开源框架的学习&quot;&gt;&lt;/a&gt;基于对sylar 的开源框架的学习&lt;/h1&gt;&lt;p&gt;github  ：</summary>
-        
-      
-    
-    
-    
-    <category term="高性能服务器框架" scheme="https://banthink.com/categories/%E9%AB%98%E6%80%A7%E8%83%BD%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%A1%86%E6%9E%B6/"/>
-    
-    
-    <category term="函数" scheme="https://banthink.com/tags/%E5%87%BD%E6%95%B0/"/>
-    
-    <category term="路径" scheme="https://banthink.com/tags/%E8%B7%AF%E5%BE%84/"/>
-    
-    <category term="日志" scheme="https://banthink.com/tags/%E6%97%A5%E5%BF%97/"/>
-    
-    <category term="sylar" scheme="https://banthink.com/tags/sylar/"/>
-    
-    <category term="cmake" scheme="https://banthink.com/tags/cmake/"/>
-    
-    <category term="文件" scheme="https://banthink.com/tags/%E6%96%87%E4%BB%B6/"/>
-    
-    <category term="系统" scheme="https://banthink.com/tags/%E7%B3%BB%E7%BB%9F/"/>
-    
-    <category term="socket" scheme="https://banthink.com/tags/socket/"/>
-    
-    <category term="协议" scheme="https://banthink.com/tags/%E5%8D%8F%E8%AE%AE/"/>
-    
-    <category term="gcc" scheme="https://banthink.com/tags/gcc/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>视频播放器 （服务端）遇到的一些问题（总结）</title>
-    <link href="https://banthink.com/shi-pin-bo-fang-qi-fu-wu-duan-yu-dao-de-yi-xie-wen-ti-zong-jie/"/>
-    <id>https://banthink.com/shi-pin-bo-fang-qi-fu-wu-duan-yu-dao-de-yi-xie-wen-ti-zong-jie/</id>
-    <published>2020-03-26T15:03:00.000Z</published>
-    <updated>2020-03-29T23:15:04.000Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;相关知识补充&quot;&gt;&lt;a href=&quot;#相关知识补充&quot; class=&quot;headerlink&quot; title=&quot;相关知识补充&quot;&gt;&lt;/a&gt;相关知识补充&lt;/h1&gt;&lt;h2 id=&quot;EPOLL的相关API是线程安全吗&quot;&gt;&lt;a href=&quot;#EPOLL的相关API是线程安全吗&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="开发日志" scheme="https://banthink.com/categories/%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97/"/>
-    
-    
-    <category term="函数" scheme="https://banthink.com/tags/%E5%87%BD%E6%95%B0/"/>
-    
-    <category term="时候" scheme="https://banthink.com/tags/%E6%97%B6%E5%80%99/"/>
-    
-    <category term="模式" scheme="https://banthink.com/tags/%E6%A8%A1%E5%BC%8F/"/>
-    
-    <category term="任务" scheme="https://banthink.com/tags/%E4%BB%BB%E5%8A%A1/"/>
-    
-    <category term="发布" scheme="https://banthink.com/tags/%E5%8F%91%E5%B8%83/"/>
-    
-    <category term="唤醒" scheme="https://banthink.com/tags/%E5%94%A4%E9%86%92/"/>
-    
-    <category term="速度" scheme="https://banthink.com/tags/%E9%80%9F%E5%BA%A6/"/>
-    
-    <category term="线程" scheme="https://banthink.com/tags/%E7%BA%BF%E7%A8%8B/"/>
-    
-    <category term="空闲" scheme="https://banthink.com/tags/%E7%A9%BA%E9%97%B2/"/>
-    
-    <category term="epoll" scheme="https://banthink.com/tags/epoll/"/>
-    
-    <category term="发包" scheme="https://banthink.com/tags/%E5%8F%91%E5%8C%85/"/>
     
   </entry>
   
