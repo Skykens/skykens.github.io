@@ -6,7 +6,7 @@
   <link href="https://banthink.com/atom.xml" rel="self"/>
   
   <link href="https://banthink.com/"/>
-  <updated>2021-06-30T07:15:42.132Z</updated>
+  <updated>2021-06-30T07:17:52.725Z</updated>
   <id>https://banthink.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://banthink.com/kubernetes-xue-xi-bi-ji/"/>
     <id>https://banthink.com/kubernetes-xue-xi-bi-ji/</id>
     <published>2021-06-30T15:20:27.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
@@ -50,14 +50,15 @@
     <link href="https://banthink.com/docker-shen-ru-li-jie/"/>
     <id>https://banthink.com/docker-shen-ru-li-jie/</id>
     <published>2021-06-27T10:20:27.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h1 id=&quot;Docker-深入理解&quot;&gt;&lt;a href=&quot;#Docker-深入理解&quot; class=&quot;headerlink&quot; title=&quot;Docker 深入理解&quot;&gt;&lt;/a&gt;Docker 深入理解&lt;/h1&gt;&lt;h2 id=&quot;虚拟机与容器&quot;&gt;&lt;a href=&quot;#虚拟机与容器&quot;</summary>
+    <summary type="html">&lt;p&gt;| 知识来自于极客时间 张磊老师的《深入剖析Kubernetes》，这里是作为学习笔记存放。&lt;/p&gt;
+&lt;h1 id=&quot;Docker-深入理解&quot;&gt;&lt;a href=&quot;#Docker-深入理解&quot; class=&quot;headerlink&quot; title=&quot;Docker</summary>
         
       
     
@@ -79,7 +80,7 @@
     <link href="https://banthink.com/guan-yu-cicd-chi-xu-bu-shu-jiao-fu-de-yi-xie-xiang-fa-ba/"/>
     <id>https://banthink.com/guan-yu-cicd-chi-xu-bu-shu-jiao-fu-de-yi-xie-xiang-fa-ba/</id>
     <published>2021-06-03T10:20:27.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
@@ -106,7 +107,7 @@
     <link href="https://banthink.com/2021-5-14-qing-chong-xin-lian-jie/"/>
     <id>https://banthink.com/2021-5-14-qing-chong-xin-lian-jie/</id>
     <published>2021-05-14T16:22:46.000Z</published>
-    <updated>2021-06-30T07:15:42.128Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
@@ -131,7 +132,7 @@
     <link href="https://banthink.com/cong-c-dao-go-kuai-su-shang-shou/"/>
     <id>https://banthink.com/cong-c-dao-go-kuai-su-shang-shou/</id>
     <published>2021-05-06T10:20:27.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
@@ -157,7 +158,7 @@
     <link href="https://banthink.com/rong-qi-xiang-guan-ming-ci-jie-shi/"/>
     <id>https://banthink.com/rong-qi-xiang-guan-ming-ci-jie-shi/</id>
     <published>2021-05-06T10:09:21.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.729Z</updated>
     
     
       
@@ -178,7 +179,7 @@
     <link href="https://banthink.com/c-bian-yi-huan-jing-bu-shu/"/>
     <id>https://banthink.com/c-bian-yi-huan-jing-bu-shu/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-06-30T07:15:42.128Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
@@ -208,7 +209,7 @@
     <link href="https://banthink.com/git-shi-yong-bi-ji/"/>
     <id>https://banthink.com/git-shi-yong-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
@@ -233,7 +234,7 @@
     <link href="https://banthink.com/docker-ru-men-bi-ji/"/>
     <id>https://banthink.com/docker-ru-men-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
@@ -256,7 +257,7 @@
     <link href="https://banthink.com/k8s-ri-chang-bi-ji/"/>
     <id>https://banthink.com/k8s-ri-chang-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
@@ -281,7 +282,7 @@
     <link href="https://banthink.com/hou-tai-ri-chang-bi-ji/"/>
     <id>https://banthink.com/hou-tai-ri-chang-bi-ji/</id>
     <published>2021-04-26T19:37:01.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
@@ -307,7 +308,7 @@
     <link href="https://banthink.com/rabbitmq/"/>
     <id>https://banthink.com/rabbitmq/</id>
     <published>2021-04-16T19:37:01.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
@@ -344,7 +345,7 @@
     <link href="https://banthink.com/shell-jiao-ben-bian-xie-bi-ji/"/>
     <id>https://banthink.com/shell-jiao-ben-bian-xie-bi-ji/</id>
     <published>2021-04-06T19:37:01.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
@@ -375,7 +376,7 @@
     <link href="https://banthink.com/muduo-wang-luo-ku-de-shi-xian-1/"/>
     <id>https://banthink.com/muduo-wang-luo-ku-de-shi-xian-1/</id>
     <published>2020-06-10T10:10:35.000Z</published>
-    <updated>2021-06-30T07:15:42.132Z</updated>
+    <updated>2021-06-30T07:17:52.725Z</updated>
     
     
       
